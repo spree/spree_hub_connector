@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe SpreeProConnector::URLUtil do
-  subject { SpreeProConnector::URLUtil }
+describe SpreeHubConnector::URLUtil do
+  subject { described_class }
 
   describe ".ensure_http_preffix" do
     it "appends http" do

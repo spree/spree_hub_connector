@@ -1,12 +1,10 @@
-module SpreeProConnector
+module SpreeHubConnector
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'spree_pro_connector'
+    engine_name 'spree_hub_connector'
 
-    config.autoload_paths += %W(#{config.root}/app/adapters)
     config.autoload_paths += %W(#{config.root}/app/models)
-    config.autoload_paths += %W(#{config.root}/app/presenters)
     config.autoload_paths += %W(#{config.root}/lib)
 
     # use rspec for tests
