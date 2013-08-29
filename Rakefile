@@ -2,7 +2,7 @@ require 'bundler'
 Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
-require 'spree/testing_support/extension_rake'
+require 'spree/core/testing_support/common_rake'
 require 'json'
 require 'httparty'
 
@@ -13,5 +13,5 @@ task :default => [:spec]
 desc 'Generates a dummy app for testing'
 task :test_app do
   ENV['LIB_NAME'] = 'spree_hub_connector'
-  Rake::Task['extension:test_app'].invoke
+Rake::Task['common:test_app'].invoke
 end
