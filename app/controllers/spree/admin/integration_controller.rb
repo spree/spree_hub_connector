@@ -29,11 +29,11 @@ module Spree
 
       def show
         email = 'integrator@spreecommerce.com'
-        if @integrator_user = Spree::User.where('email' => email).first
+        if @integrator_user = Spree.user_class.where('email' => email).first
           # do nothing, for now....
         else
           passwd = SecureRandom.hex(32)
-          @integrator_user = Spree::User.create('email' => email,
+          @integrator_user = Spree.user_class.create('email' => email,
                                     'password' => passwd,
                                     'password_confirmation' => passwd)
 
