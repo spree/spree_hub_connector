@@ -22,7 +22,7 @@ Augury.Routers.Home = Backbone.Router.extend(
         draggable: false
         minHeight: 180
     else
-      $('#confirm_delete').dialog 'close'
+      $('.ui-dialog-content').dialog 'close'
       integration.destroy()
       Augury.mappings.fetch
         reset: true
