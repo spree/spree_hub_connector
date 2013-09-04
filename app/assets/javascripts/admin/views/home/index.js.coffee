@@ -29,9 +29,8 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
     if $('#content-header .container .block-table').find('.page-actions').length < 1
       $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
-    $('#content-header').find('.page-actions').html JST["admin/templates/home/select_connection"]
-      connections: Augury.connections
-
+    $('#content-header').find('.page-actions').html JST["admin/templates/home/add_integration_select"]
+      collection: @inactive
 
     # Append connection select dropdown
     @$el.find('#active-integrations').html JST["admin/templates/home/new_integration"]
@@ -92,30 +91,29 @@ Augury.Views.Home.Index = Backbone.View.extend(
     )
 
   newIntegration: ->
-    console.log "Create a new integration"
-    # integration = Augury.integrations.new
-    # view = new Augury.Views.Home.NewIntegration(integration: integration)
-    # view.render()
-    # modalEl = $("#new-integration-modal")
-    # modalEl.html(view.el)
-    # modalEl.dialog(
-    #   dialogClass: 'new-integration-modal dialog-integration'
-    #   draggable: false
-    #   resizable: false
-    #   modal: true
-    #   minHeight: 400
-    #   minWidth: 865
-    #   show: 'fade'
-    #   hide: 'fade'
+    integration = Augury.integrations.new
+    view = new Augury.Views.Home.NewIntegration(integration: integration)
+    view.render()
+    modalEl = $("#new-integration-modal")
+    modalEl.html(view.el)
+    modalEl.dialog(
+      dialogClass: 'new-integration-modal dialog-integration'
+      draggable: false
+      resizable: false
+      modal: true
+      minHeight: 400
+      minWidth: 865
+      show: 'fade'
+      hide: 'fade'
 
-    #   open: () -> 
-    #     $('body').css('overflow', 'hidden')
+      open: () -> 
+        $('body').css('overflow', 'hidden')
 
-    #   close: () ->
-    #     $('body').css('overflow', 'auto')
-    #     $("#integrations-select").select2 "val", ""
-    #     $("#new-integration-modal").html('')
-    # )
+      close: () ->
+        $('body').css('overflow', 'auto')
+        $("#integrations-select").select2 "val", ""
+        $("#new-integration-modal").html('')
+    )
 
   refreshIntegration: (e) ->
     e.preventDefault()
