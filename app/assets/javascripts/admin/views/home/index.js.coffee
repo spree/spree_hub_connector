@@ -40,10 +40,14 @@ Augury.Views.Home.Index = Backbone.View.extend(
     $('#content-header').find('.page-title').text('Overview')
 
 
-    @$el.find("#integrations-select").on "select2-selected", (event, object) =>
+    # Handle selections from add integration select2
+    $("#integrations-select").on "select2-selected", (event, object) =>
       selected = $("#integrations-select").select2('data').element
       integrationId = $(selected).data('integration-id')
-      @showIntegrationModal(integrationId)
+      if integrationId
+        @showIntegrationModal(integrationId)
+      else
+        @newIntegration()
 
     $("#connections-select").on "select2-selected", (event, object) =>
       selected = $("#connections-select").select2('data').element
@@ -86,6 +90,32 @@ Augury.Views.Home.Index = Backbone.View.extend(
         $("#integrations-select").select2 "val", ""
         $("#new-integration-modal").html('')
     )
+
+  newIntegration: ->
+    console.log "Create a new integration"
+    # integration = Augury.integrations.new
+    # view = new Augury.Views.Home.NewIntegration(integration: integration)
+    # view.render()
+    # modalEl = $("#new-integration-modal")
+    # modalEl.html(view.el)
+    # modalEl.dialog(
+    #   dialogClass: 'new-integration-modal dialog-integration'
+    #   draggable: false
+    #   resizable: false
+    #   modal: true
+    #   minHeight: 400
+    #   minWidth: 865
+    #   show: 'fade'
+    #   hide: 'fade'
+
+    #   open: () -> 
+    #     $('body').css('overflow', 'hidden')
+
+    #   close: () ->
+    #     $('body').css('overflow', 'auto')
+    #     $("#integrations-select").select2 "val", ""
+    #     $("#new-integration-modal").html('')
+    # )
 
   refreshIntegration: (e) ->
     e.preventDefault()

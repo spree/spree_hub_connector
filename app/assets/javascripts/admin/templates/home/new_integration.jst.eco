@@ -3,6 +3,7 @@
   <% for integration in @collection.models: %>
     <option value="<%= integration.get('name') %>" data-integration-id="<%= integration.get('id') %>"><%= integration.get('name') %></option>
   <% end %>
+  <option value="Add Custom">Add Custom</option>
 </select>
 
 <script>
@@ -14,7 +15,11 @@
       return 'Adding ' + item.text + ' Integration';
     },
     formatResult: function(item){
-      return ' <div class="integration-image"><img height="30" src="/assets/integrations/' + item.text.toLowerCase().replace(' ', '_') + '.png"></div><div class="integration-name">' + item.text + '</div>'
-    }    
+      if (item.text === 'Add Custom') {
+        return ' <div class="integration-name">' + item.text + '</div>';
+      } else {
+        return ' <div class="integration-image"><img height="30" src="/assets/integrations/' + item.text.toLowerCase().replace(' ', '_') + '.png"></div><div class="integration-name">' + item.text + '</div>';
+      }
+    }
   });
 </script>
