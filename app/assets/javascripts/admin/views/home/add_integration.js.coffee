@@ -191,8 +191,23 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
           else
             console.log 'missing'
 
-      @model.signup parameters, @enabledMappings, error: @displayErrors
-      $('#new-integration-modal').dialog 'close'
+
+      @model.signup(parameters, @enabledMappings)
+        .done((mappings, textStatus, jqXHR) ->
+          Augury.Flash.success 'The integration has been successfully updated.'
+          Augury.parameters.fetch()
+
+          _(mappings).each (mapping) ->
+            existing = Augury.mappings.findWhere(name: mapping['name'])
+            if existing?
+              Augury.mappings.remove existing
+            Augury.mappings.add new Augury.Models.Mapping(mapping)
+          Augury.integrations.fetch
+            reset: true
+          $('#new-integration-modal').dialog('close')
+        ).fail((jqXHR, textStatus, errorThrown, options) =>
+          @displayErrors(null, jqXHR, options)
+        )
     else
       @$el.find('.parsley-error:first').focus()
 

@@ -18,24 +18,19 @@ Augury.Models.Integration = Backbone.Model.extend(
     return integration: _(@attributes).clone()
 
   signup: (parameters, enabled, options={}) ->
-    $.post("/stores/#{Augury.store_id}/integrations/#{@.id}/signup",
-      store_id: Augury.store_id
-      parameters: parameters
-      enabled: enabled).
-      done((mappings, textStatus, jqXHR) =>
-        Augury.Flash.success 'The integration has been successfully updated.'
-        Augury.parameters.fetch()
-
-        _(mappings).each (mapping) ->
-          existing = Augury.mappings.findWhere(name: mapping['name'])
-          if existing?
-            Augury.mappings.remove existing
-          Augury.mappings.add new Augury.Models.Mapping(mapping)
-        Augury.integrations.fetch(reset: true)
-      ).fail((jqXHR, textStatus, errorThrown) =>
-        # options.errors is displayErrors: (model, xhr, options)
-        options.error(null, jqXHR, options) if options.error
-      )
+    defer = $.Deferred()
+    $.ajax
+      url: "/stores/#{Augury.store_id}/integrations/#{@.id}/signup",
+      type: "POST",
+      data: 
+        store_id: Augury.store_id
+        parameters: parameters
+        enabled: enabled
+      success: ->
+        defer.resolve(true)
+      error: (jqXHR, textStatus, errorThrown) ->
+        defer.reject(jqXHR, textStatus, errorThrown, options)
+    defer.promise()
 
   mappings: ->
     Augury.mappings.where(integration_id: @id)
