@@ -27,7 +27,7 @@ Augury.Models.Integration = Backbone.Model.extend(
         parameters: parameters
         enabled: enabled
       success: ->
-        defer.resolve(true)
+        defer.resolve()
       error: (jqXHR, textStatus, errorThrown) ->
         defer.reject(jqXHR, textStatus, errorThrown, options)
     defer.promise()

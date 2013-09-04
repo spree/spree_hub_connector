@@ -202,9 +202,10 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
             if existing?
               Augury.mappings.remove existing
             Augury.mappings.add new Augury.Models.Mapping(mapping)
-          Augury.integrations.fetch
-            reset: true
-          $('#new-integration-modal').dialog('close')
+          Augury.mappings.fetch
+            success: ->
+              Augury.integrations.fetch reset: true
+          $('.ui-dialog-content').dialog('close')
         ).fail((jqXHR, textStatus, errorThrown, options) =>
           @displayErrors(null, jqXHR, options)
         )
@@ -214,6 +215,5 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
   cancel: (event) ->
     event.preventDefault()
 
-    $('#new-integration-modal').dialog 'close'
-    $.modal.close()
+    $('.ui-dialog-content').dialog 'close'
 )
