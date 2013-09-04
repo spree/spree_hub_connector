@@ -1,9 +1,6 @@
 Augury.Routers.Home = Backbone.Router.extend(
   routes:
     "": "index"
-    "add/:id": "addIntegration"
-    "edit/:id": "addIntegration"
-    "refresh/:id": "refreshIntegration"
     "delete/:id?confirm=:confirm": "delete"
 
   index: ->
