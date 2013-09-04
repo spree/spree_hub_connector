@@ -1,0 +1,45 @@
+<div id="new-integration-modal" class="container integration-modal">
+  <header class="modal-header">
+    <h3 class="integration-title">Adding Custom Integration</h3>
+  </header>
+
+  <form action="#" id="new-integration">
+    <section class="modal-body">
+      <div class="row">
+       <div class="span6">
+         <div class="field">
+           <label for="name">Name</label>
+           <input class="param required" type="text"
+                  data-trigger="change" data-required="true"
+                  id="name" name="name" placeholder="Endpoint name" />
+         </div>
+         <div class="field">
+           <label for="url">URL</label>
+           <input class="param required" type="text"
+                  data-trigger="change" data-required="true"
+                  data-type="url"
+                  id="url" name="url" placeholder="Endpoint URL" />
+         </div>
+       </div>
+      </div>
+    </section>
+
+    <footer class="modal-footer">
+      <div class="form-actions">
+        <button id="save" class="save" type='submit'>
+          <i class="icon-ok"></i>
+          Save
+        </button>
+        <span class="or">or</span>
+        <button id="cancel" class="cancel">
+          <i class="icon-remove"></i>
+          Cancel
+        </button>
+      </div>
+    </footer>
+  </form>
+</div>
+
+<div id="dialog-confirm" title="Delete list value?" class="hidden">
+  <p>Are you sure you want to delete the list value?</p>
+</div>
