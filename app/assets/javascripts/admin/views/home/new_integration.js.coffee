@@ -46,12 +46,15 @@ Augury.Views.Home.NewIntegration = Backbone.View.extend(
         endpointurl: "This value must be a valid URL"
 
   save: ->
-    @model.set(category: 'endpoint')
-    @model.save {}, success: @saved, error: @displayErrors
+    @model.set(category: 'custom', display: @model.get('name'))
+    @model.save {}, 
+      success: =>
+        Augury.integrations.add @model
+        Augury.Flash.success 'Successfully created new integration!'
+        $('.ui-dialog-content').dialog 'close'
+      error: @displayErrors
 
   saved: ->
-    Augury.Flash.success 'Successfully created new integration!'
-    $('.ui-dialog-content').dialog 'close'
 
   cancel: (event) ->
     event.preventDefault()
