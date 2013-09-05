@@ -91,7 +91,8 @@ Augury.Views.Home.Index = Backbone.View.extend(
     )
 
   newIntegration: ->
-    integration = Augury.integrations.new
+    integration = new Augury.Models.Integration
+    Augury.integrations.add integration
     view = new Augury.Views.Home.NewIntegration(integration: integration)
     view.render()
     modalEl = $("#new-integration-modal")

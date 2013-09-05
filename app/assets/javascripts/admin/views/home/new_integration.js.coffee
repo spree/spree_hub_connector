@@ -5,6 +5,7 @@ Augury.Views.Home.NewIntegration = Backbone.View.extend(
 
   events:
     'click button#cancel': 'cancel'
+    'change :input': 'changed'
 
   render: ->
     # Show modal
@@ -44,9 +45,13 @@ Augury.Views.Home.NewIntegration = Backbone.View.extend(
         endpointname: "This value must be lowercase and contain no spaces"
         endpointurl: "This value must be a valid URL"
 
-  save: () ->
+  save: ->
+    @model.set(category: 'endpoint')
+    @model.save {}, success: @saved, error: @displayErrors
+
+  saved: ->
     Augury.Flash.success 'Successfully created new integration!'
-    # $('.ui-dialog-content').dialog 'close'
+    $('.ui-dialog-content').dialog 'close'
 
   cancel: (event) ->
     event.preventDefault()
