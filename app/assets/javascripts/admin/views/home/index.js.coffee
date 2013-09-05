@@ -2,6 +2,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
   initialize: ->
     _.bindAll @, 'render'
     @collection.bind 'reset', @render
+    @collection.bind 'add', @render
 
   events:
     'click .integration-toggle': 'toggleIntegration'
@@ -13,7 +14,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
     # Filter integrations from the collection that don't have any mappings
     activeIntegrations = @collection.filter (integration) ->
-      !_(integration.mappings()).isEmpty()
+      integration.is_enabled()
     inactiveIntegrations = @collection.filter (integration) ->
       _(integration.mappings()).isEmpty()
 
@@ -92,7 +93,6 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
   newIntegration: ->
     integration = new Augury.Models.Integration
-    Augury.integrations.add integration
     view = new Augury.Views.Home.NewIntegration(integration: integration)
     view.render()
     modalEl = $("#new-integration-modal")
