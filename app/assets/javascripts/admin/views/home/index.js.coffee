@@ -14,9 +14,13 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
     # Filter integrations from the collection that don't have any mappings
     activeIntegrations = @collection.filter (integration) ->
-      integration.is_enabled()
+      !_(integration.mappings()).isEmpty() || integration.get('category') == 'custom'
     inactiveIntegrations = @collection.filter (integration) ->
       _(integration.mappings()).isEmpty()
+
+    # Change polling frequency to every 15 seconds if any custom integrations are present
+    if (_(activeIntegrations).filter (integration) -> integration.get('category') == 'custom').length > 0
+      Augury.start_integration_poller(15000)
 
     @active = new Augury.Collections.Integrations(activeIntegrations)
     @inactive = new Augury.Collections.Integrations(inactiveIntegrations)

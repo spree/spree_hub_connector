@@ -10,6 +10,7 @@
 //= require backbone
 //= require backbone-validation-min
 //= require ace/ace
+//= require backbone.poller.min
 //= require admin/augury
 //= require_tree ./extensions
 //= require_tree ./events
