@@ -19,20 +19,34 @@ Augury.Views.Home.NewIntegration = Backbone.View.extend(
     @
 
   validation: ->
-    @$el.find('form#new-integration').parsley
-      validators:
-        endpointname: (val, endpointname) ->
-
+    @$el.find('form#add-new-integration').parsley
+      trigger: 'change'
       listeners:
         onFormSubmit: (isFormValid, e) =>
           e.preventDefault()
           if isFormValid
             @save()
+      validators:
+        endpointname: (val, endpointname) ->
+          pattern = /^[a-z|_]*$/
+          return pattern.exec(val) != null
+        endpointurl: (val, endpointurl) ->
+          regex = VerEx()
+            .startOfLine()
+            .then('http')
+            .maybe('s')
+            .then('://')
+            .maybe('www.')
+            .anythingBut(' ')
+            .endOfLine()
+          regex.test val.trim()
+      messages:
+        endpointname: "This value must be lowercase and contain no spaces"
+        endpointurl: "This value must be a valid URL"
 
   save: () ->
-    event.preventDefault()
     Augury.Flash.success 'Successfully created new integration!'
-    $('.ui-dialog-content').dialog 'close'
+    # $('.ui-dialog-content').dialog 'close'
 
   cancel: (event) ->
     event.preventDefault()

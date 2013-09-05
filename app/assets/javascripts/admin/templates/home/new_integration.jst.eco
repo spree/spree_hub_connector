@@ -3,7 +3,7 @@
     <h3 class="integration-title">Adding Custom Integration</h3>
   </header>
 
-  <form action="#" id="new-integration">
+  <form action="#" id="add-new-integration">
     <section class="modal-body">
       <div class="row">
        <div class="span6">
@@ -11,14 +11,22 @@
            <label for="name">Name</label>
            <input class="param required" type="text"
                   data-trigger="change" data-required="true"
+                  data-endpointname="true"
                   id="name" name="name" placeholder="Endpoint name" />
          </div>
          <div class="field">
            <label for="url">URL</label>
            <input class="param required" type="text"
                   data-trigger="change" data-required="true"
-                  data-type="url"
+                  data-endpointurl="true"
                   id="url" name="url" placeholder="Endpoint URL" />
+         </div>
+         <div class="field">
+           <label for="token">Token</label>
+           <input class="param required" type="text"
+                  data-trigger="change" data-required="true"
+                  data-minlength="32"
+                  id="token" name="token" placeholder="Endpoint Token" />
          </div>
        </div>
       </div>
