@@ -1,6 +1,42 @@
 <%#---------------------------------------%>
+<<<<<<< HEAD
 <%#  Active Integrations                  %>
 <%#---------------------------------------%>
+=======
+<%#  Connecion Details                    %>
+<%#---------------------------------------%>
+<fieldset class="no-border-bottom" id="connection-details">
+  <legend>Connection Details</legend>
+
+  <div class="row">
+    <%#---------------------------------------%>
+    <%#  Connected Message                    %>
+    <%#---------------------------------------%>
+    <div id="connected-message">
+
+      <%# Link -> Connected Icon %>
+      <span class="icon-stack">
+        <i class="icon-circle icon-stack-base"></i>
+        <i class="icon-link icon-light"></i>
+      </span>
+
+      <%# Connected Message %>
+      Connected to the <strong><%= @env['environment'] %></strong> Integrator as <strong><%= @env['user'] %></strong>.
+
+    </div>
+    <%# / Connected Message%>
+
+    <%#---------------------------------------%>
+    <%#  Connection Actions                   %>
+    <%#---------------------------------------%>
+    <div id="connection-actions" class='filter-actions actions'>
+    </div>
+    <%# / Connection Actions %>
+  </div>
+
+</fieldset>
+<%# / Connection Details %>
+
 <fieldset class="no-border-bottom" id="active-integrations">
   <legend>Active Integrations</legend>
   
@@ -11,50 +47,6 @@
   <div class="row">
 
     <ul id="integrations-list">
-
-      <% for integration in @collection.models: %>
-
-        <%#---------------------------------------%>
-        <%#  Integration                          %>
-        <%#---------------------------------------%>
-        <li class="integration <% if integration.is_enabled(): %>enabled<% else: %>disabled<% end %>" data-vendor="" data-integration-id="<%= integration.get('id') %>">
-          <figure>
-            <img src="/assets/integrations/<%= integration.get('name').toLowerCase() %>.png" alt="<%= integration.get('display') %>">
-          </figure>
-
-          <figcaption>
-            <%= integration.get('display') %>
-          </figcaption>
-
-          <div class="integration-toggle"></div>
-
-          <ul class="actions">
-            <li class="action">
-              <a href="#" title='Edit Properties' class='edit-integration'>
-                <i class="icon-pencil"></i>
-              </a>
-            </li>
-            <!--<li class="action">
-              <a href="#" title='Edit Mappings'>
-                <i class="icon-sitemap"></i>
-              </a>
-            </li>-->
-            <li class="action">
-              <a href="#" title='Refresh' class='refresh-integration'>
-                <i class="icon-refresh"></i>
-              </a>
-            </li>
-            <li class="action">
-              <a href="/admin/integration/delete/<%= integration.get('id') %>?confirm=no" title='Remove' class='delete-integration'>
-                <i class="icon-trash"></i>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <%# / Integration%>
-
-      <% end %>
-
     </ul>
 
   </div>
