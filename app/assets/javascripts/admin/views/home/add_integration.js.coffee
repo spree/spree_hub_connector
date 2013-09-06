@@ -13,7 +13,7 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
 
   render: ->
     # Show modal
-    @$el.html JST["admin/templates/home/modal"](options: @options)
+    @$el.html JST["admin/templates/home/edit_integration"](options: @options)
 
     # Setup modal tabs
     @$el.find("#modal-tabs").tabs().addClass("ui-tabs-vertical ui-helper-clearfix")
@@ -38,6 +38,8 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
       on: false,
       width: 90
     })
+
+    @determineIfIntegrationIsReady()
 
     @prepareClickHandlers()
     @validateListValues()
@@ -216,4 +218,12 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
     event.preventDefault()
 
     $('.ui-dialog-content').dialog 'close'
+
+  determineIfIntegrationIsReady: ->
+    if @model.get('consumers').length > 0
+      console.log 'Consumers!'
+      @render
+    else
+      console.log 'No Consumers!'
+      @$el.html '<p>Please wait</p>'
 )

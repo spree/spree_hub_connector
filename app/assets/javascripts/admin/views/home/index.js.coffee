@@ -4,6 +4,10 @@ Augury.Views.Home.Index = Backbone.View.extend(
     @collection.bind 'reset', @render
     @collection.bind 'add', @render
 
+    # Create poller to update integrations in background
+    @poller = new Augury.Poller(@collection, 600000)
+    @poller.start()
+
   events:
     'click .integration-toggle': 'toggleIntegration'
     'click .edit-integration': 'editIntegration'
@@ -20,7 +24,8 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
     # Change polling frequency to every 15 seconds if any custom integrations are present
     if (_(activeIntegrations).filter (integration) -> integration.get('category') == 'custom').length > 0
-      Augury.start_integration_poller(15000)
+      unless Backbone.Poller.get(Augury.integrations).active()
+        @poller.changeDelay(15000)
 
     @active = new Augury.Collections.Integrations(activeIntegrations)
     @inactive = new Augury.Collections.Integrations(inactiveIntegrations)
