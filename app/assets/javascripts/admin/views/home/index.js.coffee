@@ -17,13 +17,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
     @env = Augury.connections[Augury.env_id]
 
     # Filter integrations from the collection that don't have any mappings
-    activeIntegrations = @collection.filter (integration) ->
-      !_(integration.mappings()).isEmpty() || integration.get('category') == 'custom'
-    inactiveIntegrations = @collection.filter (integration) ->
-      _(integration.mappings()).isEmpty()
-
-    @active = new Augury.Collections.Integrations(activeIntegrations)
-    @inactive = new Augury.Collections.Integrations(inactiveIntegrations)
+    @filterIntegrations()
 
     @$el.html JST["admin/templates/home/index"](env: @env, collection: @active)
     @addAll()
@@ -32,9 +26,32 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
     if $('#content-header .container .block-table').find('.page-actions').length < 1
       $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
-    $('#content-header').find('.page-actions').html JST["admin/templates/home/add_integration_select"]
-      collection: @inactive
+    $('#content-header').find('.page-actions').html JST["admin/templates/home/add_integration_select"](collection: @inactive)
 
+    @setupAddIntegrationSelect()
+    @setActiveIntegrations()
+
+    @
+
+  addAll: ->
+    @active.each(@addOne, @)
+
+  addOne: (model) ->
+    view = new Augury.Views.Home.Integration(model: model)
+    view.render()
+    @$el.find('#integrations-list').append view.el
+    model.on 'remove', view.remove, view
+
+  filterIntegrations: ->
+    activeIntegrations = @collection.filter (integration) ->
+      !_(integration.mappings()).isEmpty() || integration.get('category') == 'custom'
+    inactiveIntegrations = @collection.filter (integration) ->
+      _(integration.mappings()).isEmpty() || !integration.get('category') == 'custom'
+
+    @active = new Augury.Collections.Integrations(activeIntegrations)
+    @inactive = new Augury.Collections.Integrations(inactiveIntegrations)
+
+  setupAddIntegrationSelect: ->
     # Append connection select dropdown
     @$el.find('#active-integrations').html JST["admin/templates/home/new_integration"]
       collection: @inactive
@@ -58,18 +75,6 @@ Augury.Views.Home.Index = Backbone.View.extend(
       else
         Augury.vent.trigger 'connection:change', connectionId
 
-    @setActiveIntegrations()
-
-    this
-
-  addAll: ->
-    @active.each(@addOne, @)
-
-  addOne: (model) ->
-    view = new Augury.Views.Home.Integration(model: model)
-    view.render()
-    @$el.find('#integrations-list').append view.el
-    model.on 'remove', view.remove, view
 
   editIntegration: (e) ->
     e.preventDefault()
