@@ -1,8 +1,14 @@
 window.Augury.Poller = class AuguryPoller
-  constructor: (collection, delay) ->
-    @poller = Backbone.Poller.get(collection, { delay: delay, delayed: true })
+  constructor: (collectionOrModel, delay, condition) ->
+    options =
+      delay: delay
+      delayed: true
+    options.condition = condition if condition?
+
+    @poller = Backbone.Poller.get(collectionOrModel, options)
     @poller.on 'success', ->
-      collection.trigger 'reset'
+      collectionOrModel.trigger 'reset'
+      collectionOrModel.trigger 'change'
 
   start: =>
     @poller.start()

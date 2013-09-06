@@ -3,6 +3,10 @@ Augury.Views.Home.Integration = Backbone.View.extend(
     @listenTo @model, 'change', @render
     @listenTo @model, 'destroy', @remove
 
+    @poller = (new Augury.Poller @model, 15000, (model) ->
+      !model.get('consumers') || model.get('consumers').length < 1
+    ).start()
+
   tagName: 'li'
 
   render: ->
@@ -15,4 +19,5 @@ Augury.Views.Home.Integration = Backbone.View.extend(
       @$el.addClass 'disabled'
     @$el.data('vendor', '')
     @$el.data('integration-id', @model.get('id'))
+
 )

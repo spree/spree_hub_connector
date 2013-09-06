@@ -48,4 +48,7 @@ Augury.Models.Integration = Backbone.Model.extend(
     mappings = Augury.mappings.where integration_id: @id
     _(mappings).any (mapping) ->
       mapping.get('enabled') == true
+
+  is_custom: ->
+    @get('category') == 'custom'
 )
