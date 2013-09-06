@@ -8,8 +8,6 @@ window.Augury =
 
   post_init: ->
     @handle_link_clicks()
-    @start_integration_poller()
-
     Backbone.history.start pushState: true, root: '/admin/integration/'
     Augury.update_nav Backbone.history.location.pathname
 
