@@ -9,7 +9,6 @@ Augury.Views.Home.Index = Backbone.View.extend(
     @poller.start()
 
   events:
-    'click .integration-toggle': 'toggleIntegration'
     'click .edit-integration': 'editIntegration'
     'click .refresh-integration': 'refreshIntegration'
 
@@ -28,8 +27,13 @@ Augury.Views.Home.Index = Backbone.View.extend(
       $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
     $('#content-header').find('.page-actions').html JST["admin/templates/home/add_integration_select"](collection: @inactive)
 
+    @$el.find('#integrations-list').find('.actions a').powerTip
+      popupId: 'integration-tooltip'
+    @$el.find('#integrations-list').find('.actions a').on
+      powerTipRender: () ->
+        $('#integration-tooltip').addClass $(this).attr('class')
+
     @setupAddIntegrationSelect()
-    @setActiveIntegrations()
 
     @
 
@@ -136,49 +140,4 @@ Augury.Views.Home.Index = Backbone.View.extend(
     Augury.integrations.fetch(reset: true)
     Augury.mappings.fetch(reset: true)
     Augury.Flash.success "Refreshed integration."
-
-  setActiveIntegrations: ->
-    @$el.find('.integration-toggle').toggles
-      on:    true
-      width: 90
-      text:
-        on:  'Enabled',
-        off: 'Disabled'
-
-    @$el.find('#integrations-list').find('.actions a').powerTip
-      popupId: 'integration-tooltip'
-
-    @$el.find('#integrations-list').find('.actions a').on
-      powerTipRender: () ->
-        $('#integration-tooltip').addClass $(this).attr('class')
-
-
-    _(@active.models).each (integration) =>
-      unless integration.is_enabled()
-        id = integration.get('id')
-        @$el.find("*[data-integration-id=#{id}] .integration-toggle").first().trigger('toggleOff')
-
-  toggleIntegration: (e) ->
-    integrationDiv = $(e.currentTarget).closest('.integration')
-    integrationId = integrationDiv.data('integration-id')
-    integration = Augury.integrations.get integrationId
-
-    if integrationDiv.hasClass 'enabled'
-      integration.disableMappings().done(->
-        integrationDiv.removeClass('enabled').addClass('disabled')
-        Augury.integrations.fetch()
-        Augury.mappings.fetch()
-        @active = Augury.integrations
-      ).fail(->
-        Augury.Flash.error "There was a problem updating the integration."
-      )
-    else
-      integration.enableMappings().done(->
-        integrationDiv.removeClass('disabled').addClass('enabled')
-        Augury.integrations.fetch()
-        Augury.mappings.fetch()
-        @active = Augury.integrations
-      ).fail(->
-        Augury.Flash.error "There was a problem updating the integration."
-      )
 )
