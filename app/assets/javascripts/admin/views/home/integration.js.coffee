@@ -17,7 +17,7 @@ Augury.Views.Home.Integration = Backbone.View.extend(
 
     if @model.is_custom()
       @$el.addClass 'custom'
-    if @model.get('errors')
+    if @model.has_errors()
       @$el.addClass 'errors'
     if @model.is_pending()
       @$el.addClass 'pending'
