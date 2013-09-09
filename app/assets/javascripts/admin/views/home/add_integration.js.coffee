@@ -44,7 +44,7 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
     })
 
     # Show loading message while waiting for consumers to be present
-    unless @model.get('consumers') && @model.get('consumers').length > 0
+    unless @model.is_valid()
       @$el.html '<p>Please wait while we fetch the endpoint configuration...</p>'
     else
       @stopListening(Augury.integrations)
