@@ -27,11 +27,13 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
     if $('#content-header .container .block-table').find('.page-actions').length < 1
       $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
-    $('#content-header').find('.page-actions').html JST["admin/templates/home/new_integration"]
-      collection: @inactive
+    $('#content-header').find('.page-actions').html JST["admin/templates/home/select_connection"]
+      connections: Augury.connections
+      
 
     # Append connection select dropdown
-    @$el.find('#connection-actions').html JST["admin/templates/home/select_connection"](connections: Augury.connections)
+    @$el.find('#active-integrations').html JST["admin/templates/home/new_integration"]
+      collection: @inactive
 
     $('#content-header').find('.page-title').text('Overview')
 
