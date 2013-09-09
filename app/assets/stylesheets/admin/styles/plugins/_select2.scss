@@ -6,6 +6,10 @@
 /**
   Integration Selects
 */
+.new-integration-container {
+  float: right;
+ }
+
 .connection-select-container, 
 .new-integration-container {
   .select2-choice span {
