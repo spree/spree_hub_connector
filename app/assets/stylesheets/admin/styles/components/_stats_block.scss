@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'denseregular';
+    src: font-url('dense-regular-webfont.eot');
+    src: font-url('dense-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('dense-regular-webfont.woff') format('woff'),
+         font-url('dense-regular-webfont.ttf') format('truetype'),
+         font-url('dense-regular-webfont.svg#denseregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.stats-block {
+  border: 1px solid $color-border;
+  border-bottom-width: 3px;
+  border-radius: $border-radius;
+  text-align: center;
+  position: relative;
+
+  .stats-header {
+    text-transform: uppercase;
+    padding: 3px 0;
+    border-bottom: 1px solid $color-border;    
+
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;    
+
+    i {
+      position: absolute;
+      left: 5px;
+      color: white;
+      font-size: 11px;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-font-smoothing: grayscale;    
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 38px solid $color-3;
+      border-right: 38px solid transparent;
+      left: -1px;
+      top: -1px;
+      z-index: 0;
+    }
+  }
+
+  .stats-data {
+    background-color: lighten($color-border, 10);
+
+    > ul {
+      margin: 0 -1px;
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        text-align: center;
+        width: 25%;
+        margin-left: -3px;
+
+        .stats-counter {
+          font-size: 43px;
+          border-right: 1px dashed $color-border;
+          padding: 15px 0 10px;
+        }
+
+        &:last-child {
+          .stats-counter {
+            border-right: none;
+          }
+        }
+
+        &:first-child {
+          margin-left: 0px;
+        }
+      }      
+    }
+  }
+
+  .stats-counter {
+    font-family: 'denseregular';
+    font-size: 85px;
+    padding: 10px 0;
+    display: block;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+
+    sup {
+      font-size: 50px;
+    }
+  }
+
+  .sub-stats-header {
+    padding: 10px 0;
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 5px solid red;
+      left: 50%;
+      margin-left: -6px;
+    }
+  }
+
+  &#accepted-messages {
+    .stats-header {
+      border-bottom-color: transparent;
+    }
+    .stats-header:before,
+    .stats-counter {
+      border-top-color: $color-2;
+      color: $color-2;
+    }
+  }
+
+  &#archived-messages {
+    .stats-header:before,
+    .stats-counter {
+      border-top-color: $color-4;
+      color: $color-4;
+    }
+  }
+
+  #pending-messages {
+    .sub-stats-header {
+      background-color: $color-3;
+
+      &:after {
+        border-top-color: $color-3;
+      }
+    }
+    .stats-counter {
+      color: $color-3;
+    }
+  }
+  #failing-messages {
+    .sub-stats-header {
+      background-color: $color-5;
+
+      &:after {
+        border-top-color: $color-5;
+      }
+    }
+    .stats-counter {
+      color: $color-5;
+    }
+  }
+  #schedulet-messages {
+    .sub-stats-header {
+      background-color: $color-6;
+
+      &:after {
+        border-top-color: $color-6;
+      }
+    }
+    .stats-counter {
+      color: $color-6;
+    }
+  }
+  #parked-messages {
+    .sub-stats-header {
+      background-color: lighten(black, 45);
+
+      &:after {
+        border-top-color: lighten(black, 45);
+      }
+    }
+    .stats-counter {
+      color: lighten(black, 45);
+    }
+  }
+
+  .stats-footer {
+    a {
+      display: block;
+      background-color: lighten($color-border, 10);
+      padding: 5px 0;
+      border-top: 1px solid $color-border;
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+}

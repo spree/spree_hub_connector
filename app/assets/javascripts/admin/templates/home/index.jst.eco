@@ -1,37 +1,85 @@
 <%#---------------------------------------%>
-<%#  Connecion Details                    %>
+<%#  Queue Summary                        %>
 <%#---------------------------------------%>
-<fieldset class="no-border-bottom" id="connection-details">
-  <legend>Connection Details</legend>
+<fieldset class="no-border-bottom" id="queue-summary">
+  <legend>Queue Summary</legend>
 
   <div class="row">
-    <%#---------------------------------------%>
-    <%#  Connected Message                    %>
-    <%#---------------------------------------%>
-    <div id="connected-message">
 
-      <%# Link -> Connected Icon %>
-      <span class="icon-stack">
-        <i class="icon-circle icon-stack-base"></i>
-        <i class="icon-link icon-light"></i>
-      </span>
-
-      <%# Connected Message %>
-      Connected to the <strong><%= @env['environment'] %></strong> Integrator as <strong><%= @env['user'] %></strong>.
-
+  <%#---------------------------------------%>
+  <%#  Incoming                             %>
+  <%#---------------------------------------%>
+  <div id="incoming-messages" class="alpha four columns stats-block">
+    <header class="stats-header">
+      <i class="icon-arrow-down"></i>
+      <h1>Incoming</h1>
+    </header>
+    <div class="stats-data">
+      <span class="stats-counter">5</span>
     </div>
-    <%# / Connected Message%>
+    <footer class="stats-footer">
+      <a href="/integration/queue/incoming">View Incoming Messages <i class="icon-circle-arrow-right"></i></a>
+    </footer>
+  </div>
+  <%# / Incoming %>
 
-    <%#---------------------------------------%>
-    <%#  Connection Actions                   %>
-    <%#---------------------------------------%>
-    <div id="connection-actions" class='filter-actions actions'>
+  <%#---------------------------------------%>
+  <%#  Accepted                             %>
+  <%#---------------------------------------%>
+  <div id="accepted-messages" class="eight columns stats-block">
+    <header class="stats-header">
+      <i class="icon-ok"></i>
+      <h1>Accepted</h1>
+    </header>
+    <div class="stats-data">
+
+      <ul class='row'>
+        <li id='pending-messages'>
+          <div class="sub-stats-header">Pending</div>
+          <div class="stats-counter">23</div>
+        </li>
+        <li id='failing-messages'>
+          <div class="sub-stats-header">Failing</div>
+          <div class="stats-counter">125</div>
+        </li>
+        <li id='schedulet-messages'>
+          <div class="sub-stats-header">Scheduled</div>
+          <div class="stats-counter">10</div>
+        </li>
+        <li id='parked-messages'>
+          <div class="sub-stats-header">Parked</div>
+          <div class="stats-counter">2</div>
+        </li>
+      </ul>
+      
     </div>
-    <%# / Connection Actions %>
+    <footer class="stats-footer">
+      <a href="/integration/queue/incoming">View Accepted Messages <i class="icon-circle-arrow-right"></i></a>
+    </footer>
+  </div>
+  <%# / Accepted %>
+
+  <%#---------------------------------------%>
+  <%#  Archived                             %>
+  <%#---------------------------------------%>
+  <div id="archived-messages" class="omega four columns stats-block">
+    <header class="stats-header">
+      <i class="icon-archive"></i>
+      <h1>Archived</h1>
+    </header>
+    <div class="stats-data">
+      <span class="stats-counter">134<sup>k</sup></span>
+    </div>
+    <footer class="stats-footer">
+      <a href="/integration/queue/incoming">View Archived Messages <i class="icon-circle-arrow-right"></i></a>
+    </footer>
+  </div>
+  <%# / Archived %>
+    
   </div>
 
 </fieldset>
-<%# / Connection Details %>
+<%# / Queue Summary %>
 
 <%#---------------------------------------%>
 <%#  Active Integrations                  %>
