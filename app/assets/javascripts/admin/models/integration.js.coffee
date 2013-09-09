@@ -56,5 +56,5 @@ Augury.Models.Integration = Backbone.Model.extend(
     !@get('consumers') || @get('consumers').length < 1 || @has_errors()
 
   has_errors: ->
-    @get('errors').length > 0
+    @get('error_messages') && @get('error_messages').length > 0
 )
