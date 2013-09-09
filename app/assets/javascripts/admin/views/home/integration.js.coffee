@@ -9,6 +9,9 @@ Augury.Views.Home.Integration = Backbone.View.extend(
 
   tagName: 'li'
 
+  events:
+    'click .integration-toggle': 'toggleIntegration'
+
   render: ->
     @$el.html JST["admin/templates/home/integration"](model: @model)
 
@@ -20,4 +23,37 @@ Augury.Views.Home.Integration = Backbone.View.extend(
     @$el.data('vendor', '')
     @$el.data('integration-id', @model.get('id'))
 
+    # Set integration toggle as enabled/disabled
+    @$el.find('.integration-toggle').toggles
+      on:    true
+      width: 90
+      text:
+        on:  'Enabled',
+        off: 'Disabled'
+    unless @model.is_enabled()
+      id = @model.get('id')
+      @$el.find(".integration-toggle").first().trigger('toggleOff')
+
+  toggleIntegration: (e) ->
+    e.preventDefault()
+    integration = @model
+
+    if @$el.hasClass 'enabled'
+      integration.disableMappings().done(=>
+        @$el.removeClass('enabled').addClass('disabled')
+        Augury.integrations.fetch()
+        Augury.mappings.fetch()
+        @active = Augury.integrations
+      ).fail(->
+        Augury.Flash.error "There was a problem updating the integration."
+      )
+    else
+      integration.enableMappings().done(=>
+        @$el.removeClass('disabled').addClass('enabled')
+        Augury.integrations.fetch()
+        Augury.mappings.fetch()
+        @active = Augury.integrations
+      ).fail(->
+        Augury.Flash.error "There was a problem updating the integration."
+      )
 )
