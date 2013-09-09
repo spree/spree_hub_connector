@@ -8,7 +8,7 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
     @listTemplate = JST['admin/templates/parameters/list_fields']
 
     _.bindAll @, 'render'
-    @listenTo Augury.integrations, 'reset', @render
+    @listenTo @model, 'change', @render
 
   events:
     'click button#cancel': 'cancel'
@@ -43,11 +43,11 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
       width: 90
     })
 
-    # Show loading message while waiting for consumers to be present
+    # Show loading message or error messages while waiting for consumers to be present
     if @model.is_pending()
       @$el.html '<p>Please wait while we fetch the endpoint configuration...</p>'
-      _(@model.get('error_messages')).each (message) =>
-        @$el.append "<p>#{message}</p>"
+      if @model.has_errors()
+        @$el.html JST['admin/templates/home/integration_errors'](errors: @model.get('error_messages'))
     else
       @stopListening(Augury.integrations)
 

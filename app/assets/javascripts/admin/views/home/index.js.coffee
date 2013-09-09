@@ -44,7 +44,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
     view = new Augury.Views.Home.Integration(model: model)
     view.render()
     @$el.find('#integrations-list').append view.el
-    model.on 'remove', view.remove, view
+    model.on 'destroy', view.remove, view
 
   filterIntegrations: ->
     activeIntegrations = @collection.filter (integration) ->
