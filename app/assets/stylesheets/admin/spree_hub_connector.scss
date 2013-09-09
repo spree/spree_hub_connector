@@ -205,6 +205,9 @@ a.add-fields {
   .custom {
     background: rgba(255, 212, 160, 0.4);
   }
+  .errors {
+    background: rgba(255, 0, 0, 0.8);
+  }
 
   .integration, .store {
     display: inline-block;
