@@ -4,7 +4,7 @@ Augury.Views.Home.Integration = Backbone.View.extend(
     @listenTo @model, 'destroy', @remove
 
     @poller = (new Augury.Poller @model, 15000, (model) ->
-      !model.get('consumers') || model.get('consumers').length < 1
+      model.is_pending()
     ).start()
 
   tagName: 'li'
@@ -17,6 +17,8 @@ Augury.Views.Home.Integration = Backbone.View.extend(
 
     if @model.is_custom()
       @$el.addClass 'custom'
+    if @model.is_pending()
+      @$el.addClass 'pending'
     @$el.addClass 'integration'
     if @model.is_enabled()
       @$el.addClass 'enabled'
