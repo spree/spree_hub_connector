@@ -24,6 +24,13 @@
       <i class="icon-refresh"></i>
     </a>
   </li>
+  <% if @model.is_custom(): %>
+    <li class="action">
+      <a href="#" title='Endpoint Settings' class='edit-endpoint'>
+        <i class="icon-gear"></i>
+      </a>
+    </li>
+  <% end %>
   <li class="action">
     <a href="/admin/integration/delete/<%= @model.get('id') %>?confirm=no" title='Remove' class='delete-integration'>
       <i class="icon-trash"></i>

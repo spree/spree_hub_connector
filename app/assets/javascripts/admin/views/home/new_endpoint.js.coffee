@@ -1,4 +1,4 @@
-Augury.Views.Home.NewIntegration = Backbone.View.extend(
+Augury.Views.Home.NewEndpoint = Backbone.View.extend(
   initialize: (attrs) ->
     @options = attrs
     @model = attrs.integration
@@ -9,11 +9,7 @@ Augury.Views.Home.NewIntegration = Backbone.View.extend(
 
   render: ->
     # Show modal
-    @$el.html JST["admin/templates/home/new_integration"](options: @options)
-
-    # Setup modal tabs
-    @$el.find("#modal-tabs").tabs().addClass("ui-tabs-vertical ui-helper-clearfix")
-    @$el.find("#modal-tabs li").removeClass("ui-corner-top").addClass("ui-corner-left")
+    @$el.html JST["admin/templates/home/new_endpoint"](model: @model)
 
     @validation()
 
@@ -49,7 +45,8 @@ Augury.Views.Home.NewIntegration = Backbone.View.extend(
     @model.set(category: 'custom', display: @model.get('name'))
     @model.save {}, 
       success: =>
-        Augury.integrations.add @model
+        if !_.find(Augury.integrations, (integration) -> integration == @model)
+          Augury.integrations.add @model
         Augury.Flash.success 'Successfully created new integration!'
         $('.ui-dialog-content').dialog 'close'
       error: @displayErrors
