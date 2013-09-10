@@ -7,7 +7,6 @@ window.Augury.Poller = class AuguryPoller
 
     @poller = Backbone.Poller.get(collectionOrModel, options)
     @poller.on 'success', ->
-      collectionOrModel.trigger 'reset'
       collectionOrModel.trigger 'change'
 
   start: =>
