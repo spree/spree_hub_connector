@@ -15,13 +15,13 @@ Augury.Views.Home.Integration = Backbone.View.extend(
   render: ->
     @$el.html JST["admin/templates/home/integration"](model: @model)
 
+    @$el.addClass 'integration'
     if @model.is_custom()
       @$el.addClass 'custom'
     if @model.has_errors()
       @$el.addClass 'errors'
     if @model.is_pending()
       @$el.addClass 'pending'
-    @$el.addClass 'integration'
     if @model.is_enabled()
       @$el.addClass 'enabled'
     else
