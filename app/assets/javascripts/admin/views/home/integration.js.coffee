@@ -40,6 +40,10 @@ Augury.Views.Home.Integration = Backbone.View.extend(
       id = @model.get('id')
       @$el.find(".integration-toggle").first().trigger('toggleOff')
 
+    # Hide default icon if icon_url is present
+    if !@model.get('icon_url')?
+      @$el.find('figure').addClass('default-icon')
+
   toggleIntegration: (e) ->
     e.preventDefault()
     integration = @model
