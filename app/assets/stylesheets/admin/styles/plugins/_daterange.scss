@@ -1,0 +1,67 @@
+.daterangepicker {
+  display: none;
+  background-color: lighten($color-border, 10);
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  padding: 0;
+  min-width: 220px !important;
+  margin-top: 6px;
+
+  &.opensleft:after { display: none }
+
+  &.opensleft:before {
+    border-bottom-color: $color-border;
+  }
+
+  .calendar-date {
+    border: none;
+    background-color: transparent;
+  }
+
+  td, th {
+    border-radius: 0;
+  }
+
+  td.disabled {
+    opacity: 0.5
+  }
+
+  button {
+    padding: 5px 10px;
+
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .ranges {
+    margin: 0 !important;
+    min-width: 220px !important;
+
+    label {
+      color: $color-body-text;
+      text-shadow: none;
+    }
+
+    .range_inputs {
+      min-width: 220px;
+      padding: 0 10px;
+
+      .input-mini {
+        width: 94px;
+      }
+    }
+
+    li {
+      border-radius: 0;
+      border: none;
+      background-color: transparent;
+      padding: 5px 10px;
+      margin: 0;
+      color: $color-body-text;
+
+      &.active, &:hover {
+        background-color: $color-2;
+        border: none;
+      }
+    }
+  }
+}
