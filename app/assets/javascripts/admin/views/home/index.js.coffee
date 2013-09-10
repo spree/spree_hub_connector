@@ -10,6 +10,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
   events:
     'click .edit-integration': 'editIntegration'
+    'click .edit-endpoint': 'editEndpoint'
     'click .refresh-integration': 'refreshIntegration'
 
   render: ->
@@ -69,7 +70,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
       if integrationId
         @showIntegrationModal(integrationId)
       else
-        @newIntegration()
+        @showEndpointModal()
 
     $("#connections-select").on "select2-selected", (event, object) =>
       selected = $("#connections-select").select2('data').element
@@ -84,6 +85,11 @@ Augury.Views.Home.Index = Backbone.View.extend(
     e.preventDefault()
     integrationId = $(e.currentTarget).closest('li.integration').data('integration-id')
     @showIntegrationModal(integrationId)
+
+  editEndpoint: (e) ->
+    e.preventDefault()
+    integrationId = $(e.currentTarget).closest('li.integration').data('integration-id')
+    @showEndpointModal(integrationId)
 
   showIntegrationModal: (integrationId) ->
     integration = Augury.integrations.get(integrationId)
@@ -110,9 +116,12 @@ Augury.Views.Home.Index = Backbone.View.extend(
         $("#new-integration-modal").html('')
     )
 
-  newIntegration: ->
-    integration = new Augury.Models.Integration
-    view = new Augury.Views.Home.NewIntegration(integration: integration)
+  showEndpointModal: (integrationId) ->
+    if integrationId?
+      integration = Augury.integrations.get(integrationId)
+    else
+      integration = new Augury.Models.Integration
+    view = new Augury.Views.Home.NewEndpoint(integration: integration)
     view.render()
     modalEl = $("#new-integration-modal")
     modalEl.html(view.el)
