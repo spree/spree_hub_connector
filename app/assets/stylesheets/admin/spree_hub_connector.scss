@@ -1,6 +1,7 @@
 /*
  *= require toggles
  *= require jquery.ui.tabs
+ *= require daterangepicker.css
 */
 
 @import 'admin/globals/functions';
@@ -12,9 +13,11 @@
 @import 'styles/plugins/parsley';
 @import 'styles/plugins/jquery_ui';
 @import 'styles/plugins/select2';
+@import 'styles/plugins/daterange';
 
 @import 'styles/components/stats_block';
 @import 'styles/components/navigation';
+@import 'styles/components/messages_table';
 
 .order_events_iframe {
   border: none;

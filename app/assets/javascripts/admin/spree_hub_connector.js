@@ -2,6 +2,8 @@
 //= require jquery.ui.tabs
 //= require verbalexpressions
 //= require parsley.min
+//= require moment
+//= require daterangepicker
 //= require toggles
 //= require_tree ../../../../vendor/assets/javascripts/noty
 //= require underscore
