@@ -205,6 +205,7 @@ a.add-fields {
   .custom {
     background: rgba(255, 212, 160, 0.4);
   }
+
   .errors {
     background: rgba(255, 0, 0, 0.8);
   }
@@ -222,6 +223,13 @@ a.add-fields {
       figure, figcaption {
         opacity: 0.2
       }
+    }
+
+    figure.default-icon {
+      background-image:url('/assets/integrations/spree.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      min-height: 123px;
     }
 
     /**

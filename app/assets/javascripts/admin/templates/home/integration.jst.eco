@@ -1,5 +1,7 @@
 <figure>
-  <img src="/assets/integrations/<%= @model.get('name').toLowerCase() %>.png" alt="<%= @model.get('display') %>">
+  <% if @model.get('icon_url')?: %>
+    <img src="<%= @model.get('url') %>/<%= @model.get('icon_url').replace('/', '') %>" alt="<%= @model.get('display') %>">
+  <% end %>
 </figure>
 
 <figcaption>
