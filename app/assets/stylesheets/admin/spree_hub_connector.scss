@@ -14,6 +14,7 @@
 
 @import 'plugins/font-awesome';
 
+@import 'styles/plugins/font_awesome';
 @import 'styles/plugins/parsley';
 @import 'styles/plugins/jquery_ui';
 @import 'styles/plugins/select2';
@@ -30,6 +31,13 @@
 
 @import 'styles/sections/message_view';
 @import 'styles/sections/notifications';
+
+/* Some fixes backported */
+#admin-menu li a {
+  font-weight: 600;
+}
+
+.hidden { display: none; }
 
 .order_events_iframe {
   border: none;
