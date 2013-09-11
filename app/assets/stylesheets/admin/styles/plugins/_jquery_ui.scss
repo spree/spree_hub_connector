@@ -6,6 +6,8 @@
 .ui-dialog {
   border-radius: 3px;
   border: none;
+  padding: 0;
+  background-color: white;
 
   &:active, &:focus {
     outline: none;
