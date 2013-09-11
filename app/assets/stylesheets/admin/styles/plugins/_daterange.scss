@@ -43,8 +43,9 @@
   td.active.end-date:after {
     height: 1px;
     width: 38px;
-    left: 0;
+    left: -1px;
     top: -1px;
+    z-index: 2;
   }
 
   td.in-range:after {
