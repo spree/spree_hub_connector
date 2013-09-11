@@ -128,8 +128,8 @@
     <colgroup>
       <col style="width:10%;">
       <col style="width:5%;">
-      <col style="width:45%">
-      <col style="width:20%;">
+      <col style="width:35%">
+      <col style="width:30%;">
       <col style="width:25%;">
       <col style="width:5%;">
     </colgroup>
@@ -144,7 +144,7 @@
     </thead>
     <tbody>
       <tr>
-        <td class='align-center'><span class="state pending">Pending</span></td>
+        <td><span class="state parked">Parked</span></td>
         <td class='consumer-image align-center'>
           <img src="/assets/integrations/mailchimp.png" alt="" height="40">
         </td>
@@ -156,7 +156,133 @@
         <td class='actions'>
           <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
         </td>
-      </tr>      
+      </tr>
+      <tr>
+        <td><span class="state failing">Failing</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/mandrill.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> mandrill.po_transmitted_email
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state pending">Pending</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/amazon.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> amazon.order.poll
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state failing">Failing</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/zendesk.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state scheduled">Scheduled</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/hubspot.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state pending">Pending</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/quickbooks.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state scheduled">Scheduled</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/rlm.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state parked">Parked</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/shipwire.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state scheduled">Scheduled</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/spree.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Local:</strong> Orders::Persist
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state failing">Failing</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/xero.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
     </tbody>
   </table>
   <%# / Messages Table %>
