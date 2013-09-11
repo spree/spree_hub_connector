@@ -46,6 +46,10 @@
 /* Some fixes backported */
 #admin-menu li a {
   font-weight: 600;
+
+  .text {
+    font-family: $base-font-family;
+  }
 }
 
 .hidden { display: none; }
