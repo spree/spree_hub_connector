@@ -44,7 +44,7 @@ Augury.Views.Tests.New = Backbone.View.extend(
       html(message.get('id')).
       attr('href', "#{Augury.url}/messages/#{message.get('id')}")
     @$('#endpoint-last-generated-message').html messageLink
-    Augury.Flash.success "The message was successfully inserted into Incomming queue."
+    Augury.Flash.success "The message was successfully inserted into Incoming queue."
 
   messageValueToJSON: ->
     JSON.parse @editor.getSession().getValue()
