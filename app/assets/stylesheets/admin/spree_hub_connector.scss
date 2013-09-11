@@ -43,6 +43,13 @@
 
 .hidden { display: none; }
 
+/* Some fixes backported */
+#admin-menu li a {
+  font-weight: 600;
+}
+
+.hidden { display: none; }
+
 .order_events_iframe {
   border: none;
   width: 100%;
