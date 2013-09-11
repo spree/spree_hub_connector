@@ -43,7 +43,7 @@ Augury.Views.Tests.New = Backbone.View.extend(
     messageLink = $("<a></a>").
       html(message.get('id')).
       attr('href', "#{Augury.url}/messages/#{message.get('id')}")
-    @$('#endpoint-last-generated-message').append messageLink
+    @$('#endpoint-last-generated-message').html messageLink
     Augury.Flash.success "The message was successfully inserted into Incomming queue."
 
   messageValue: ->

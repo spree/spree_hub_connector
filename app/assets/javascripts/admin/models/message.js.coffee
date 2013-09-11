@@ -7,3 +7,4 @@ Augury.Models.Message = Backbone.Model.extend(
       required: true
       msg: "Message is required"
 )
+
