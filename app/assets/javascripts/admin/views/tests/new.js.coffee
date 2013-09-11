@@ -35,7 +35,7 @@ Augury.Views.Tests.New = Backbone.View.extend(
   createMessage: (e) ->
     e.preventDefault()
     message = new Augury.Models.Message()
-    message.save { source: 'test', message: @messageValue() },
+    message.save { source: 'test', message: @messageValueToJSON() },
       success: @created,
       error: @displayErrors
 
@@ -46,8 +46,8 @@ Augury.Views.Tests.New = Backbone.View.extend(
     @$('#endpoint-last-generated-message').html messageLink
     Augury.Flash.success "The message was successfully inserted into Incomming queue."
 
-  messageValue: ->
-    @editor.getSession().getValue()
+  messageValueToJSON: ->
+    JSON.parse @editor.getSession().getValue()
 
   initializeAceEditor: ->
     @editor = ace.edit @$el.find('#endpoint-message-editor')[0]
