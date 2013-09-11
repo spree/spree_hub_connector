@@ -1,5 +1,5 @@
 //= require jquery.simplemodal.1.4.4.min
-//= require jquery.ui.tabs
+//= require jquery-ui
 //= require verbalexpressions
 //= require parsley.min
 //= require moment
