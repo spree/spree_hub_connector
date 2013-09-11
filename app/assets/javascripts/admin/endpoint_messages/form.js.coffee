@@ -128,7 +128,7 @@
 
       addNewOptionEndpoint: (data, endpointURL) =>
         @endpoint.
-          append "<option value='#{JSON.stringify(data.consumers)}' data-url='#{endpointURL}' selected='selected'>#{data.name}</option>"
+          append "<option value='#{JSON.stringify(data.services)}' data-url='#{endpointURL}' selected='selected'>#{data.name}</option>"
         @endpoint.select2 val: data.name
         onSelect()
 
@@ -159,10 +159,10 @@
         @service.select2 val: ""
         @service.append "<option value='' selected='selected'></option>"
 
-      populate: (consumers) ->
-        _.each JSON.parse(consumers), (consumer) ->
+      populate: (services) ->
+        _.each JSON.parse(services), (service) ->
           $("#endpoint_message_available_services").
-            append "<option value='#{JSON.stringify(consumer)}'>#{consumer.name}</option>"
+            append "<option value='#{JSON.stringify(service)}'>#{service.name}</option>"
 
       onSelect = ->
         Parameters.removeAll()
