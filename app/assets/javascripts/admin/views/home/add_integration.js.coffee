@@ -2,7 +2,7 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
   initialize: (attrs) ->
     @options = attrs
     @model = attrs.integration
-    @options.parametersByConsumer = @parametersByConsumer()
+    @options.parametersByService = @parametersByService()
     @enabledMappings = []
     @keyValueTemplate = JST['admin/templates/parameters/key_value_fields']
     @listTemplate = JST['admin/templates/parameters/list_fields']
@@ -22,14 +22,14 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
     # All inputs are disabled by default
     @$el.find('input').attr('disabled', true)
 
-    # Copy text across duplicate inputs across consumers
+    # Copy text across duplicate inputs across services
     @$el.find('input').bind "keyup paste", ->
       current = $(@)
       duplicates = $("[name='#{current.attr('name')}']")
       if duplicates.length > 1
         duplicates.val(current.val())
 
-    # Prepare consumer state toggle
+    # Prepare service state toggle
     @$el.find('.integration-toggle').toggles({
       text: {
         on: 'Enabled',
@@ -46,28 +46,28 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
     @
 
   setActiveMappings: ->
-    for consumerName, parameters of @options.parametersByConsumer
-      consumer = _(@options.integration.get('consumers')).findWhere(name: consumerName)
-      if mapping = Augury.mappings.findWhere(name: "#{@options.integration.get('name')}.#{consumerName}")
+    for serviceName, parameters of @options.parametersByService
+      service = _(@options.integration.get('serivces')).findWhere(name: serviceName)
+      if mapping = Augury.mappings.findWhere(name: "#{@options.integration.get('name')}.#{serviceName}")
         if mapping.get('enabled') == true
-          @$el.find("*[data-consumer-name=#{consumerName}]").trigger('click')
+          @$el.find("*[data-service-name=#{serviceName}]").trigger('click')
         else
-          @$el.find("*[data-consumer-name=#{consumerName}]").closest("#tabs-#{consumerName}").addClass('disabled')
+          @$el.find("*[data-service-name=#{serviceName}]").closest("#tabs-#{serviceName}").addClass('disabled')
       else
-        @$el.find("*[data-consumer-name=#{consumerName}]").closest("#tabs-#{consumerName}").addClass('disabled')
+        @$el.find("*[data-service-name=#{serviceName}]").closest("#tabs-#{serviceName}").addClass('disabled')
 
   prepareClickHandlers: ->
-    # Handle clicking on consumer toggle
+    # Handle clicking on service toggle
     @$el.find('.integration-toggle').on 'toggle', (e, active) =>
       target = $(e.currentTarget)
-      consumerName = target.data('consumer-name')
-      mappingContainer = target.closest("#tabs-#{consumerName}")
+      serviceName = target.data('service-name')
+      mappingContainer = target.closest("#tabs-#{serviceName}")
       if active
-        @enabledMappings.push consumerName
+        @enabledMappings.push serviceName
         target.closest('.row').find('input').attr('disabled', false)
         mappingContainer.removeClass('disabled')
       else
-        index = @enabledMappings.indexOf consumerName
+        index = @enabledMappings.indexOf serviceName
         if index != -1
           @enabledMappings.splice(index, 1)
           target.closest('.row').find('input').attr('disabled', true)
@@ -107,11 +107,11 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
             $(@).dialog 'close'
       false
 
-  parametersByConsumer: ->
+  parametersByService: ->
     @ret = {}
 
-    _.map(@model.get("consumers"), (consumer) =>
-      @ret[consumer["name"]] = consumer["requires"]["parameters"]
+    _.map(@model.get("services"), (service) =>
+      @ret[service["name"]] = service["requires"]["parameters"]
     )
     @ret
 

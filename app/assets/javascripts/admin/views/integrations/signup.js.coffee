@@ -1,12 +1,12 @@
 Augury.Views.Integrations.Signup = Backbone.View.extend(
   events:
     'click button#save': 'save'
-    "change input[name='enabled']": 'toggle_enabled_consumers'
+    "change input[name='enabled']": 'toggle_enabled_services'
 
   render: ->
     @$el.html JST["admin/templates/integrations/signup"]
       integration: @model
-      parameters_by_consumer: @parameters_by_consumer()
+      parameters_by_service: @parameters_by_service()
 
     @$el.find('input.param').bind "keyup paste", ->
       current = $(@)
@@ -15,7 +15,7 @@ Augury.Views.Integrations.Signup = Backbone.View.extend(
       if duplicates.length > 1
         duplicates.val(current.val())
 
-    @toggle_enabled_consumers()
+    @toggle_enabled_services()
 
     $('#content-header').find('.page-title').text(@model.get('display') + ' Setup')
 
@@ -24,21 +24,21 @@ Augury.Views.Integrations.Signup = Backbone.View.extend(
 
     @
 
-  parameters_by_consumer: ->
+  parameters_by_service: ->
     @ret = {}
 
-    _.map(@model.get("consumers"), (consumer) =>
-      @ret[consumer["name"]] = consumer["requires"]["parameters"]
+    _.map(@model.get("services"), (service) =>
+      @ret[service["name"]] = service["requires"]["parameters"]
     )
     @ret
 
-  toggle_enabled_consumers: ->
-    for consumer_name,parameters of @parameters_by_consumer()
-      checked = @$el.find("input[value='#{consumer_name}']").is ':checked'
+  toggle_enabled_services: ->
+    for service_name,parameters of @parameters_by_service()
+      checked = @$el.find("input[value='#{service_name}']").is ':checked'
       if checked
-        @$el.find("input.#{consumer_name}").removeAttr 'disabled'
+        @$el.find("input.#{service_name}").removeAttr 'disabled'
       else
-        @$el.find("input.#{consumer_name}").attr 'disabled', true
+        @$el.find("input.#{service_name}").attr 'disabled', true
 
 
   save: ->
