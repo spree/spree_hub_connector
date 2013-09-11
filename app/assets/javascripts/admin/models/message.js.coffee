@@ -6,5 +6,8 @@ Augury.Models.Message = Backbone.Model.extend(
     message:
       required: true
       msg: "Message is required"
+
+  toJSON: ->
+    _(@attributes).clone()
 )
 
