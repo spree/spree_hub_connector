@@ -7,8 +7,6 @@ Augury.Routers.Home = Backbone.Router.extend(
     "delete/:id?confirm=:confirm": "delete"
 
   index: ->
-    Augury.update_nav('overview')
-
     view = new Augury.Views.Home.Index(collection: Augury.integrations)
     $("#integration_main").html view.render().el
 

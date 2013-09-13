@@ -3,8 +3,6 @@ Augury.Routers.Tests = Backbone.Router.extend(
     "test": "index"
 
   index: ->
-    Augury.update_nav('test')
-
     view = new Augury.Views.Tests.New()
     $("#integration_main").html view.render().el
 )

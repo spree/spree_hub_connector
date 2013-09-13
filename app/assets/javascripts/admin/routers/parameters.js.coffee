@@ -9,22 +9,16 @@ Augury.Routers.Parameters = Backbone.Router.extend(
     "parameters/delete/:id?confirm=:confirm": "delete"
 
   index: (integration_id) ->
-    Augury.update_nav('parameters')
-
     view = new Augury.Views.Parameters.Index()
     $("#integration_main").html view.render().el
 
   new: ->
-    Augury.update_nav('parameters')
-
     parameter = new Augury.Models.Parameter
     @collection.add parameter
     view = new Augury.Views.Parameters.Edit(model: parameter)
     $("#integration_main").html view.render().el
 
   edit: (id) ->
-    Augury.update_nav('parameters')
-
     parameter = @collection.get(id)
     view = new Augury.Views.Parameters.Edit(model: parameter)
     $("#integration_main").html view.render().el

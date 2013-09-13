@@ -10,6 +10,7 @@ window.Augury =
     @handle_link_clicks()
 
     Backbone.history.start pushState: true, root: '/admin/integration/'
+    Augury.update_nav Backbone.history.location.pathname
 
   connect: ->
     @init()
@@ -68,6 +69,8 @@ window.Augury =
 
       href = $(event.currentTarget).attr('href')
 
+      Augury.update_nav href
+
       if href is '/admin/integration'
         href = ''
       else
@@ -77,7 +80,7 @@ window.Augury =
         event.preventDefault()
         Backbone.history.navigate href, trigger: true
 
-  update_nav: (active) ->
-    $("ul.sidebar li").removeClass 'active'
-    $("ul.sidebar li.#{active}").addClass 'active'
+  update_nav: (href) ->
+    $("nav#hub-menu li a").removeClass 'active'
+    $("nav#hub-menu li a[href='#{href}']").addClass 'active'
 

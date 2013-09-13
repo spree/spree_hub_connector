@@ -7,22 +7,16 @@ Augury.Routers.Integrations = Backbone.Router.extend(
     "integrations/:id/signup": "signup"
 
   index: ->
-    Augury.update_nav('integrations')
-
     view = new Augury.Views.Integrations.Index()
     $("#integration_main").html view.render().el
 
   new: ->
-    Augury.update_nav('integrations')
-
     integration = new Augury.Models.Integration
     Augury.store_integrations.add integration
     view = new Augury.Views.Integrations.Edit(model: integration)
     $("#integration_main").html view.render().el
 
   edit: (id) ->
-    Augury.update_nav('integrations')
-
     integration = Augury.store_integrations.get id
     view = new Augury.Views.Integrations.Edit(model: integration)
     $("#integration_main").html view.render().el
@@ -40,8 +34,6 @@ Augury.Routers.Integrations = Backbone.Router.extend(
       Augury.Flash.notice "The integration has been deleted."
 
   signup: (integration_id) ->
-    Augury.update_nav('integrations')
-
     integration = _.findWhere Augury.global_integrations.models,
       id: integration_id
 
