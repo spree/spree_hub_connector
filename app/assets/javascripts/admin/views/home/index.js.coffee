@@ -38,7 +38,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
     $('#content-header').find('.page-title').text('Overview')
 
 
-    $("#integrations-select").on "select2-selected", (event, object) =>
+    @$el.find("#integrations-select").on "select2-selected", (event, object) =>
       selected = $("#integrations-select").select2('data').element
       integrationId = $(selected).data('integration-id')
       @showIntegrationModal(integrationId)
