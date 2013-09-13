@@ -6,6 +6,7 @@ Augury.Views.Tests.New = Backbone.View.extend(
   events:
     'click button#create-endpoint-message': 'createMessage'
     'select2-selected select#endpoint-message-samples': 'loadSample'
+    'click button#cancel': 'cancel'
 
   render: ->
     @$el.html JST['admin/templates/tests/new']()
@@ -55,5 +56,9 @@ Augury.Views.Tests.New = Backbone.View.extend(
     @editor.getSession().setMode 'ace/mode/json'
     @editor.setShowPrintMargin false
     @editor
+
+  cancel: (e) ->
+    e.preventDefault()
+    Backbone.history.navigate '/', trigger: true
 )
 
