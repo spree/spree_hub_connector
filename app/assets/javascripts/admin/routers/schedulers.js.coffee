@@ -9,22 +9,16 @@ Augury.Routers.Schedulers = Backbone.Router.extend(
     "schedulers/delete/:id?confirm=:confirm": "delete"
 
   index: (integration_id) ->
-    Augury.update_nav('schedulers')
-
     view = new Augury.Views.Schedulers.Index()
     $("#integration_main").html view.render().el
 
   new: ->
-    Augury.update_nav('schedulers')
-
     scheduler = new Augury.Models.Scheduler
     @collection.add scheduler
     view = new Augury.Views.Schedulers.Edit(model: scheduler, keys: Augury.messages)
     $("#integration_main").html view.render().el
 
   edit: (id) ->
-    Augury.update_nav('schedulers')
-
     scheduler = @collection.get(id)
     view = new Augury.Views.Schedulers.Edit(model: scheduler, keys: Augury.messages)
     $("#integration_main").html view.render().el

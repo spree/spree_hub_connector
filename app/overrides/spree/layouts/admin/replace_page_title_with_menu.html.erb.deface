@@ -1,20 +1,14 @@
 <!-- replace '.sixteen.columns .block-table .table-cell h1'-->
 <nav id="hub-menu">
-  <ul>    
+  <ul>
     <li>
-      <a href="/admin/integration" <%= if request.fullpath == '/admin/integration' then 'class=active' end %>>
-        Overview
-      </a>
+      <a href="/admin/integration">Overview</a>
     </li>
     <li>
-      <a href="/admin/integration/messages" <%= if request.fullpath == '/admin/integration/messages' then 'class=active' end %>>
-        Messages
-      </a>
+      <a href="/admin/integration/messages">Messages</a>
     </li>
     <li>
-      <a href="/admin/integration/test" <%= if request.fullpath == '/admin/integration/test' then 'class=active' end %>>
-        Test
-      </a>
+      <a href="/admin/integration/test">Test</a>
     </li>
   </ul>
 </nav>
