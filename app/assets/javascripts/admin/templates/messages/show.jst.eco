@@ -1,3 +1,5 @@
+<% children = @model.get('children') %>
+<% notifications = @model.get('notifications') %>
 <%#---------------------------------------%>
 <%# Messasge View                         %>
 <%#---------------------------------------%>
@@ -45,9 +47,8 @@
     <%# Notifications Table                   %>
     <%#---------------------------------------%>
     <div class="message-section alpha twelve columns">
-      <% notifications = @model.get('notifications') %>
       <% if notifications.length > 0: %>
-        <h3 class="message-section-header">Notifications <span class="counter"><%= notifications.length %></span></h3>
+        <h3 class="message-section-header">Notifications <span class="counter">(<%= notifications.length %>)</span></h3>
         <table class="message-notifications fullwidth">
           <thead>
             <th class='align-center'>Last Update</th>
@@ -96,10 +97,10 @@
 
           <ul>
             <li>
-              <a href="javascript:void(0)">Children (1)</a>
+              <a href="javascript:void(0)">Children (<%= children.length %>)</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Notifications (4)</a>
+              <a href="javascript:void(0)">Notifications (<%= notifications.length %>)</a>
             </li>
             <li>
               <a href="javascript:void(0)">Last Error</a>
