@@ -33,9 +33,10 @@
             <% end %>
           </div>
         </div>
+        <% status = @model.get('status') %>
         <div class="message-status three columns">
           <div class="block-title">Status:</div>
-          <div class="block-value"><span class="state pending">Pending</span></div>
+          <div class="block-value"><span class="state <%= status.toLowerCase() %>"><%= status %></span></div>
         </div>
       </div>
     </div>
