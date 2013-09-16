@@ -1,6 +1,233 @@
-<p>
-  app/assets/javascripts/admin/templates/messages/index.jst.eco
-</p>
-<p>
-  <a href="/admin/integration/messages/123456">app/assets/javascripts/admin/templates/messages/show.jst.eco</a>
-</p>
+<%#---------------------------------------%>
+<%#  Messages                             %>
+<%#---------------------------------------%>
+<fieldset class="no-border-bottom" id="messages-queue">
+  <legend>Accepted Messages Queue</legend>
+
+  <%#---------------------------------------%>
+  <%#  Messages Filters                     %>
+  <%#---------------------------------------%>
+  <div class="row" id="messages-filters">
+    
+    <div class="alpha four columns" id="filter-status">
+      <label for="status">Filter By Status</label>
+      <select name="status" class="select2 fullwidth" id="status-select">
+        <option value="Test">Test</option>
+      </select>
+    </div>
+
+    <div class="four columns" id="filter-message">
+      <label for="message">Filter By Messages</label>
+      <select name="message" class="select2 fullwidth" id="message-select">
+        <option value="Test">Test</option>
+      </select>
+    </div>
+
+    <div class="four columns" id="filter-consumer">
+      <label for="consumer">Filter By consumer</label>
+      <select name="consumer" class="select2 fullwidth" id="consumer-select">
+        <option value="Test">Test</option>
+      </select>
+    </div>
+
+    <div class="omega four columns" id="filter-date-range">
+      <label for="status">Filter By Date Range</label>
+      <input type="text" id="input-date-range" class='fullwidth'>
+    </div>
+
+  </div>
+  <%# / Messages Filters %>
+
+  <%#---------------------------------------%>
+  <%#  Messages Table                       %>
+  <%#---------------------------------------%>
+  <table>
+    <colgroup>
+      <col style="width:10%;">
+      <col style="width:5%;">
+      <col style="width:35%">
+      <col style="width:30%;">
+      <col style="width:25%;">
+      <col style="width:5%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th colspan="2">Consumer</th>
+        <th>Message</th>
+        <th>Queued At</th>
+        <th class='actions'></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="state parked">Parked</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/mailchimp.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state failing">Failing</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/mandrill.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> mandrill.po_transmitted_email
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state pending">Pending</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/amazon.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> amazon.order.poll
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state failing">Failing</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/zendesk.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state scheduled">Scheduled</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/hubspot.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state pending">Pending</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/quickbooks.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state scheduled">Scheduled</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/rlm.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state parked">Parked</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/shipwire.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state scheduled">Scheduled</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/spree.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Local:</strong> Orders::Persist
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="state failing">Failing</span></td>
+        <td class='consumer-image align-center'>
+          <img src="/assets/integrations/xero.png" alt="" height="40">
+        </td>
+        <td class="consumer-title">
+          <strong>Remote:</strong> rlm.shipment.ready
+        </td>
+        <td>shipment:ready</td>
+        <td class='align-center message-time'>2013-09-04 10:40:45</td>
+        <td class='actions'>
+          <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%# / Messages Table %>
+
+</fieldset>
+<%# / Messages %>
+
+<script>
+  $(function(){
+
+    $('#message-select, #status-select, #consumer-select').select2();
+
+    $('#input-date-range').daterangepicker({
+      showDropdowns: false,
+      timePicker: true,
+      timePicker12Hour: true,
+      opens: 'left',      
+      maxDate: moment(),
+      format: 'DD/MM/YY HH:mm',
+      ranges: {
+        'Last Hour': [moment().subtract('hours', 1), moment()],
+        'Last 3 Hours': [moment().subtract('hours', 3), moment()],
+        'Last 6 Hours': [moment().subtract('hours', 6), moment()],
+        'Last Day': [moment(), moment()],        
+        'Last 3 Days': [moment().subtract('days', 3), moment()],
+        'Last Week': [moment().subtract('days', 7), moment()]
+      }    
+    });
+    
+  });
+</script>
