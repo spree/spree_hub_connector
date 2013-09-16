@@ -46,6 +46,7 @@ window.Augury =
     @Routers._active['parameters'] = new @Routers.Parameters
       collection: @parameters
     @Routers._active['tests'] = new @Routers.Tests()
+    @Routers._active['messages'] = new @Routers.Messages()
 
     @post_init()
 
@@ -60,6 +61,7 @@ window.Augury =
             Schedulers:    {}
             Parameters:    {}
             Tests:         {}
+            Messages:      {}
         }
   Preload: {}
   SignUp: {}

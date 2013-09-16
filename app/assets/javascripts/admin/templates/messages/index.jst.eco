@@ -1,0 +1,6 @@
+<p>
+  app/assets/javascripts/admin/templates/messages/index.jst.eco
+</p>
+<p>
+  <a href="/admin/integration/messages/123456">app/assets/javascripts/admin/templates/messages/show.jst.eco</a>
+</p>
