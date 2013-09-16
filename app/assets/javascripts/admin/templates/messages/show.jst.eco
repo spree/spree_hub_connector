@@ -78,7 +78,7 @@
     <%#---------------------------------------%>
     <%# Back Button                           %>
     <%#---------------------------------------%>
-    <a href="javascript:void(0)" class="button back">
+    <a href="/admin/integration/messages" class="button back">
       <i class="icon-arrow-left"></i>
       Back to messages view
     </a>
