@@ -14,18 +14,24 @@
 
     <div class="message-details omega ten columns">
       <div class="message-top-details">
-        <div class="service-name"><span>Remote:</span> Mandrill.Outbound.Blah-blah</div>
-        <div class="message-name"><span>Message:</span> shipment:ready</div>
+        <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
+        <div class="message-name"><span>Message:</span> <%= @model.get('message') %></div>
       </div>
 
       <div class="message-minor-details">
         <div class="message-created-at alpha three columns">
           <div class="block-title">Created At:</div>
-          <div class="block-value">2013-09-16 10:39:44 UTC</div>
+          <div class="block-value"><%= Augury.format_date(@model.get('created_at')) %></div>
         </div>
         <div class="message-references three columns">
           <div class="block-title">References:</div>
-          <div class="block-value"><a href="javascript:void(0)">Order #1234567890</a></div>
+          <div class="block-value">
+            <% if @model.get('references')?: %>
+              <a href="javascript:void(0)">Order #1234567890</a>
+            <% else: %>
+              N/A
+            <% end %>
+          </div>
         </div>
         <div class="message-status three columns">
           <div class="block-title">Status:</div>
@@ -38,44 +44,32 @@
     <%# Notifications Table                   %>
     <%#---------------------------------------%>
     <div class="message-section alpha twelve columns">
-      <h3 class="message-section-header">Notifications <span class="counter">(4)</span></h3>
-      <table class="message-notifications fullwidth">
-        <thead>
-          <th class='align-center'>Last Update</th>
-          <th class='align-center'>Occurrences</th>
-          <th class='align-center'>Level</th>
-          <th>Subject</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class='align-center'>2013-09-11 22:05:23 UTC</td>
-            <td class='align-center'>1</td>
-            <td class='align-center'>Error</td>
-            <td><a href="javascript:void(0)">An unexpected error occurrred</a></td>
-          </tr>
-          <tr>
-            <td class='align-center'>2013-09-11 22:05:23 UTC</td>
-            <td class='align-center'>1</td>
-            <td class='align-center'>Error</td>
-            <td><a href="javascript:void(0)">An unexpected error occurrred</a></td>
-          </tr>
-          <tr>
-            <td class='align-center'>2013-09-11 22:05:23 UTC</td>
-            <td class='align-center'>1</td>
-            <td class='align-center'>Error</td>
-            <td><a href="javascript:void(0)">An unexpected error occurrred</a></td>
-          </tr>
-          <tr>
-            <td class='align-center'>2013-09-11 22:05:23 UTC</td>
-            <td class='align-center'>1</td>
-            <td class='align-center'>Error</td>
-            <td><a href="javascript:void(0)">An unexpected error occurrred</a></td>
-          </tr>
-        </tbody>
-      </table>
+      <% notifications = @model.get('notifications') %>
+      <% if notifications.length > 0: %>
+        <h3 class="message-section-header">Notifications <span class="counter"><%= notifications.length %></span></h3>
+        <table class="message-notifications fullwidth">
+          <thead>
+            <th class='align-center'>Last Update</th>
+            <th class='align-center'>Occurrences</th>
+            <th class='align-center'>Level</th>
+            <th>Subject</th>
+          </thead>
+          <tbody>
+            <% for notification in notifications: %>
+              <tr>
+                <td class='align-center'><%= Augury.format_date(notification.last_update) %></td>
+                <td class='align-center'><%= notification.occurrences %></td>
+                <td class='align-center'><%= notification.level %></td>
+                <td><a href="javascript:void(0)"><%= notification.subject %></a></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else: %>
+        <h3 class="message-section-header">No Notifications</span></h3>
+      <% end %>
     </div>
     <%# / Notifications Table %>
-
   </div>
   <%# / Message Details %>
 
