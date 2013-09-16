@@ -11,8 +11,6 @@ Augury.Routers.Mappings = Backbone.Router.extend(
     "mappings/delete/:id?confirm=:confirm": "delete"
 
   index: (integration_id) ->
-    Augury.update_nav('mappings')
-
     if integration_id?
       mappings = @collection.byIntegration(integration_id)
     else
@@ -22,8 +20,6 @@ Augury.Routers.Mappings = Backbone.Router.extend(
     $("#integration_main").html view.render().el
 
   new: ->
-    Augury.update_nav('mappings')
-
     mapping = new Augury.Models.Mapping
     Augury.mappings.add mapping
     mapping.set filters: []
@@ -32,8 +28,6 @@ Augury.Routers.Mappings = Backbone.Router.extend(
     $("#integration_main").html view.render().el
 
   edit: (id) ->
-    Augury.update_nav('mappings')
-
     mapping = @collection.get(id)
     view = new Augury.Views.Mappings.Edit(model: mapping, parameters: @parameters, messages: Augury.messages )
     $("#integration_main").html view.render().el

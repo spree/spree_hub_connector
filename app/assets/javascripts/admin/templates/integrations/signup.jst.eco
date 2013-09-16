@@ -7,22 +7,22 @@
   </div>
 <% end %>
 
-<% if @integration.get('consumers')?: %>
+<% if @integration.get('services')?: %>
   <p>You need to complete the following required configuration parameters:</p>
 
   <fieldset class="no-border-top">
     <div class="row">
-      <% for consumer_name,parameters of @parameters_by_consumer: %>
+      <% for service_name,parameters of @parameters_by_service: %>
         <fieldset class="no-border-bottom">
-          <legend><%= consumer_name %></legend>
-          <% consumer = _(@integration.get('consumers')).findWhere(name: consumer_name) %>
-          <p class='description'><%= consumer['description'] %></p>
+          <legend><%= service_name %></legend>
+          <% service = _(@integration.get('services')).findWhere(name: service_name) %>
+          <p class='description'><%= service['description'] %></p>
 
           <div class="alpha twelve columns">
             <div class="field align-center">
-              <% unless consumer['required']? : %>
-                  <input class="enabled" type="checkbox" name="enabled" value="<%= consumer['name'] %>" <%= 'checked' if Augury.mappings.findWhere(name: "#{@integration.get('name')}.#{consumer_name}")? %>>
-                  <label for="enabled">Enable this consumer?</label>
+              <% unless service['required']? : %>
+                  <input class="enabled" type="checkbox" name="enabled" value="<%= service['name'] %>" <%= 'checked' if Augury.mappings.findWhere(name: "#{@integration.get('name')}.#{service_name}")? %>>
+                  <label for="enabled">Enable this service?</label>
               <% end %>
             </div>
           </div>
@@ -30,7 +30,7 @@
               <div class="alpha six columns">
                 <div class="field">
                   <label for="token"><%= parameter['name'] %></label>
-                  <input class="param fullwidth <%= consumer_name %>" type="text"
+                  <input class="param fullwidth <%= service_name %>" type="text"
                          id="<%= parameter['name'] %>"
                          name="<%= parameter['name'] %>"
                          value="<%= Augury.parameters.valueByName("#{@integration.get('name')}.#{parameter['name']}") %>"

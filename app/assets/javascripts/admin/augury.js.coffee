@@ -10,6 +10,7 @@ window.Augury =
     @handle_link_clicks()
 
     Backbone.history.start pushState: true, root: '/admin/integration/'
+    Augury.update_nav Backbone.history.location.pathname
 
   connect: ->
     @init()
@@ -44,21 +45,31 @@ window.Augury =
     @Routers._active['connections'] = new @Routers.Connections()
     @Routers._active['parameters'] = new @Routers.Parameters
       collection: @parameters
+    @Routers._active['tests'] = new @Routers.Tests()
 
     @post_init()
 
   Models: {}
   Collections: {}
   Routers: { _active: {} }
-  Views: { Home: {}, Integrations: {}, Mappings: {}, Connections: {}, Schedulers: {}, Parameters: {} }
+  Views: {
+            Home:          {}
+            Integrations:  {}
+            Mappings:      {}
+            Connections:   {}
+            Schedulers:    {}
+            Parameters:    {}
+            Tests:         {}
+        }
   Preload: {}
-
   SignUp: {}
 
   handle_link_clicks: ->
     $(document).on "click", "a[href^='/admin/integration']", (event) ->
 
       href = $(event.currentTarget).attr('href')
+
+      Augury.update_nav href
 
       if href is '/admin/integration'
         href = ''
@@ -69,7 +80,7 @@ window.Augury =
         event.preventDefault()
         Backbone.history.navigate href, trigger: true
 
-  update_nav: (active) ->
-    $("ul.sidebar li").removeClass 'active'
-    $("ul.sidebar li.#{active}").addClass 'active'
+  update_nav: (href) ->
+    $("nav#hub-menu li a").removeClass 'active'
+    $("nav#hub-menu li a[href='#{href}']").addClass 'active'
 

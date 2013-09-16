@@ -11,26 +11,26 @@
 
   <form action="#" id="new-integration">
     <section class="modal-body">
-      <% if @options.integration.get('consumers')?: %>
+      <% if @options.integration.get('services')?: %>
         <div id="modal-tabs">
           <ul>
-            <% for consumerName of @options.parametersByConsumer: %>
-              <li><a href="#tabs-<%= consumerName %>"><%= consumerName %></a></li>
+            <% for serviceName of @options.parametersByService: %>
+              <li><a href="#tabs-<%= serviceName %>"><%= serviceName %></a></li>
             <% end %>
           </ul>
-            <% for consumerName, parameters of @options.parametersByConsumer: %>
-              <% consumer = _(@options.integration.get('consumers')).findWhere(name: consumerName) %>
-              <div id="tabs-<%= consumerName %>">
+            <% for serviceName, parameters of @options.parametersByService: %>
+              <% service = _(@options.integration.get('services')).findWhere(name: serviceName) %>
+              <div id="tabs-<%= serviceName %>">
                 <div class="row mapping-container">
                   <div class="alpha four columns general-info">
                     <div class="field description">
                       <label>Description:</label>
-                      <p><%= consumer['description'] %></p>
+                      <p><%= service['description'] %></p>
                     </div>
 
                     <div class="field state">
                       <label>State:</label>
-                      <div class="integration-toggle" data-consumer-name="<%= consumerName %>"></div>
+                      <div class="integration-toggle" data-service-name="<%= serviceName %>"></div>
                     </div>
                   </div>
 
@@ -40,7 +40,7 @@
                         <% for parameter in parameters when parameter['data_type'] isnt 'list': %>
                           <div class="field">
                             <label for="<%=parameter['name'] %>"><%= parameter['description'] %></label>
-                            <input class="<%= consumerName %> param required" type="text"
+                            <input class="<%= serviceName %> param required" type="text"
                                    id="<%= parameter['name'] %>"
                                    name="<%= parameter['name'] %>"
                                    value="<%= Augury.parameters.valueByName("#{@options.integration.get('name')}.#{parameter['name']}") %>"

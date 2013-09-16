@@ -29,7 +29,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
       $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
     $('#content-header').find('.page-actions').html JST["admin/templates/home/select_connection"]
       connections: Augury.connections
-      
+
 
     # Append connection select dropdown
     @$el.find('#active-integrations').html JST["admin/templates/home/new_integration"]
@@ -38,12 +38,12 @@ Augury.Views.Home.Index = Backbone.View.extend(
     $('#content-header').find('.page-title').text('Overview')
 
 
-    $("#integrations-select").on "select2-selected", (event, object) =>
+    @$el.find("#integrations-select").on "select2-selected", (event, object) =>
       selected = $("#integrations-select").select2('data').element
       integrationId = $(selected).data('integration-id')
       @showIntegrationModal(integrationId)
 
-    @$el.find("#connections-select").on "select2-selected", (event, object) =>
+    $("#connections-select").on "select2-selected", (event, object) =>
       selected = $("#connections-select").select2('data').element
       connectionId = $(selected).val()
       if connectionId == 'new-connection'
@@ -76,7 +76,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
       show: 'fade'
       hide: 'fade'
 
-      open: () -> 
+      open: () ->
         $('body').css('overflow', 'hidden')
 
       close: () ->

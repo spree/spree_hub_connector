@@ -5,14 +5,10 @@ Augury.Routers.Connections = Backbone.Router.extend(
     "connections/disconnect": "disconnect"
 
   new: ->
-    Augury.update_nav('overview')
-
     view = new Augury.Views.Connections.New()
     $("#integration_main").html view.render().el
 
   index: ->
-    Augury.update_nav('connections')
-
     view = new Augury.Views.Connections.Index()
     $("#integration_main").html view.render().el
 
