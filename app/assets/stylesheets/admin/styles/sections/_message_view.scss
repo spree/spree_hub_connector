@@ -1,0 +1,98 @@
+/*-------------------------------------------------
+  Message Sidebar
+  -----------------------------------------------*/
+.message-sidebar {
+  .button.back {
+    width: 100%;
+    text-align: center;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  nav {
+    margin-top: 20px;
+
+    ul {
+      list-style: none;      
+    }
+
+    > ul {
+      > li {
+        margin-bottom: 20px;
+
+        > a {
+          text-transform: uppercase;
+          font-size: 110%;
+        }
+      }
+
+      ul {
+        margin-left: 20px;
+        margin-top: 5px;
+
+        a {
+          line-height: 20px;
+          color: $color-4;
+
+          &:hover {
+            color: $color-2;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------------------------------
+  Message Details
+  -----------------------------------------------*/
+.message-top-details {
+  border-bottom: 1px solid $color-border;
+  text-transform: uppercase;  
+  font-weight: 600;
+  color: $color-3;
+  padding-bottom: 10px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .service-name, .message-name {
+    font-size: 16px;
+  }
+
+  span {
+    color: $color-2;
+  }  
+}
+
+.message-minor-details {
+  padding-top: 10px;
+  color: $color-4;
+
+  .block-title {
+    text-transform: uppercase;
+    font-weight: 600;        
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.message-section {
+  margin-top: 40px;
+}
+
+.message-section-header {
+  font-weight: 600;
+  color: $color-2;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .counter {
+    color: $color-3;
+  }
+}
