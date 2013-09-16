@@ -25,6 +25,8 @@ Augury.Views.Home.Index = Backbone.View.extend(
       collection: @active
     )
 
+    @$el.find('#active-integrations').before JST["admin/templates/shared/stats"]
+
     if $('#content-header .container .block-table').find('.page-actions').length < 1
       $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
     $('#content-header').find('.page-actions').html JST["admin/templates/home/select_connection"]
