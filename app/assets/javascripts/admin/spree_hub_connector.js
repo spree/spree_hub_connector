@@ -3,6 +3,7 @@
 //= require verbalexpressions
 //= require parsley.min
 //= require moment
+//= require prism
 //= require daterangepicker
 //= require toggles
 //= require_tree ../../../../vendor/assets/javascripts/noty
