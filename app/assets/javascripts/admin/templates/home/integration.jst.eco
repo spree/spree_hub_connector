@@ -8,7 +8,9 @@
   <%= @model.get('display') %>
 </figcaption>
 
-<div class="integration-toggle"></div>
+<% if !@model.is_pending(): %>
+  <div class="integration-toggle"></div>
+<% end %>
 
 <ul class="actions">
   <li class="action">
