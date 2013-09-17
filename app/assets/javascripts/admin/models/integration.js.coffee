@@ -53,7 +53,7 @@ Augury.Models.Integration = Backbone.Model.extend(
     @get('category') == 'custom'
 
   is_pending: ->
-    !@get('consumers') || @get('consumers').length < 1 || @has_errors()
+    !@get('services') || @get('services').length < 1 || @has_errors()
 
   has_errors: ->
     @get('error_messages') && @get('error_messages').length > 0
