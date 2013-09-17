@@ -1,37 +1,6 @@
-<fieldset class="no-border-bottom" id="connection-details">
-  <legend>Connection Details</legend>
-
-  <div class="row">
-    <%#---------------------------------------%>
-    <%#  Connected Message                    %>
-    <%#---------------------------------------%>
-    <div id="connected-message">
-
-      <%# Link -> Connected Icon %>
-      <span class="icon-stack">
-        <i class="icon-circle icon-stack-base"></i>
-        <i class="icon-link icon-light"></i>
-      </span>
-
-      <%# Connected Message %>
-      Connected to the <strong><%= @env['environment'] %></strong> Integrator as <strong><%= @env['user'] %></strong>.
-
-    </div>
-    <%# / Connected Message%>
-
-    <%#---------------------------------------%>
-    <%#  Connection Actions                   %>
-    <%#---------------------------------------%>
-    <div id="connection-actions" class='filter-actions actions'>
-    </div>
-    <%# / Connection Actions %>
-  </div>
-
-</fieldset>
-
 <fieldset class="no-border-bottom" id="active-integrations">
   <legend>Active Integrations</legend>
-  
+
   <% if @collection.models.length < 1: %>
     <div class='no-objects-found'>There are currently no Active Integrations</div>
   <% end %>
