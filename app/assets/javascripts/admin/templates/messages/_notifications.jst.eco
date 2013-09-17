@@ -1,0 +1,26 @@
+<% notifications = @model.get('notifications') %>
+<div class="message-section alpha twelve columns">
+  <% if notifications.length > 0: %>
+    <h3 class="message-section-header">Notifications <span class="counter">(<%= notifications.length %>)</span></h3>
+    <table class="message-notifications fullwidth">
+      <thead>
+        <th class='align-center'>Last Update</th>
+        <th class='align-center'>Occurrences</th>
+        <th class='align-center'>Level</th>
+        <th>Subject</th>
+      </thead>
+      <tbody>
+        <% for notification in notifications: %>
+          <tr>
+            <td class='align-center'><%= Augury.format_date(notification.last_update) %></td>
+            <td class='align-center'><%= notification.occurrences %></td>
+            <td class='align-center'><%= notification.level %></td>
+            <td><a href="javascript:void(0)"><%= notification.subject %></a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else: %>
+    <h3 class="message-section-header">No Notifications</span></h3>
+  <% end %>
+</div>
