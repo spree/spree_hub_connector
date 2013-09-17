@@ -63,6 +63,7 @@ window.Augury =
             Tests:         {}
             Messages:      {}
             Notifications: {}
+            Queues:        {}
         }
   Preload: {}
   SignUp: {}
@@ -98,3 +99,4 @@ window.Augury =
 
   stop_integration_poller: ->
     Backbone.Poller.get(Augury.integrations).stop()
+

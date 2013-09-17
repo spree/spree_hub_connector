@@ -22,7 +22,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
     @$el.html JST["admin/templates/home/index"](env: @env, collection: @active)
     @addAll()
 
-    @$el.find('#active-integrations').before JST["admin/templates/shared/stats"]
+    @$el.find('#active-integrations').before new Augury.Views.Queues.Stats().render().el
 
     if $('#content-header .container .block-table').find('.page-actions').length < 1
       $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
@@ -136,7 +136,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
       show: 'fade'
       hide: 'fade'
 
-      open: () -> 
+      open: () ->
         $('body').css('overflow', 'hidden')
 
       close: () ->
