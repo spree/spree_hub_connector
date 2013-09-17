@@ -15,7 +15,7 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
     'click button#save': 'save'
 
   render: ->
-    @options.parametersByConsumer = @parametersByConsumer()
+    @options.parametersBySerivce = @parametersByService()
     # Show modal
     @$el.html JST["admin/templates/home/edit_integration"](options: @options)
 
@@ -43,7 +43,7 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
       width: 90
     })
 
-    # Show loading message or error messages while waiting for consumers to be present
+    # Show loading message or error messages while waiting for services to be present
     if @model.is_pending()
       @$el.html '<p>Please wait while we fetch the endpoint configuration...</p>'
       if @model.has_errors()
