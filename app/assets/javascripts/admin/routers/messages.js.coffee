@@ -1,15 +1,11 @@
 Augury.Routers.Messages = Backbone.Router.extend(
   routes:
-    "messages": "index"
-    "messages/:id": "show"
-
-  index: ->
-    view = new Augury.Views.Messages.Index
-    $("#integration_main").html view.render().el
+    'messages/:id': 'show'
 
   show: (id) ->
     message = new Augury.Models.Message(id: id)
     message.fetch().done ->
       view = new Augury.Views.Messages.Show(model: message)
-      $("#integration_main").html view.render().el
+      $('#integration_main').html view.render().el
 )
+

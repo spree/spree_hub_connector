@@ -5,11 +5,4 @@ Augury.Collections.Parameters = Backbone.Collection.extend(
 
   byName: (name) ->
     @.findWhere name: name
-
-  valueByName: (name) ->
-    param = @byName(name)
-    if param?
-      param.get('value')
-    else
-      null
 )

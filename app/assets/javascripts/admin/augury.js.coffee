@@ -47,6 +47,7 @@ window.Augury =
     @Routers._active['tests'] = new @Routers.Tests()
     @Routers._active['messages'] = new @Routers.Messages()
     @Routers._active['notifications'] = new @Routers.Notifications()
+    @Routers._active['queues'] = new @Routers.Queues()
 
     @post_init()
 
