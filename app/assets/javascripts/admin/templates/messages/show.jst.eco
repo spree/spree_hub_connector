@@ -61,7 +61,7 @@
     <%#---------------------------------------%>
     <%# Back Button                           %>
     <%#---------------------------------------%>
-    <a href="/admin/integration/messages" class="button back">
+    <a href="/admin/integration/queues/accepted" class="button back">
       <i class="icon-arrow-left"></i>
       Back to messages view
     </a>
