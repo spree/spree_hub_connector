@@ -103,7 +103,7 @@
               <a href="javascript:void(0)" data-template="attributes">Attributes</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Payload</a>
+              <a href="javascript:void(0)" data-template="payload">Payload</a>
             </li>
           </ul>
         </li>
