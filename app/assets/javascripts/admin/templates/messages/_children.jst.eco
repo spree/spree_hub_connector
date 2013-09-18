@@ -1,0 +1,22 @@
+<% children = @model.get('children') %>
+<div class="message-section alpha twelve columns">
+  <% if children.length > 0: %>
+    <h3 class="message-section-header">Children <span class="counter">(<%= children.length %>)</span></h3>
+    <table class="message-children fullwidth">
+      <thead>
+        <th class='align-center'>Message</th>
+        <th class='align-center'>Consumer Class</th>
+      </thead>
+      <tbody>
+        <% for child in children: %>
+          <tr>
+            <td class='align-center'><%= child.message %></td>
+            <td class='align-center'><%= child.consumer_class %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else: %>
+    <h3 class="message-section-header">No Children</span></h3>
+  <% end %>
+</div>

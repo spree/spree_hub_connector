@@ -1,0 +1,4 @@
+<div class="message-section alpha twelve columns">
+  <h3 class="message-section-header">Last Error</span></h3>
+  <p><%= @model.get('last_error') %></p>
+</div>
