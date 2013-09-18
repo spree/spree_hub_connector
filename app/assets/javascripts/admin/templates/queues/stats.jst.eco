@@ -18,7 +18,7 @@
         <span class="stats-counter"><%= @model.get('incoming_round') %><sup><%= @model.get('incoming_sign') %></sup></span>
       </div>
       <footer class="stats-footer">
-        <a href="/integration/queue/incoming">View Incoming Messages <i class="icon-circle-arrow-right"></i></a>
+        <a href="/admin/integration/queues/incoming">View Incoming Messages <i class="icon-circle-arrow-right"></i></a>
       </footer>
     </div>
     <%# / Incoming %>
@@ -54,7 +54,7 @@
 
       </div>
       <footer class="stats-footer">
-        <a href="/integration/queue/incoming">View Accepted Messages <i class="icon-circle-arrow-right"></i></a>
+        <a href="/admin/integration/queues/accepted">View Accepted Messages <i class="icon-circle-arrow-right"></i></a>
       </footer>
     </div>
     <%# / Accepted %>
@@ -71,7 +71,7 @@
         <span class="stats-counter"><%= @model.get('archived_round') %><sup><%= @model.get('archived_sign') %></sup></span>
       </div>
       <footer class="stats-footer">
-        <a href="/integration/queue/incoming">View Archived Messages <i class="icon-circle-arrow-right"></i></a>
+        <a href="/admin/integration/queues/archived">View Archived Messages <i class="icon-circle-arrow-right"></i></a>
       </footer>
     </div>
     <%# / Archived %>

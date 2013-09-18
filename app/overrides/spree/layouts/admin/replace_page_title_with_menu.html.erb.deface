@@ -5,7 +5,7 @@
       <a href="/admin/integration">Overview</a>
     </li>
     <li>
-      <a href="/admin/integration/messages">Messages</a>
+      <a href="/admin/integration/queues/accepted">Messages</a>
     </li>
     <li>
       <a href="/admin/integration/notifications">Notifications</a>
