@@ -1,0 +1,4 @@
+<div class="message-section alpha twelve columns">
+  <h3 class="message-section-header">Result</span></h3>
+  <textarea><%= vkbeautify.json JSON.stringify(@model.get('result')) %></textarea>
+</div>
