@@ -1,0 +1,32 @@
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+  font-family: "Inconsolata", "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-size: 15px !important;
+}
+
+.syntaxhighlighter {
+  max-width: 880px !important;
+  padding: 0 10px;
+}
+
+.syntaxhighlighter .string, 
+.syntaxhighlighter .string a {
+  color: $color-4 !important;
+}
+
+.syntaxhighlighter .keyword {
+  color: $color-2 !important;
+}
+
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a {
+  color: $color-6 !important;
+}

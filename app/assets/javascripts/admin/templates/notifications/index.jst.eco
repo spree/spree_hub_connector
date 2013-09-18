@@ -8,14 +8,14 @@
   <%#  Notifications Filter                 %>
   <%#---------------------------------------%>
   <div id="notifications-filter">
-    <div class="alpha three columns">
+    <div class="alpha four columns">
       <label for="filter-reference-type">Reference Type:</label>
       <select name="reference-type" id="filter-reference-type" class="select2 fullwidth">
         <option value="order">Order</option>
       </select>
     </div>
 
-    <div class="three columns">
+    <div class="four columns">
       <label for="filter-level">Level:</label>
       <select name="level" id="filter-level" class="select2 fullwidth">
         <option value="error">Error</option>
@@ -29,8 +29,8 @@
       <input type="text" id="filter-reference-id" class="fullwidth">
     </div>
 
-    <div class="omega four columns">
-      <button type="submit">
+    <div class="omega two columns">
+      <button type="submit" class="fullwidth">
         <i class="icon-search"></i>
         Search
       </button>
@@ -43,6 +43,12 @@
   <%#  Notifications Table                  %>
   <%#---------------------------------------%>
   <table id="notifications-table">
+    <colgroup>
+      <col style='width: 75%'>
+      <col style='width: 10%'>
+      <col style='width: 10%'>
+      <col style='width: 5%'>
+    </colgroup>
     <thead>
       <th>Notification</th>
       <th>Level</th>
@@ -52,39 +58,36 @@
     <tbody>
       <tr class='state-error'>
         <td>An unexpected error occurrred</td>
-        <td>error</td>
-        <td>1</td>
-        <td class='actions'><a href="javascript:void(0)">Show</a></td>
+        <td class='state error'>error</td>
+        <td class='align-center'>1</td>
+        <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
       </tr>
       <tr class='hidden'>
-        <td colspan="3">
-          <pre class='line-numbers'>
-<code class="language-javascript">
-{
-  "_id": "52338a9eb4395733370004a9",
-  "description": "address1 was truncated from '200  Riverside Blvd Apt 16-I' to '200  Riverside Blvd Apt 1'",
-  "last_update": "2013-09-13T21:58:54Z",
-  "level": "warn",
-  "logged_on": "2013-09-13T21:58:54Z",
-  "message_id": null,
-  "occurrences": 2,
-  "store_id": "51f8eaa2b4395794bc000001",
-  "subject": "address1 was truncated"
-}
-</code>
+        <td colspan="4">
+          <pre class="brush: js; gutter: false; tab-size: 2; toolbar: false;">
+              {
+                "_id": "52338a9eb4395733370004a9",
+                "description": "address1 was truncated from '200  Riverside Blvd Apt 16-I' to '200  Riverside Blvd Apt 1'",
+                "last_update": "2013-09-13T21:58:54Z",
+                "level": "warn",
+                "logged_on": "2013-09-13T21:58:54Z",
+                "message_id": null,
+                "occurrences": 2,
+                "store_id": "51f8eaa2b4395794bc000001",
+                "subject": "address1 was truncated"
+              }
           </pre>
         </td>
       </tr>
       <tr class='state-info'>
         <td>Order 103-0325074-5383447 imported from Amazon.com</td>
-        <td>info</td>
-        <td>1</td>
-        <td class='actions'><a href="javascript:void(0)">Show</a></td>
+        <td class='state info'>info</td>
+        <td class='align-center'>1</td>
+        <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
       </tr>
       <tr class='hidden'>
-        <td colspan="3">
-          <pre>
-            <code class="language-javascript">
+        <td colspan="4">
+          <pre class="brush: js; gutter: false; tab-size: 2; toolbar: false;">
               {
                 "_id": "52338a9eb4395733370004a9",
                 "description": "address1 was truncated from '200  Riverside Blvd Apt 16-I' to '200  Riverside Blvd Apt 1'",
@@ -95,21 +98,19 @@
                 "occurrences": 2,
                 "store_id": "51f8eaa2b4395794bc000001",
                 "subject": "address1 was truncated"
-              }  
-            </code>
+              }
           </pre>
         </td>
       </tr>
       <tr class='state-warn'>
         <td>address1 was truncated</td>
-        <td>warn</td>
-        <td>2</td>
-        <td class='actions'><a href="javascript:void(0)">Show</a></td>
+        <td class='state warn'>warn</td>
+        <td class='align-center'>2</td>
+        <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
       </tr>
       <tr class='hidden'>
-        <td colspan="3">
-          <pre>
-            <code class="language-javascript">
+        <td colspan="4">
+          <pre class="brush: js; gutter: false; tab-size: 2; toolbar: false;">
               {
                 "_id": "52338a9eb4395733370004a9",
                 "description": "address1 was truncated from '200  Riverside Blvd Apt 16-I' to '200  Riverside Blvd Apt 1'",
@@ -120,8 +121,7 @@
                 "occurrences": 2,
                 "store_id": "51f8eaa2b4395794bc000001",
                 "subject": "address1 was truncated"
-              }  
-            </code>
+              }
           </pre>
         </td>
       </tr>
@@ -136,6 +136,9 @@
   $('#filter-reference-type, #filter-level').select2();
 
   $('#notifications-table').find('td.actions a').on('click', function(){
-    $(this).parent().parent().next().slideToggle();
+    $(this).parent().parent().next().toggle();
+    $(this).parent().parent().toggleClass('without-border');
   });
+
+  SyntaxHighlighter.all();
 </script>

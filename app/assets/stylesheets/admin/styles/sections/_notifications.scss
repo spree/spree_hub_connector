@@ -1,0 +1,55 @@
+#notifications-filter {
+  margin-bottom: 20px;
+  overflow: auto;
+
+  button[type='submit'] {
+    float: right;
+    margin-top: 17px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+#notifications-table {
+  tr {
+    &.state-error {
+      td {
+        border-left-color: very-light($color-error, 15);
+      }
+
+      &:hover td {
+        background-color: very-light($color-error, 6);
+        border-color: very-light($color-error, 15);
+      }
+    }
+
+    &.state-warn {
+      td {
+        border-left-color: very-light($color-notice, 15);
+      }
+
+      &:hover td {
+        background-color: very-light($color-notice, 6);
+        border-color: very-light($color-notice, 15);
+      }
+    }
+
+    &.without-border td {
+      border-bottom: none;
+    }
+
+    &.hidden {
+      td {
+        padding: 0;
+        border: 1px solid $color-border;
+      }
+
+      &:hover {
+        td {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
