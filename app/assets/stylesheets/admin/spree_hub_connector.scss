@@ -2,8 +2,11 @@
  *= require toggles
  *= require jquery.ui.tabs
  *= require daterangepicker
- *= require prism
+ *= require shCore
+ *= require shCoreDefault
+ *= require shThemeDefault
 */
+@import url(//fonts.googleapis.com/css?family=Inconsolata);
 
 @import 'admin/globals/functions';
 @import 'admin/globals/mixins';
@@ -15,12 +18,14 @@
 @import 'styles/plugins/jquery_ui';
 @import 'styles/plugins/select2';
 @import 'styles/plugins/daterange';
+@import 'styles/plugins/syntax_highlighter';
 
 @import 'styles/components/stats_block';
 @import 'styles/components/navigation';
 @import 'styles/components/messages_table';
 
 @import 'styles/sections/message_view';
+@import 'styles/sections/notifications';
 
 .order_events_iframe {
   border: none;

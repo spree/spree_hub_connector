@@ -3,8 +3,11 @@
 }
 
 .state {
-  &.pending:before   { background-color: $color-3 }
-  &.failing:before   { background-color: $color-5 }
-  &.scheduled:before { background-color: $color-6 }
+  &.pending:before,
+  &.info:before,     { background-color: $color-3 }
+  &.failing:before,
+  &.error:before,    { background-color: $color-5 }
+  &.scheduled:before,
+  &.warn:before      { background-color: $color-6 }
   &.parked:before    { background-color: lighten(black, 45) }
 }
