@@ -3,6 +3,11 @@
 }
 
 .state {
+  font-size: 90%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   &.pending:before,
   &.info:before,     { background-color: $color-3 }
   &.failing:before,
