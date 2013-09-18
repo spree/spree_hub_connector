@@ -100,7 +100,7 @@
               <a href="javascript:void(0)" data-template="result">Result</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Attributes</a>
+              <a href="javascript:void(0)" data-template="attributes">Attributes</a>
             </li>
             <li>
               <a href="javascript:void(0)">Payload</a>
