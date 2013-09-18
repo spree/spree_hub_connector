@@ -78,14 +78,14 @@
 
           <ul>
             <li>
-              <a href="#" data-template="children">Children (<%= children.length %>)</a>
+              <a href="javascript:void(0)" data-template="children">Children (<%= children.length %>)</a>
             </li>
             <li>
-              <a href="#" data-template="notifications">Notifications (<%= notifications.length %>)</a>
+              <a href="javascript:void(0)" data-template="notifications">Notifications (<%= notifications.length %>)</a>
             </li>
             <% if @model.has_errors(): %>
               <li>
-                <a href="#" data-template="last_error">Last Error</a>
+                <a href="javascript:void(0)" data-template="last_error">Last Error</a>
               </li>
             <% end %>
           </ul>
@@ -97,7 +97,7 @@
 
           <ul>
             <li>
-              <a href="javascript:void(0)">Result</a>
+              <a href="javascript:void(0)" data-template="result">Result</a>
             </li>
             <li>
               <a href="javascript:void(0)">Attributes</a>

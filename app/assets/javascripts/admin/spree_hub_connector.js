@@ -3,6 +3,7 @@
 //= require verbalexpressions
 //= require parsley.min
 //= require moment
+//= require vkbeautify
 //= require shCore
 //= require shBrushJScript
 //= require daterangepicker
