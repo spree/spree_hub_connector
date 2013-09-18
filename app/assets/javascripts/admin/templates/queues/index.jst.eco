@@ -44,8 +44,11 @@
   <table>
     <colgroup>
       <col style="width:10%;">
+      <!--
       <col style="width:5%;">
       <col style="width:35%">
+      -->
+      <col style="width:45%;">
       <col style="width:30%;">
       <col style="width:25%;">
       <col style="width:5%;">
@@ -77,7 +80,7 @@
           <td><%= message.get('message') %></td>
           <td class='align-center message-time'><%= message.get('created_at') %></td>
           <td class='actions'>
-            <a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+            <a href="/admin/integration/messages/<%= message.get('id') %>" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
           </td>
         </tr>
     <% end %>

@@ -1,14 +1,6 @@
-Augury.Models.Message = Backbone.Model.extend(
+Augury.Models.Message = Backbone.MongoModel.extend(
   initialize: ->
     @urlRoot = "/stores/#{Augury.store_id}/messages"
-
-  validation:
-    message:
-      required: true
-      msg: "Message is required"
-
-  toJSON: ->
-    _(@attributes).clone()
 
   has_errors: ->
     @get('last_error')

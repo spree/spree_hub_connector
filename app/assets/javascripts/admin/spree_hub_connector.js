@@ -12,6 +12,7 @@
 //= require underscore
 //= require backbone
 //= require backbone-validation-min
+//= require backbone-mongodb
 //= require ace/ace
 //= require backbone.poller.min
 //= require admin/augury
