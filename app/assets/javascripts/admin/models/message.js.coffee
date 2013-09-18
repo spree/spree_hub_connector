@@ -9,5 +9,8 @@ Augury.Models.Message = Backbone.Model.extend(
 
   toJSON: ->
     _(@attributes).clone()
+
+  has_errors: ->
+    @get('last_error')
 )
 

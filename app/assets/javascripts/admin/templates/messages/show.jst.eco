@@ -71,14 +71,16 @@
 
           <ul>
             <li>
-              <a href="javascript:void(0)">Children (<%= children.length %>)</a>
+              <a href="#" data-template="children">Children (<%= children.length %>)</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Notifications (<%= notifications.length %>)</a>
+              <a href="#" data-template="notifications">Notifications (<%= notifications.length %>)</a>
             </li>
-            <li>
-              <a href="javascript:void(0)">Last Error</a>
-            </li>
+            <% if @model.has_errors(): %>
+              <li>
+                <a href="#" data-template="last_error">Last Error</a>
+              </li>
+            <% end %>
           </ul>
         </li>
 
