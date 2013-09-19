@@ -75,7 +75,7 @@
           </td>
           -->
           <td class="consumer-title">
-            <strong>Remote:</strong> <%= message.get('consumer_class') %>
+            <strong>Remote:</strong> <%= message.get('consumer') %>
           </td>
           <td><%= message.get('message') %></td>
           <td class='align-center message-time'><%= message.get('created_at') %></td>
