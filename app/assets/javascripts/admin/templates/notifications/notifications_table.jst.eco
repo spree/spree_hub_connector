@@ -1,0 +1,37 @@
+<%#---------------------------------------%>
+<%#  Notifications Table                  %>
+<%#---------------------------------------%>
+<table id="notifications-table">
+  <colgroup>
+    <col style='width: 75%'>
+    <col style='width: 10%'>
+    <col style='width: 10%'>
+    <col style='width: 5%'>
+  </colgroup>
+  <thead>
+    <th>Notification</th>
+    <th>Level</th>
+    <th>Count</th>
+    <th class='actions'></th>
+  </thead>
+  <tbody>
+    <% for notification in @notifications.models: %>
+      <div class="notification-detail">
+        <tr class='state-<%= notification.get('level') %>'>
+          <td><%= notification.get('description') %></td>
+          <td class='state <%= notification.get('level') %>'><%= notification.get('level') %></td>
+          <td class='align-center'><%= notification.get('occurrences') %></td>
+          <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
+        </tr>
+        <tr class='hidden'>
+          <td colspan="4">
+            <pre class="brush: js; gutter: false; toolbar: false;">
+              <%= JSON.stringify notification.attributes, null, 2 %>
+            </pre>
+          </td>
+        </tr>
+      </div>
+    <% end %>
+  </tbody>
+</table>
+<%# / Notifications Table %>
