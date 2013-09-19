@@ -11,7 +11,7 @@
   <%#---------------------------------------%>
   <div class="message-details alpha twelve columns">
     <div class="message-service-image alpha two columns">
-      <img src="/assets/integrations/<%= @model.consumer_image_name() %>.png" alt="<%= @model.consumer_image_name() %>">
+      <img src="/assets/integrations/<%= @model.get('destination_name') %>.png" alt="<%= @model.get('destination_name') %>">
     </div>
 
     <div class="message-details omega ten columns">
