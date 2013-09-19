@@ -11,7 +11,7 @@
   <%#---------------------------------------%>
   <div class="message-details alpha twelve columns">
     <div class="message-service-image alpha two columns">
-      <img src="/assets/integrations/mandrill.png" alt="Mandrill">
+      <img src="/assets/integrations/<%= @model.consumer_image_name() %>.png" alt="<%= @model.consumer_image_name() %>">
     </div>
 
     <div class="message-details omega ten columns">
@@ -29,17 +29,17 @@
           <div class="block-title">References:</div>
           <div class="block-value">
             <% if @model.get('references')?: %>
-              <a href="javascript:void(0)">Order #1234567890</a>
+              <a href="admin/orders/<%= @model.get('references') %>/edit">Order #<%= @model.get('references') %></a>
             <% else: %>
               N/A
             <% end %>
           </div>
         </div>
-        <% status = @model.get('status') %>
+        <% state = @model.get('state') %>
         <div class="message-status three columns">
-          <div class="block-title">Status:</div>
-          <div class="block-value"><span class="state <%= status.toLowerCase() %>">
-            <%= status %>
+          <div class="block-title">State:</div>
+          <div class="block-value"><span class="state <%= state.toLowerCase() %>">
+            <%= state %>
           </span></div>
           <% if @model.has_errors(): %>
             <div class="block-title">Attempts: <%= @model.get('attempts') %></div>
@@ -61,7 +61,7 @@
     <%#---------------------------------------%>
     <%# Back Button                           %>
     <%#---------------------------------------%>
-    <a href="/admin/integration/queues/accepted" class="button back">
+    <a href="/admin/integration/queues/<%= @model.get('queue_name') %>" class="button back">
       <i class="icon-arrow-left"></i>
       Back to messages view
     </a>

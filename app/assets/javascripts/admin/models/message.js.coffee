@@ -4,5 +4,11 @@ Augury.Models.Message = Backbone.MongoModel.extend(
 
   has_errors: ->
     @get('last_error')
+
+  consumer_image_name: ->
+    if @get('is_consumer_remote')
+      @get('destination_name')
+    else
+      'spree'
 )
 
