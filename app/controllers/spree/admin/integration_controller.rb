@@ -50,6 +50,7 @@ module Spree
           @mappings_json = preloader.mappings
           @schedulers_json = preloader.schedulers
           @parameters_json = preloader.parameters
+          @notifications_json = preloader.notifications
         end
 
       end
