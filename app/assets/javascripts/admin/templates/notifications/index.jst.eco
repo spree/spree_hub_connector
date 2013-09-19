@@ -56,75 +56,23 @@
       <th class='actions'></th>
     </thead>
     <tbody>
-      <tr class='state-error'>
-        <td>An unexpected error occurrred</td>
-        <td class='state error'>error</td>
-        <td class='align-center'>1</td>
-        <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
-      </tr>
-      <tr class='hidden'>
-        <td colspan="4">
-          <pre class="brush: js; gutter: false; tab-size: 2; toolbar: false;">
-              {
-                "_id": "52338a9eb4395733370004a9",
-                "description": "address1 was truncated from '200  Riverside Blvd Apt 16-I' to '200  Riverside Blvd Apt 1'",
-                "last_update": "2013-09-13T21:58:54Z",
-                "level": "warn",
-                "logged_on": "2013-09-13T21:58:54Z",
-                "message_id": null,
-                "occurrences": 2,
-                "store_id": "51f8eaa2b4395794bc000001",
-                "subject": "address1 was truncated"
-              }
-          </pre>
-        </td>
-      </tr>
-      <tr class='state-info'>
-        <td>Order 103-0325074-5383447 imported from Amazon.com</td>
-        <td class='state info'>info</td>
-        <td class='align-center'>1</td>
-        <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
-      </tr>
-      <tr class='hidden'>
-        <td colspan="4">
-          <pre class="brush: js; gutter: false; tab-size: 2; toolbar: false;">
-              {
-                "_id": "52338a9eb4395733370004a9",
-                "description": "address1 was truncated from '200  Riverside Blvd Apt 16-I' to '200  Riverside Blvd Apt 1'",
-                "last_update": "2013-09-13T21:58:54Z",
-                "level": "warn",
-                "logged_on": "2013-09-13T21:58:54Z",
-                "message_id": null,
-                "occurrences": 2,
-                "store_id": "51f8eaa2b4395794bc000001",
-                "subject": "address1 was truncated"
-              }
-          </pre>
-        </td>
-      </tr>
-      <tr class='state-warn'>
-        <td>address1 was truncated</td>
-        <td class='state warn'>warn</td>
-        <td class='align-center'>2</td>
-        <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
-      </tr>
-      <tr class='hidden'>
-        <td colspan="4">
-          <pre class="brush: js; gutter: false; tab-size: 2; toolbar: false;">
-              {
-                "_id": "52338a9eb4395733370004a9",
-                "description": "address1 was truncated from '200  Riverside Blvd Apt 16-I' to '200  Riverside Blvd Apt 1'",
-                "last_update": "2013-09-13T21:58:54Z",
-                "level": "warn",
-                "logged_on": "2013-09-13T21:58:54Z",
-                "message_id": null,
-                "occurrences": 2,
-                "store_id": "51f8eaa2b4395794bc000001",
-                "subject": "address1 was truncated"
-              }
-          </pre>
-        </td>
-      </tr>
+      <% for notification in @notifications.models: %>
+        <div class="notification-detail">
+          <tr class='state-<%= notification.get('level') %>'>
+            <td><%= notification.get('description') %></td>
+            <td class='state <%= notification.get('level') %>'><%= notification.get('level') %></td>
+            <td class='align-center'><%= notification.get('occurrences') %></td>
+            <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
+          </tr>
+          <tr class='hidden'>
+            <td colspan="4">
+              <pre class="brush: js; gutter: false; toolbar: false;">
+                <%= JSON.stringify notification.attributes, null, 2 %>
+              </pre>
+            </td>
+          </tr>
+        </div>
+      <% end %>
     </tbody>
   </table>
   <%# / Notifications Table %>
