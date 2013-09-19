@@ -8,7 +8,7 @@
   <%#  Messages Filters                     %>
   <%#---------------------------------------%>
   <div class="row" id="messages-filters">
-    <div class="alpha four columns" id="filter-status">
+    <div class="alpha three columns" id="filter-status">
       <label for="status">Filter By State</label>
       <select name="status" class="select2 fullwidth" id="status-select">
         <option value=""></option>
@@ -21,23 +21,30 @@
       </select>
     </div>
 
-    <div class="four columns" id="filter-message">
+    <div class="three columns" id="filter-message">
       <label for="message">Filter By Messages</label>
       <select name="message" class="select2 fullwidth" id="message-select">
         <option value="Test">Test</option>
       </select>
     </div>
 
-    <div class="four columns" id="filter-consumer">
+    <div class="three columns" id="filter-consumer">
       <label for="consumer">Filter By consumer</label>
       <select name="consumer" class="select2 fullwidth" id="consumer-select">
         <option value="Test">Test</option>
       </select>
     </div>
 
-    <div class="omega four columns" id="filter-date-range">
+    <div class="three columns" id="filter-date-range">
       <label for="status">Filter By Date Range</label>
       <input type="text" id="input-date-range" class='fullwidth'>
+    </div>
+
+    <div class="omega two columns">
+      <button type="submit" class="fullwidth">
+        <i class="icon-search"></i>
+        Search
+      </button>
     </div>
 
   </div>
