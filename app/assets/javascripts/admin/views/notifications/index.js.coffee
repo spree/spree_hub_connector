@@ -16,8 +16,8 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
   renderTable: ->
     @$el.find('#notifications-view').html JST["admin/templates/notifications/notifications_table"](notifications: Augury.notifications)
     @$el.find('#notifications-table').find('td.actions a').on 'click', ->
-      @parent().parent().next().toggle()
-      @parent().parent().toggleClass('without-border')
+      $(@).parent().parent().next().toggle()
+      $(@).parent().parent().toggleClass('without-border')
     SyntaxHighlighter.all()
 
   search: ->
