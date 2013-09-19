@@ -2,7 +2,7 @@
 <%#  Messages                             %>
 <%#---------------------------------------%>
 <fieldset class="no-border-bottom" id="messages-queue">
-  <legend>Accepted Messages Queue</legend>
+  <legend><%= @queue_name %> Messages Queue</legend>
 
   <%#---------------------------------------%>
   <%#  Messages Filters                     %>
@@ -43,14 +43,14 @@
   <%#---------------------------------------%>
   <table>
     <colgroup>
-      <col style="width:10%;">
+      <col style="width:12%;">
       <!--
       <col style="width:5%;">
       <col style="width:35%">
       -->
-      <col style="width:45%;">
-      <col style="width:30%;">
-      <col style="width:25%;">
+      <col style="width:40%;">
+      <col style="width:20%;">
+      <col style="width:23%;">
       <col style="width:5%;">
     </colgroup>
     <thead>
@@ -68,7 +68,7 @@
     <tbody>
       <% for message in @collection.models: %>
         <tr>
-          <td><span class="state parked">Parked</span></td>
+          <td><span class="state <%= message.get('status') %>"><%= message.get('status') %></span></td>
           <!--
           <td class='consumer-image align-center'>
             <img src="/assets/integrations/mailchimp.png" alt="" height="40">
