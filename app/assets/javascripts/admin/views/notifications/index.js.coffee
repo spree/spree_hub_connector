@@ -1,5 +1,5 @@
 Augury.Views.Notifications.Index = Backbone.View.extend(
   render: ->
-    @$el.html JST["admin/templates/notifications/index"]()
+    @$el.html JST["admin/templates/notifications/index"](notifications: Augury.notifications)
     @
 )
