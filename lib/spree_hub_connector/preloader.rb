@@ -34,6 +34,9 @@ module SpreeHubConnector
       load_resource "/stores/#{@store_id}/parameters"
     end
 
+    def notifications
+      load_resource "/stores/#{@store_id}/notifications"
+    end
 
     private
 
