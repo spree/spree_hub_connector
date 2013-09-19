@@ -13,7 +13,7 @@ Augury.Views.Queues.Index = Backbone.View.extend(
     @
 
   update_messages_view: (collection) ->
-    @$el.html @template(collection: collection)
+    @$el.html @template(collection: collection, queue_name: @options.queue_name)
     @$el.find('#messages-queue').before @stats_view.render().el
 )
 
