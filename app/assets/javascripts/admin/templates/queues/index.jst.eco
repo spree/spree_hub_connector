@@ -15,7 +15,10 @@
         <option value="completed">Completed</option>
         <option value="pending">Pending</option>
         <option value="failing">Failing</option>
+        <%#
+          Parked filter isn't implement yet
         <option value="parked">Parked</option>
+        %>
         <option value="scheduled">Scheduled</option>
         <option value="never processed">Never Processed</option>
       </select>
