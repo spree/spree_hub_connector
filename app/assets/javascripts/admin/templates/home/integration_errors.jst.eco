@@ -1,7 +1,18 @@
-<h2>Errors</h2>
-<p>The following errors are present in your endpoint's endpoint.json file:</p>
+<div class="content-modal">
+  <header class="modal-header">
+    <h3 class="integration-title">
+      <i class="icon-warning-sign"></i>
+      Errors
+    </h3>
+  </header>
 
-<ul>
-<% for error in @errors: %>
-  <li><%= error %></li>
-<% end %>
+  <section class="modal-body">
+    <h3>The following errors are present in your endpoint's endpoint.json file:</h3>
+
+    <ul class='errors-list'>
+      <% for error in @errors: %>
+        <li class='error'><%= error %></li>
+      <% end %>
+    </ul>
+  </section>
+</div>

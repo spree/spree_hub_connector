@@ -1,6 +1,12 @@
 <figure>
   <% if @model.get('icon_url')?: %>
     <img src="<%= @model.get('url') %>/<%= @model.get('icon_url').replace('/', '') %>" alt="<%= @model.get('display') %>">
+  <% else: %>  
+    <span class="icon-stack icon-4x">
+      <i class="icon-circle icon-stack-base"></i>
+      <i class="icon-cloud icon-light"></i>
+      <i class="icon-exchange"></i>
+    </span>
   <% end %>
 </figure>
 
