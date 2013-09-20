@@ -1,0 +1,9 @@
+#messages-filters, #notifications-filter {
+  button[type='submit'] {
+    float: right;
+    margin-top: 17px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
