@@ -26,8 +26,9 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
     level = @$el.find('#filter-level').select2('data').text.toLowerCase()
 
     query =
-      reference_type: reference_type
-      reference_id: reference_id
-      level: level
-    Augury.notifications.query(query)
+      q:
+        reference_type: reference_type
+        reference_id: reference_id
+        level: level
+    Augury.notifications.fetch(data: query, reset: true)
 )
