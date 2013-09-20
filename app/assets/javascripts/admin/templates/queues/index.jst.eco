@@ -2,7 +2,7 @@
 <%#  Messages                             %>
 <%#---------------------------------------%>
 <fieldset class="no-border-bottom" id="messages-queue">
-  <legend><%= @queue_name %> Messages Queue</legend>
+  <legend><%= @model.get('id') %> Messages Queue</legend>
 
   <%#---------------------------------------%>
   <%#  Messages Filters                     %>
@@ -23,7 +23,10 @@
     <div class="three columns" id="filter-message">
       <label for="message">Filter By Messages</label>
       <select name="message" class="select2 fullwidth" id="message-select">
-        <option value="Test">Test</option>
+        <option value=""></option>
+        <% for message in @model.get('available_messages'): %>
+          <option value="<%= message %>"><%= message %></option>
+        <% end %>
       </select>
     </div>
 
@@ -52,7 +55,7 @@
   <%#---------------------------------------%>
   <%#  Messages Table                       %>
   <%#---------------------------------------%>
- <% if  @collection.models.length > 0: %>
+ <% if  @model.get('messages').length > 0: %>
   <table>
     <colgroup>
       <col style="width:12%;">
@@ -72,9 +75,9 @@
       </tr>
     </thead>
     <tbody>
-      <% for message in @collection.models: %>
+      <% for message in @model.get('messages'): %>
         <tr>
-          <td><span class="state <%= message.get('state') %>"><%= message.get('state') %></span></td>
+          <td><span class="state <%= message.state %>"><%= message.state %></span></td>
           <td class='consumer-image align-center'>
             <%#---------------------------------------%>
             <%# spree.png is a placeholder, we can use message.get('destination_name') that returns mandrill/rlm/spree etc %>
@@ -85,12 +88,12 @@
             <img src="/assets/integrations/spree.png" alt="spree" height="40">
           </td>
           <td class="consumer-title">
-            <strong>Remote:</strong> <%= message.get('consumer') %>
+            <strong>Remote:</strong> <%= message.consumer %>
           </td>
-          <td><%= message.get('message') %></td>
-          <td class='align-center message-time'><%= message.get('created_at') %></td>
+          <td><%= message.message %></td>
+          <td class='align-center message-time'><%= message.created_at %></td>
           <td class='actions'>
-            <a href="/admin/integration/messages/<%= message.get('id') %>" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
+            <a href="/admin/integration/messages/<%= message.id %>" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
           </td>
         </tr>
     <% end %>

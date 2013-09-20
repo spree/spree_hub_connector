@@ -1,9 +1,11 @@
 Augury.Routers.Queues = Backbone.Router.extend(
   routes:
-    'queues/:queue_name': 'index'
+    'queues/:id': 'index'
 
-  index: (queue_name) ->
-    view = new Augury.Views.Queues.Index(queue_name: queue_name)
-    view.render()
+  index: (id) ->
+    queue = new Augury.Models.Queue(id: id)
+    queue.fetch().done ->
+      view = new Augury.Views.Queues.Index(model: queue)
+      view.render()
 )
 
