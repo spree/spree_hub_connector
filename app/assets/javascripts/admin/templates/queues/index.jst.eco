@@ -54,60 +54,9 @@
 
   </div>
   <%# / Messages Filters %>
-
-  <%#---------------------------------------%>
-  <%#  Messages Table                       %>
-  <%#---------------------------------------%>
- <% if  @model.get('messages').length > 0: %>
-  <table>
-    <colgroup>
-      <col style="width:12%;">
-      <col style="width:5%;">
-      <col style="width:35%">
-      <col style="width:20%;">
-      <col style="width:23%;">
-      <col style="width:5%;">
-    </colgroup>
-    <thead>
-      <tr>
-        <th>State</th>
-        <th colspan="2">Consumer</th>
-        <th>Message</th>
-        <th>Queued At</th>
-        <th class='actions'></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for message in @model.get('messages'): %>
-        <tr>
-          <td><span class="state <%= message.state %>"><%= message.state %></span></td>
-          <td class='consumer-image align-center'>
-            <%#---------------------------------------%>
-            <%# spree.png is a placeholder, we can use message.get('destination_name') that returns mandrill/rlm/spree etc %>
-            <%# (https://github.com/spree/augury/blob/v5/lib/augury/message.rb#L57) %>
-            <%# but the best option would be the integration icon %>
-            <%# i.e. https://github.com/spree/quiet_logistics_endpoint/blob/master/public/endpoint.json#L6 %>
-            <%#---------------------------------------%>
-            <img src="/assets/integrations/spree.png" alt="spree" height="40">
-          </td>
-          <td class="consumer-title">
-            <strong>Remote:</strong> <%= message.consumer %>
-          </td>
-          <td><%= message.message %></td>
-          <td class='align-center message-time'><%= message.created_at %></td>
-          <td class='actions'>
-            <a href="/admin/integration/messages/<%= message.id %>" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
-          </td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
-  <% else: %>
-    <div class="no-objects-found">No Messages Here Yet</div>
-  <% end %>
-  <%# / Messages Table %>
-
 </fieldset>
+
+<div id="messages-view"></div>
 <%# / Messages %>
 
 <script>
