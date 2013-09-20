@@ -66,6 +66,7 @@ window.Augury =
             Messages:      {}
             Notifications: {}
             Queues:        {}
+            Shared:        {}
         }
   Preload: {}
   SignUp: {}
