@@ -20,6 +20,7 @@ Augury.Views.Home.Integration = Backbone.View.extend(
       @$el.addClass 'custom'
     if @model.has_errors()
       @$el.addClass 'errors'
+      @$el.prepend '<i class="icon-warning-sign state-icon"></i>'
     if @model.is_pending()
       @$el.addClass 'pending'
     if @model.is_enabled()
