@@ -9,7 +9,7 @@ Augury.Views.Queues.Index = Backbone.View.extend(
   initialize: (@options) ->
     @queues = new Augury.Collections.Queues([], queue_name: @options.queue_name)
     @queues.on 'reset', @update_messages_view, @
-    @stats_view = new Augury.Views.Queues.Stats
+    @stats_view = new Augury.Views.Queues.Stats(queue_name: @options.queue_name)
     @queues.fetch(reset: true)
 
   render: ->
