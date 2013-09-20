@@ -33,7 +33,10 @@
     <div class="three columns" id="filter-consumer">
       <label for="consumer">Filter By consumer</label>
       <select name="consumer" class="select2 fullwidth" id="consumer-select">
-        <option value="Test">Test</option>
+        <option value=""></option>
+        <% for consumer in @model.get('available_consumers'): %>
+          <option value="<%= consumer[1] %>"><%= consumer[0] %></option>
+        <% end %>
       </select>
     </div>
 
