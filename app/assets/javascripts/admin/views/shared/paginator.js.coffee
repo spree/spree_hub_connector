@@ -1,7 +1,11 @@
 Augury.Views.Shared.Paginator = Backbone.View.extend(
-  template: _.template "<span class='prev'>Previous</span><span class='next'>Next</span>"
+  initialize: (options) ->
+    @_collection = options.collection
 
-  el: '#paginator'
+  id: 'paginator'
+  tagName: 'div'
+
+  template: _.template "<span class='prev'><a href='#'>Previous</a></span>&nbsp;<span class='next'><a href='#'>Next</a></span>"
 
   events:
     'click .prev': 'previous'
@@ -12,8 +16,8 @@ Augury.Views.Shared.Paginator = Backbone.View.extend(
     @
 
   previous: ->
-    @trigger 'previous'
+    @_collection.prevPage()
 
   next: ->
-    @trigger 'next'
+    @_collection.nextPage()
 )

@@ -20,6 +20,10 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
       $(@).parent().parent().toggleClass('without-border')
     SyntaxHighlighter.all()
 
+    # Set up pagination
+    @paginator = new Augury.Views.Shared.Paginator(collection: Augury.notifications)
+    @$el.find('#notifications-table').after @paginator.render().el
+
   search: ->
     reference_type = @$el.find('#filter-reference-type').select2('data').text.toLowerCase()
     reference_id = @$el.find('#filter-reference-id').val().toLowerCase()
