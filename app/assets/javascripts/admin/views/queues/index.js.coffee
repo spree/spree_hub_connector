@@ -16,8 +16,9 @@ Augury.Views.Queues.Index = Backbone.View.extend(
     @
 
   search: ->
-    filter_state = @$el.find('#status-select').select2('data').text.toLowerCase()
-    message      = @$el.find('#message-select').select2('data').text.toLowerCase()
+    filter_state   = @$el.find('#status-select').select2('data').id
+    message        = @$el.find('#message-select').select2('data').id
+    consumer_class = @$el.find('#consumer-select').select2('data').id
 
     if $('#input-date-range').val() != ''
       start_date = $('#input-date-range').data('daterangepicker').startDate.utc().format()
@@ -29,6 +30,7 @@ Augury.Views.Queues.Index = Backbone.View.extend(
       start_date: start_date
       end_date: end_date
       message: message
+      consumer_class: consumer_class
 
     @model.fetch(data: query)
 )
