@@ -113,6 +113,184 @@
 /*---------------------------------------
   Specific Dialogs
 ---------------------------------------*/
+.modal-body {
+  border: 1px solid $color-border;
+  border-width: 1px 0 1px 0;
+}
+
+#confirm_delete {
+  .modal-body {
+    padding: 40px
+  }
+}
+
+.modal-header {
+  padding: 20px 10px;
+
+  .integration-image {
+    img {
+      height: 60px
+    }
+  }
+
+  .integration-title, .integration-image {
+    display: table-cell;
+    vertical-align: middle;
+    text-transform: uppercase;
+    padding-right: 20px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.integration-modal {
+  &.container {
+    width: auto;
+    position: inherit;
+  }
+
+  label {
+    display: block;
+    color: lighten($color-body-text, 15);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input[type="text"], input[type="url"],
+  input[type="email"], input[type="password"] {
+    width: 100%;
+  }
+
+  .field {
+    padding: 0 0 10px 0;
+
+    &.description {
+      p {
+        font-style: italic;
+        font-size: $body-font-size - 1;
+        color: lighten($color-body-text, 5);
+      }
+    }
+    &.state {
+      font-size: 100%;
+    }
+    input[disabled="disabled"] {
+      opacity: 0.2;
+    }
+  }
+
+  fieldset .row {
+    margin-bottom: 0;
+
+    .icon-trash {
+      font-size: 20px;
+      color: $color-body-text;
+      position: relative;
+
+      &:hover {
+        color: $color-error;
+      }
+    }
+  }
+
+  fieldset.list-value  {
+    legend {
+      font-weight: 400;
+
+      .title {
+        color: $color-body-text;
+      }
+      .action {
+        &, a, i { color: $color-2 }
+      }
+    }
+
+    .add-new-value {
+      text-transform: uppercase;
+
+      &:hover {
+        color: darken($color-2, 5);
+      }
+    }
+    .list-value-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: $color-body-text;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+
+  .list-item {
+    position: relative;
+    margin-bottom: 10px;
+
+    &:hover {
+      ul.actions {
+        display: block;
+      }
+    }
+  }
+
+  button, .button {
+    font-weight: 600;
+    font-size: 100%;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ul.actions {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    list-style: none;
+    // display: none;
+
+    .action {
+      display: inline-block;
+      margin-right: 5px;
+
+      a {
+        text-transform: uppercase;
+        color: $color-2;
+        font-weight: 600;
+        font-size: 11px;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        &:hover {
+          color: darken($color-2, 5);
+        }
+      }
+
+      &:after {
+        content: ' / ';
+        position: relative;
+        display: inline-block;
+        margin-left: 5px;
+        color: $color-border;
+      }
+
+      &:last-child {
+        &:after {
+          content: ''
+        }
+      }
+    }
+  }
+}
+
+.modal-header {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  background-color: lighten($color-border, 10);
+  padding-left: 20px;
+}
 
 #modal-tabs {
   border: none;
@@ -305,9 +483,57 @@
 }
 
 .content-modal {
+
+  .modal-header {
+    .icon-stack {
+      .icon-exchange {
+        font-size: 0.5em;
+      }
+    }
+  }
+
   .modal-body {
     padding: 40px 20px;
     border-bottom: none;
   }
+
+  .errors-list {
+    list-style: none;
+
+    .error {
+      margin: 10px 0;
+      font-style: italic;
+      padding-left: 20px;
+
+      i {
+        display: inline-block;
+        color: $color-error;
+        margin-left: -20px;
+      }
+    }
+  }
 }
 
+.error-modal {
+  .modal-header {
+    background-color: very-light($color-error);
+
+    .integration-title {
+      color: $color-error;
+    }
+  }
+
+  .modal-body {
+    border-color: very-light($color-error, 15);
+  }
+}
+
+#new-endpoint-modal {
+  .integration-title {
+    color: $color-3;
+  }
+
+  .modal-footer {
+    padding: 0;
+  }
+}

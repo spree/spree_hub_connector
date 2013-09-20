@@ -1,4 +1,4 @@
-<div class="content-modal">
+<div class="content-modal error-modal">
   <header class="modal-header">
     <h3 class="integration-title">
       <i class="icon-warning-sign"></i>
@@ -11,7 +11,10 @@
 
     <ul class='errors-list'>
       <% for error in @errors: %>
-        <li class='error'><%= error %></li>
+        <li class='error'>
+          <i class="icon-exclamation"></i>
+          <%= error %>
+        </li>
       <% end %>
     </ul>
   </section>
