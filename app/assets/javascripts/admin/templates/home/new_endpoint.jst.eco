@@ -1,37 +1,49 @@
-<div id="new-integration-modal" class="container integration-modal">
+<div id="new-endpoint-modal" class="container integration-modal content-modal">
   <header class="modal-header">
-    <h3 class="integration-title">Adding Custom Integration</h3>
+    <h3 class="integration-title">
+      <span class="icon-stack icon-1x">
+        <i class="icon-circle icon-stack-base"></i>
+        <i class="icon-cloud icon-light"></i>
+        <i class="icon-exchange"></i>
+      </span>
+      Adding Custom Integration
+    </h3>
   </header>
 
-  <form action="#" id="add-new-integration">
+  <form action="#" id="add-new-endpoint">
     <section class="modal-body">
       <div class="row">
-       <div class="span6">
-         <div class="field">
-           <label for="name">Name</label>
-           <input class="param required" type="text"
-                  data-trigger="change" data-required="true"
-                  data-endpointname="true"
-                  value="<%= @model.get('name') %>"
-                  id="name" name="name" placeholder="Endpoint name" />
-         </div>
-         <div class="field">
-           <label for="url">URL</label>
-           <input class="param required" type="text"
-                  data-trigger="change" data-required="true"
-                  data-endpointurl="true"
-                  value="<%= @model.get('url') %>"
-                  id="url" name="url" placeholder="Endpoint URL" />
-         </div>
-         <div class="field">
-           <label for="token">Token</label>
-           <input class="param required" type="text"
-                  data-trigger="change" data-required="true"
-                  data-minlength="32"
-                  value="<%= @model.get('token') %>"
-                  id="token" name="token" placeholder="Endpoint Token" />
-         </div>
-       </div>
+        <div class="alpha four columns">
+          <div class="field">
+            <label for="name">Name</label>
+            <input class="param required fullwidth" type="text"
+                    data-trigger="change" data-required="true"
+                    data-endpointname="true"
+                    value="<%= @model.get('name') %>"
+                    id="name" name="name" placeholder="Endpoint name" />
+           </div>  
+        </div>
+        <div class="five columns">
+          <div class="field">
+            <label for="url">URL</label>
+            <input class="param required fullwidth" type="text"
+                   data-trigger="change" data-required="true"
+                   data-endpointurl="true"
+                   value="<%= @model.get('url') %>"
+                   id="url" name="url" placeholder="Endpoint URL" />
+          </div>
+        </div>
+        
+        <div class="omega five columns">
+          <div class="field">
+            <label for="token">Token</label>
+            <input class="param required fullwidth" type="text"
+                   data-trigger="change" data-required="true"
+                   data-minlength="32"
+                   value="<%= @model.get('token') %>"
+                   id="token" name="token" placeholder="Endpoint Token" />
+          </div>
+        </div>
       </div>
     </section>
 

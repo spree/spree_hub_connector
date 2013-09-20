@@ -1,4 +1,4 @@
-<div id="new-integration-modal" class="container integration-modal">
+<div id="edit-integration-modal" class="container integration-modal">
   <header class="modal-header">
 
     <div class="integration-image">
