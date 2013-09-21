@@ -27,12 +27,13 @@ window.Augury =
 
   start: ->
     @init()
-    @integrations = new @Collections.Integrations(@Preload.integrations)
-    @mappings = new @Collections.Mappings(@Preload.mappings)
-    @schedulers = new @Collections.Schedulers(@Preload.schedulers)
-    @parameters = new @Collections.Parameters(@Preload.parameters)
+    @integrations  = new @Collections.Integrations(@Preload.integrations)
+    @mappings      = new @Collections.Mappings(@Preload.mappings)
+    @schedulers    = new @Collections.Schedulers(@Preload.schedulers)
+    @parameters    = new @Collections.Parameters(@Preload.parameters)
     @notifications = new @Collections.Notifications(@Preload.notifications)
-    @messages = @Preload.messages
+    @queue_stats   = new @Models.QueueStats(@Preload.queue_stats)
+    @messages      = @Preload.messages
 
     @Routers._active['home'] = new @Routers.Home()
     @Routers._active['common'] = new @Routers.Common()
