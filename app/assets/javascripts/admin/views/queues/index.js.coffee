@@ -20,7 +20,8 @@ Augury.Views.Queues.Index = Backbone.View.extend(
   renderTable: ->
     @$el.find('#messages-view').html @templateTable(model: @model)
 
-  search: ->
+  search: (e) ->
+    e.preventDefault()
     filter_state   = @$el.find('#status-select').select2('val')
     message        = @$el.find('#message-select').select2('val')
     consumer_class = @$el.find('#consumer-select').select2('val')
