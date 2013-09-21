@@ -45,12 +45,13 @@ module Spree
                                                        @environment.store_id,
                                                        @environment.token)
 
-          @messages_json = preloader.messages
-          @integrations_json = preloader.integrations
-          @mappings_json = preloader.mappings
-          @schedulers_json = preloader.schedulers
-          @parameters_json = preloader.parameters
+          @messages_json      = preloader.messages
+          @integrations_json  = preloader.integrations
+          @mappings_json      = preloader.mappings
+          @schedulers_json    = preloader.schedulers
+          @parameters_json    = preloader.parameters
           @notifications_json = preloader.notifications
+          @queue_stats_json   = preloader.queue_stats
         end
 
       end

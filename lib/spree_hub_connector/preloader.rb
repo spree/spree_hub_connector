@@ -38,6 +38,10 @@ module SpreeHubConnector
       load_resource "/stores/#{@store_id}/notifications"
     end
 
+    def queue_stats
+      load_resource "/stores/#{@store_id}/queues"
+    end
+
     private
 
     def load_resource(resource_url)
