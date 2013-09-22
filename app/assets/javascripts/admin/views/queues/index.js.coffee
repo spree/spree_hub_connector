@@ -8,35 +8,34 @@ Augury.Views.Queues.Index = Backbone.View.extend(
     'click button[type=submit]': 'search'
 
   initialize: ->
-    @stats_view = new Augury.Views.Queues.Stats(queue_name: @model.get('id'))
-    @model.on 'change', @renderTable, @
+    @stats_view = new Augury.Views.Queues.Stats(queue_name: @collection.queue_name)
+    @collection.on 'reset', @renderTable, @
 
   render: ->
-    @$el.html @template(model: @model)
+    @$el.html @template(collection: @collection)
     @$el.find('#messages-queue').before @stats_view.render().el
     @renderTable()
     @
 
   renderTable: ->
-    @$el.find('#messages-view').html @templateTable(model: @model)
-
+    @$el.find('#messages-view').html @templateTable(collection: @collection)
     # Set up pagination
     @paginator = new Augury.Views.Shared.Paginator(collection: @)
     @$el.find('#messages-view').append @paginator.render().el
 
   prevPage: ->
     query = @queue_query()
-    query.page = @model.get('page') - 1
-    @model.fetch(data: query)
+    query.page = @collection.page - 1
+    @collection.fetch(data: query, reset: true)
 
   nextPage: ->
     query = @queue_query()
-    query.page = @model.get('page') + 1
-    @model.fetch(data: query)
+    query.page = @collection.page + 1
+    @collection.fetch(data: query, reset: true)
 
   search: (e) ->
     e.preventDefault()
-    @model.fetch(data: @queue_query())
+    @collection.fetch(data: @queue_query(), reset: true)
 
   queue_query: ->
     filter_state   = @$el.find('#status-select').select2('val')

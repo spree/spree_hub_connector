@@ -2,7 +2,7 @@
 <%#  Messages                             %>
 <%#---------------------------------------%>
 <fieldset class="no-border-bottom" id="messages-queue">
-  <legend><%= @model.get('id') %> Messages Queue</legend>
+  <legend><%= @collection.queue_name %> Messages Queue</legend>
 
   <%#---------------------------------------%>
   <%#  Messages Filters                     %>
@@ -24,7 +24,7 @@
       <label for="message">Filter By Messages</label>
       <select name="message" class="select2 fullwidth" id="message-select">
         <option value=""></option>
-        <% for message in @model.get('available_messages'): %>
+        <% for message in @collection.available_messages: %>
           <option value="<%= message %>"><%= message %></option>
         <% end %>
       </select>
@@ -34,7 +34,7 @@
       <label for="consumer">Filter By consumer</label>
       <select name="consumer" class="select2 fullwidth" id="consumer-select">
         <option value=""></option>
-        <% for consumer in @model.get('available_consumers'): %>
+        <% for consumer in @collection.available_consumers: %>
           <option value="<%= consumer[1] %>"><%= consumer[0] %></option>
         <% end %>
       </select>
