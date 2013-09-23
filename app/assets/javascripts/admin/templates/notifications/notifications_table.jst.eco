@@ -18,7 +18,7 @@
     <% for notification in @notifications.models: %>
       <div class="notification-detail">
         <tr class='state-<%= notification.get('level') %>'>
-          <td><%= notification.get('description') %></td>
+          <td><%= notification.get('subject') %></td>
           <td class='state <%= notification.get('level') %>'><%= notification.get('level') %></td>
           <td class='align-center'><%= notification.get('occurrences') %></td>
           <td class='actions'><a href="javascript:void(0)" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a></td>
