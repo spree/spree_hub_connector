@@ -9,5 +9,6 @@ Augury.Views.Messages.Show = Backbone.View.extend(
 
   showSubView: (e) ->
     templateName = $(e.currentTarget).data('template')
-    @$el.find('#detail-view').html JST["admin/templates/messages/_#{templateName}"](model: @model)
+    if templateName?
+      @$el.find('#detail-view').html JST["admin/templates/messages/_#{templateName}"](model: @model)
 )
