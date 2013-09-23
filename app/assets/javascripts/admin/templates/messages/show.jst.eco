@@ -101,9 +101,11 @@
           <a href="javascript:void(0)">Inspect</a>
 
           <ul>
-            <li>
-              <a href="javascript:void(0)" data-template="result">Result</a>
-            </li>
+            <% if @model.get('result')?: %>
+              <li>
+                <a href="javascript:void(0)" data-template="result">Result</a>
+              </li>
+            <% end %>
             <li>
               <a href="javascript:void(0)" data-template="attributes">Attributes</a>
             </li>
