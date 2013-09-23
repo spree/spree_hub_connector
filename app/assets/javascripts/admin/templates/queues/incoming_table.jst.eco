@@ -26,7 +26,7 @@
             <img src="/assets/integrations/spree.png" alt="spree" height="40">
           </td>
           <td><%= message.get('message') %></td>
-          <td class='align-center message-time'><%= message.get('created_at') %></td>
+          <td class='align-center message-time'><%= Augury.format_date(message.get('created_at')) %></td>
           <td class='actions'>
             <a href="/admin/integration/messages/<%= message.get('id') %>" class="icon_link with-tip icon-eye-open no-text" data-action="view" title="view"></a>
           </td>
