@@ -31,7 +31,7 @@ Augury.Views.Queues.Index = Backbone.View.extend(
   renderTable: ->
     @$el.find('#messages-view').html @collectionTemplateTable()(collection: @collection)
     # Set up pagination
-    paginator = new Augury.Views.Shared.Paginator(collection: @)
+    paginator = new Augury.Views.Shared.Paginator(collection: @collection)
     @$el.find('#messages-view').append paginator.render().el
 
 
@@ -41,37 +41,25 @@ Augury.Views.Queues.Index = Backbone.View.extend(
       when 'accepted' then @templateAcceptedTable
       when 'archived' then @templateArchivedTable
 
-  prevPage: ->
-    query = @queue_query()
-    query.page = @collection.page - 1
-    @collection.fetch(data: query, reset: true)
-
-  nextPage: ->
-    query = @queue_query()
-    query.page = @collection.page + 1
-    @collection.fetch(data: query, reset: true)
-
   search: (e) ->
     e.preventDefault()
-    @collection.fetch(data: @queue_query(), reset: true)
+    @setQueryFields()
+    @collection.fetch(data: @collection.queryFields(), reset: true)
 
-  queue_query: ->
+  setQueryFields: ->
+    @collection.clearQueryFields()
+
     if @collection.queue_name != 'incoming'
-      filter_state   = @$el.find('#status-select').select2('val')
-      message        = @$el.find('#message-select').select2('val')
-      consumer_class = @$el.find('#consumer-select').select2('val')
+      @collection.setQueryField 'filter_state'   , @$el.find('#status-select').select2('val')
+      @collection.setQueryField 'message'        , @$el.find('#message-select').select2('val')
+      @collection.setQueryField 'consumer_class' , @$el.find('#consumer-select').select2('val')
 
     if $('#input-date-range').val() != ''
-      start_date = $('#input-date-range').data('daterangepicker').startDate.utc().format()
-      end_date   = $('#input-date-range').data('daterangepicker').endDate.utc().format()
+      @collection.setQueryField 'start_date' , $('#input-date-range').data('daterangepicker').startDate.utc().format()
+      @collection.setQueryField 'end_date'   , $('#input-date-range').data('daterangepicker').endDate.utc().format()
 
     # sets source='' to empty otherwise it will be set to 'accepted' when querying archived messages
     # https://github.com/spree/augury_admin/blob/v5/app/controllers/queues_controller.rb#L31
-    state: filter_state
-    start_date: start_date
-    end_date: end_date
-    message: message
-    consumer_class: consumer_class
-    source: ''
+    @collection.setQueryField 'source', ''
 )
 
