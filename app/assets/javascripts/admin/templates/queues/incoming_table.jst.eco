@@ -23,7 +23,15 @@
         <tr>
           <td><span class="state <%= message.get('state') %>"><%= message.get('state') %></span></td>
           <td class='consumer-image align-center'>
-            <img src="<%= message.integration_icon_url() %>" alt="<%= message.get('destination_name') %>" height="40">
+            <% if message.integration_icon_url()?: %>
+              <img src="<%= message.integration_icon_url() %>" alt="<%= message.get('destination_name') %>" height="40">
+            <% else: %>
+              <span class="icon-stack icon-4x integration-icon-fallback">
+                <i class="icon-circle icon-stack-base"></i>
+                <i class="icon-cloud icon-light"></i>
+                <i class="icon-exchange"></i>
+              </span>
+            <% end %>
           </td>
           <td><%= message.get('message') %></td>
           <td class='align-center message-time'><%= Augury.format_date(message.get('created_at')) %></td>
