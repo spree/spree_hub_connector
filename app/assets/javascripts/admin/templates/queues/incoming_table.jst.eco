@@ -21,10 +21,10 @@
     <tbody>
       <% for message in @collection.models: %>
         <tr>
-          <td><span class="state <%= message.get('state') %>"><%= message.get('state') %></span></td>
+          <td><span class="state <%= message.incomingState() %>"><%= message.incomingState() %></span></td>
           <td class='consumer-image align-center'>
-            <% if message.integration_icon_url()?: %>
-              <img src="<%= message.integration_icon_url() %>" alt="<%= message.get('destination_name') %>" height="40">
+            <% if message.integrationIconUrl()?: %>
+              <img src="<%= message.integrationIconUrl() %>" alt="<%= message.get('destination_name') %>" height="40">
             <% else: %>
               <span class="icon-stack icon-4x integration-icon-fallback">
                 <i class="icon-circle icon-stack-base"></i>

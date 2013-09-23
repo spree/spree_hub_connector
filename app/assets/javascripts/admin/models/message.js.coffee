@@ -5,7 +5,13 @@ Augury.Models.Message = Backbone.MongoModel.extend(
   has_errors: ->
     @get('last_error')
 
-  integration_icon_url: ->
+  integrationIconUrl: ->
     @get('integration_icon_url') if @get('is_consumer_remote')? && @get('integration_icon_url')?
+
+  incomingState: ->
+    if @get('locked_at')?
+      'running'
+    else
+      'pending'
 )
 

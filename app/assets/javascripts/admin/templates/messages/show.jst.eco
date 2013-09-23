@@ -10,8 +10,8 @@
   <%#---------------------------------------%>
   <div class="message-details alpha twelve columns">
     <div class="message-service-image alpha two columns">
-      <% if @model.integration_icon_url()?: %>
-        <img src="<%= @model.integration_icon_url() %>" alt="<%= @model.get('destination_name') %>">
+      <% if @model.integrationIconUrl()?: %>
+        <img src="<%= @model.integrationIconUrl() %>" alt="<%= @model.get('destination_name') %>">
       <% else: %>
         <span class="icon-stack icon-4x integration-icon-fallback">
           <i class="icon-circle icon-stack-base"></i>
