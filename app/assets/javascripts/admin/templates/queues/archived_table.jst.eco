@@ -25,7 +25,7 @@
         <tr>
           <td><span class="state <%= message.get('state') %>"><%= message.get('state') %></span></td>
           <td class='consumer-image align-center'>
-            <img src="/assets/integrations/spree.png" alt="spree" height="40">
+            <img src="<%= message.integration_icon_url() %>" alt="<%= message.get('destination_name') %>" height="40">
           </td>
           <td class="consumer-title">
             <% if message.get('is_consumer_remote'): %>
