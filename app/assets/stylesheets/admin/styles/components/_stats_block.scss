@@ -154,6 +154,8 @@
     .stats-counter {
       color: $color-3;
     }
+
+    cursor: pointer
   }
   #failing-messages {
     .sub-stats-header {
@@ -166,6 +168,7 @@
     .stats-counter {
       color: $color-5;
     }
+    cursor: pointer
   }
   #scheduled-messages {
     .sub-stats-header {
@@ -178,6 +181,7 @@
     .stats-counter {
       color: $color-6;
     }
+    cursor: pointer
   }
   #parked-messages {
     .sub-stats-header {
@@ -190,6 +194,7 @@
     .stats-counter {
       color: lighten(black, 45);
     }
+    cursor: pointer
   }
 
   .stats-footer {
