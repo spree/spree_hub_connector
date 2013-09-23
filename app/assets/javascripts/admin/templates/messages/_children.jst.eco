@@ -5,7 +5,7 @@
     <table class="message-children fullwidth">
       <thead>
         <th class='align-center'>Message</th>
-        <th class='align-center'>Consumer Class</th>
+        <th class='align-center'>Consumer</th>
       </thead>
       <tbody>
         <% for child in children: %>
