@@ -3,15 +3,22 @@
 <%#---------------------------------------%>
 <%# Messasge View                         %>
 <%#---------------------------------------%>
-<fieldset id="message-view" class='no-border-bottom'>
-  <legend>Static Message View</legend>
+<fieldset id="message-view" class='no-border-bottom no-border-top'>
 
   <%#---------------------------------------%>
   <%# Message Details                       %>
   <%#---------------------------------------%>
   <div class="message-details alpha twelve columns">
     <div class="message-service-image alpha two columns">
-      <img src="/assets/integrations/<%= @model.get('destination_name') %>.png" alt="<%= @model.get('destination_name') %>">
+      <% if @model.get('integration_icon_url')?: %>
+        <img src="/assets/integrations/<%= @model.get('integration_icon_url') %>" alt="<%= @model.get('integration_name') %>">
+      <% else: %>
+        <span class="icon-stack icon-4x integration-icon-fallback">
+          <i class="icon-circle icon-stack-base"></i>
+          <i class="icon-cloud icon-light"></i>
+          <i class="icon-exchange"></i>
+        </span>
+      <% end %>
     </div>
 
     <div class="message-details omega ten columns">
