@@ -1,10 +1,10 @@
 Augury.Views.Queues.Index = Backbone.View.extend(
-  el: '#integration_main'
-
-  template:               JST['admin/templates/queues/index']
-  templateIncomingTable:  JST['admin/templates/queues/incoming_table']
-  templateAcceptedTable:  JST['admin/templates/queues/accepted_table']
-  templateArchivedTable:  JST['admin/templates/queues/archived_table']
+  template:                JST['admin/templates/queues/index']
+  templateIncomingTable:   JST['admin/templates/queues/incoming_table']
+  templateAcceptedTable:   JST['admin/templates/queues/accepted_table']
+  templateArchivedTable:   JST['admin/templates/queues/archived_table']
+  templateMessageFilters:  JST['admin/templates/queues/message_filters']
+  templateIncomingFilters: JST['admin/templates/queues/incoming_filters']
 
   events:
     'click button[type=submit]': 'search'
@@ -19,6 +19,11 @@ Augury.Views.Queues.Index = Backbone.View.extend(
     # Set queue stats
     stats_view = new Augury.Views.Queues.Stats(queue_name: @collection.queue_name)
     @$el.find('#messages-queue').before stats_view.render().el
+
+    if @collection.queue_name == 'incoming'
+      @$el.find('#messages-filters').prepend @templateIncomingFilters()
+    else
+      @$el.find('#messages-filters').prepend @templateMessageFilters(collection: @collection)
 
     @renderTable()
     @
@@ -51,9 +56,10 @@ Augury.Views.Queues.Index = Backbone.View.extend(
     @collection.fetch(data: @queue_query(), reset: true)
 
   queue_query: ->
-    filter_state   = @$el.find('#status-select').select2('val')
-    message        = @$el.find('#message-select').select2('val')
-    consumer_class = @$el.find('#consumer-select').select2('val')
+    if @collection.queue_name != 'incoming'
+      filter_state   = @$el.find('#status-select').select2('val')
+      message        = @$el.find('#message-select').select2('val')
+      consumer_class = @$el.find('#consumer-select').select2('val')
 
     if $('#input-date-range').val() != ''
       start_date = $('#input-date-range').data('daterangepicker').startDate.utc().format()

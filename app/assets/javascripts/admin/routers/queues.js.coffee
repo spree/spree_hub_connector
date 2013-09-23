@@ -7,12 +7,12 @@ Augury.Routers.Queues = Backbone.Router.extend(
     queues = new Augury.Collections.Queues([], queue_name: queue_name)
     queues.fetch().done ->
       view = new Augury.Views.Queues.Index(collection: queues)
-      view.render()
+      $('#integration_main').html view.render().el
 
   indexByState: (state) ->
     queues = new Augury.Collections.Queues([], queue_name: 'accepted')
     queues.fetch(data: { state: state }).done ->
       view = new Augury.Views.Queues.Index(collection: queues, state: state)
-      view.render()
+      $('#integration_main').html view.render().el
 )
 
