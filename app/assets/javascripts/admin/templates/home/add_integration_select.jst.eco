@@ -1,10 +1,12 @@
-<select id="integrations-select" class='select2'>
-  <option></option>
-  <% for integration in @collection.models: %>
-    <option value="<%= integration.get('name') %>" data-integration-id="<%= integration.get('id') %>"><%= integration.get('name') %></option>
-  <% end %>
-  <option value="Add Custom">Add Custom</option>
-</select>
+<div class="row">
+  <select id="integrations-select" class='select2'>
+    <option></option>
+    <% for integration in @collection.models: %>
+      <option value="<%= integration.get('name') %>" data-integration-id="<%= integration.get('id') %>"><%= integration.get('name') %></option>
+    <% end %>
+    <option value="Add Custom">Add Custom</option>
+  </select>
+</div>
 
 <script>
   $('#integrations-select').select2({
