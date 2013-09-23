@@ -112,3 +112,9 @@
     color: $color-3;
   }
 }
+
+#detail-view pre, 
+#detail-view .syntaxhighlighter {
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+}

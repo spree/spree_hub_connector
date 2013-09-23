@@ -5,6 +5,7 @@ Augury.Views.Messages.Show = Backbone.View.extend(
   render: ->
     @$el.html JST["admin/templates/messages/show"](model: @model)
     @showInitialSubView()
+    SyntaxHighlighter.highlight()
     @
 
   showInitialSubView: ->
@@ -16,9 +17,10 @@ Augury.Views.Messages.Show = Backbone.View.extend(
   showSubView: (e) ->
     templateName = $(e.currentTarget).data('template')
     $(e.currentTarget).closest('nav').find('a.active').removeClass('active')
-    $(e.currentTarget).addClass('active')
+    $(e.currentTarget).addClass('active')    
     if templateName?
       @$el.find('#detail-view').html JST["admin/templates/messages/_#{templateName}"](model: @model)
+      SyntaxHighlighter.highlight()
       if templateName == 'notifications'
         @$el.find('.message-section').find('td.actions a').on 'click', ->
           $(@).parent().parent().next().toggle()
