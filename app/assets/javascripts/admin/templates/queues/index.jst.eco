@@ -12,11 +12,10 @@
       <label for="status">Filter By State</label>
       <select name="status" class="select2 fullwidth" id="status-select">
         <option value=""></option>
-        <option value="completed">Completed</option>
         <option value="pending">Pending</option>
         <option value="failing">Failing</option>
         <option value="scheduled">Scheduled</option>
-        <option value="never processed">Never Processed</option>
+        <option value="parked">Parked</option>
       </select>
     </div>
 
