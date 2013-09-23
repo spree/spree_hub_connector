@@ -42,7 +42,7 @@
             </div>
           <% end %>
         </div>
-        <% state = @model.get('state') %>
+        <% state = @model.state() %>
         <div class="message-status three columns">
           <div class="block-title">State:</div>
           <div class="block-value"><span class="state <%= state.toLowerCase() %>">
