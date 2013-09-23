@@ -23,7 +23,9 @@
 
     <div class="message-details omega ten columns">
       <div class="message-top-details">
-        <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
+        <% unless @model.get('queue_name') == 'incoming': %>
+          <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
+        <% end %>
         <div class="message-name"><span>Message:</span> <%= @model.get('message') %></div>
       </div>
 
