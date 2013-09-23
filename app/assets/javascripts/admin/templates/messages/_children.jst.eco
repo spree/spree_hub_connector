@@ -10,7 +10,11 @@
       <tbody>
         <% for child in children: %>
           <tr>
-            <td class='align-center'><%= child.message %></td>
+            <td class='align-center'>
+              <a href="/admin/integration/messages/<%= child['_id']['$oid'] %>">
+                <%= child.message %>
+              </a>
+            </td>
             <td class='align-center'><%= child.consumer_class %></td>
           </tr>
         <% end %>
