@@ -24,11 +24,14 @@
         > a {
           text-transform: uppercase;
           font-size: 110%;
+          border-bottom: 1px dashed $color-border;
+          width: 100%;
+          display: block;
+          padding-bottom: 5px;          
         }
       }
 
       ul {
-        margin-left: 20px;
         margin-top: 5px;
 
         a {
@@ -37,6 +40,14 @@
 
           &:hover {
             color: $color-2;
+          }
+
+          &.active {
+            color: $color-2;
+
+            &:hover {
+              color: darken($color-2, 5);
+            }
           }
         }
       }
