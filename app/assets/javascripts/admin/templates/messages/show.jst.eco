@@ -26,14 +26,12 @@
           <div class="block-value"><%= Augury.format_date(@model.get('created_at')) %></div>
         </div>
         <div class="message-references three columns">
-          <div class="block-title">References:</div>
-          <div class="block-value">
-            <% if @model.get('references')?: %>
+          <% if @model.get('references')?: %>
+            <div class="block-title">References:</div>
+            <div class="block-value">
               <a href="admin/orders/<%= @model.get('references') %>/edit">Order #<%= @model.get('references') %></a>
-            <% else: %>
-              N/A
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
         <% state = @model.get('state') %>
         <div class="message-status three columns">
