@@ -8,10 +8,13 @@ Augury.Models.Message = Backbone.MongoModel.extend(
   integrationIconUrl: ->
     @get('integration_icon_url') if @get('is_consumer_remote')? && @get('integration_icon_url')?
 
-  incomingState: ->
-    if @get('locked_at')?
-      'running'
+  state: ->
+    if @get('queue_name') == 'incoming'
+      if @get('locked_at')?
+        'running'
+      else
+        'pending'
     else
-      'pending'
+      @get('state')
 )
 
