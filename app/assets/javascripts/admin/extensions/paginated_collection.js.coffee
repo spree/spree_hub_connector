@@ -13,5 +13,5 @@ Augury.PaginatedCollection = Backbone.Collection.extend(
 
   setPage: (page) ->
     @_page = page
-    @fetch(reset: true)
+    @fetch(data: { page: @_page }, reset: true)
 )
