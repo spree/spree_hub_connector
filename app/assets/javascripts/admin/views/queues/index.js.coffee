@@ -1,8 +1,10 @@
 Augury.Views.Queues.Index = Backbone.View.extend(
   el: '#integration_main'
 
-  template:       JST['admin/templates/queues/index']
-  templateTable:  JST['admin/templates/queues/messages_table']
+  template:               JST['admin/templates/queues/index']
+  templateIncomingTable:  JST['admin/templates/queues/incoming_table']
+  templateAcceptedTable:  JST['admin/templates/queues/accepted_table']
+  templateArchivedTable:  JST['admin/templates/queues/archived_table']
 
   events:
     'click button[type=submit]': 'search'
@@ -18,10 +20,17 @@ Augury.Views.Queues.Index = Backbone.View.extend(
     @
 
   renderTable: ->
-    @$el.find('#messages-view').html @templateTable(collection: @collection)
+    @$el.find('#messages-view').html @collectionTemplateTable()(collection: @collection)
     # Set up pagination
     @paginator = new Augury.Views.Shared.Paginator(collection: @)
     @$el.find('#messages-view').append @paginator.render().el
+
+
+  collectionTemplateTable: ->
+    switch @collection.queue_name
+      when 'incoming' then @templateIncomingTable
+      when 'accepted' then @templateAcceptedTable
+      when 'archived' then @templateArchivedTable
 
   prevPage: ->
     query = @queue_query()
