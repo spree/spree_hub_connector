@@ -6,6 +6,21 @@ window.Augury =
         options.url = "#{Augury.url}/api#{options.url}"
       options.xhrFields = withCredentials: true
 
+    @show_integration_menu()
+
+  show_integration_menu: ->
+    $('.sixteen.columns .block-table ').html JST["admin/templates/shared/integration_menu"]
+      connections: Augury.connections
+
+    $("#connections-select").on "select2-selected", (event, object) =>
+      selected = $("#connections-select").select2('data').element
+      connectionId = $(selected).val()
+      if connectionId == 'new-connection'
+        Backbone.history.navigate '/connections/new', trigger: true
+      else
+        Augury.vent.trigger 'connection:change', connectionId
+
+
   post_init: ->
     @handle_link_clicks()
     Backbone.history.start pushState: true, root: '/admin/integration/'
@@ -85,9 +100,10 @@ window.Augury =
         event.preventDefault()
         Backbone.history.navigate href, trigger: true
 
-  update_nav: (name) ->
-    $("nav#hub-menu li a").removeClass 'active'
-    $("nav#hub-menu li a#hub-menu-#{name}").addClass 'active'
+  update_nav: (name='') ->
+    $('nav#hub-menu li a').removeClass 'active'
+    if name != ''
+      $("nav#hub-menu li a#hub-menu-#{name}").addClass 'active'
 
   start_integration_poller: (delay = 600000) ->
     poller = Backbone.Poller.get(Augury.integrations)
