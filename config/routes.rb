@@ -4,11 +4,11 @@ Spree::Core::Engine.routes.draw do
       resources :events, :only => :index
     end
 
-    match 'integration' => 'integration#show'
-    match 'integration/register' => 'integration#register'
-    match 'integration/connect' => 'integration#connect'
-    match 'integration/disconnect' => 'integration#disconnect'
-    match 'integration/*backbone' => 'integration#show'
+    match 'integration' => 'integration#show', via: [:get,:post]
+    match 'integration/register' => 'integration#register',via: [:get,:post]
+    match 'integration/connect' => 'integration#connect',via: [:get,:post]
+    match 'integration/disconnect' => 'integration#disconnect',via: [:get,:post]
+    match 'integration/*backbone' => 'integration#show',via: [:get,:post], as: :integration_backbone
 
     get 'endpoint_testing', to: redirect('/admin/endpoint_messages/new')
 
