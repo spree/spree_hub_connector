@@ -3,16 +3,21 @@
   <% if children.length > 0: %>
     <h3 class="message-section-header">Children <span class="counter">(<%= children.length %>)</span></h3>
     <table class="message-children fullwidth">
+      <colgroup>
+        <col style="width: 40%">
+        <col style="width: 60%">
+      </colgroup>
       <thead>
-        <th class='align-center'>Message</th>
+        <th>Message</th>
         <th class='align-center'>Consumer</th>
       </thead>
       <tbody>
         <% for child in children: %>
           <tr>
-            <td class='align-center'>
+            <td>
               <a href="/admin/integration/messages/<%= child['_id']['$oid'] %>">
                 <%= child.message %>
+                &nbsp;<i class='icon-circle-arrow-right'></i>
               </a>
             </td>
             <td class='align-center'><%= child.consumer_class %></td>
