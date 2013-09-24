@@ -1,6 +1,6 @@
 <div class="message-section alpha twelve columns">
   <h3 class="message-section-header">Payload</span></h3>
-  <pre class="brush: js; gutter: false; toolbar: false;">
+  <pre class="brush: js; gutter: true; toolbar: false;">
     <%= vkbeautify.json JSON.stringify(@model.get('payload')), 2 %>
   </pre>
 </div>
