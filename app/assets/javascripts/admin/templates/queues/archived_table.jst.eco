@@ -28,7 +28,7 @@
             <% if message.integrationIconUrl()?: %>
               <img src="<%= message.integrationIconUrl() %>" alt="<%= message.get('destination_name') %>" height="40">
             <% else: %>
-              <span class="icon-stack icon-4x integration-icon-fallback">
+              <span class="icon-stack icon-2x integration-icon-fallback">
                 <i class="icon-circle icon-stack-base"></i>
                 <i class="icon-cloud icon-light"></i>
                 <i class="icon-exchange"></i>
