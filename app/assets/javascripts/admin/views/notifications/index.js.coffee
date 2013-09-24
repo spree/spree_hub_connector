@@ -18,7 +18,7 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
     @$el.find('#notifications-table').find('td.actions a').on 'click', ->
       $(@).parent().parent().next().toggle()
       $(@).parent().parent().toggleClass('without-border')
-    SyntaxHighlighter.all()
+    SyntaxHighlighter.highlight()
 
     # Set up pagination
     @paginator = new Augury.Views.Shared.Paginator(collection: Augury.notifications)

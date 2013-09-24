@@ -22,11 +22,21 @@
     </div>
 
     <div class="message-details omega ten columns">
-      <div class="message-top-details">
-        <% unless @model.get('queue_name') == 'incoming': %>
-          <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
-        <% end %>
-        <div class="message-name"><span>Message:</span> <%= @model.get('message') %></div>
+
+      <div class="row message-top-details">
+        <div class="alpha seven columns">
+          <% unless @model.get('queue_name') == 'incoming': %>
+            <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
+          <% end %>
+          <div class="message-name"><span>Message:</span> <%= @model.get('message') %></div>
+        </div>
+
+        <div class="omega three columns">
+          <a href="javascript:void(0)" class='button fullwidth'>
+            <i class="icon-refresh"></i>
+            Refresh
+          </a>
+        </div>
       </div>
 
       <div class="message-minor-details">
@@ -87,7 +97,7 @@
               <a href="javascript:void(0)" data-template="children">Children (<%= children.length %>)</a>
             </li>
             <li>
-              <a href="javascript:void(0)" data-template="notifications" class='active'>Notifications (<%= notifications.length %>)</a>
+              <a href="javascript:void(0)" data-template="notifications">Notifications (<%= notifications.length %>)</a>
             </li>
             <% if @model.has_errors(): %>
               <li>
@@ -103,7 +113,7 @@
           <ul>
             <% if @model.get('result')?: %>
               <li>
-                <a href="javascript:void(0)" data-template="result">Result</a>
+                <a href="javascript:void(0)" data-template="result" class='active'>Result</a>
               </li>
             <% end %>
             <li>
