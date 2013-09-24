@@ -10,19 +10,21 @@ Augury.Views.Messages.Show = Backbone.View.extend(
   render: ->
     @$el.html JST["admin/templates/messages/show"](model: @model)
     @showInitialSubView()
-    SyntaxHighlighter.highlight()
     @
 
   showInitialSubView: ->
     switch @model.get('queue_name')
       when 'accepted'
-        @$el.find('#detail-view').html JST["admin/templates/messages/_payload"](model: @model), () ->
-          SyntaxHighlighter.highlight()
+        @$el.find('#detail-view').html JST["admin/templates/messages/_payload"](model: @model)
+        @$el.find('[data-template=payload]').addClass('active')
+        SyntaxHighlighter.highlight()
       when 'archived'
-        @$el.find('#detail-view').html JST["admin/templates/messages/_result"](model: @model), () ->
-          SyntaxHighlighter.highlight()
+        @$el.find('#detail-view').html JST["admin/templates/messages/_result"](model: @model)
+        @$el.find('[data-template=result]').addClass('active')
+        SyntaxHighlighter.highlight()
       when 'incoming'
         @$el.find('#detail-view').html JST["admin/templates/messages/_children"](model: @model)
+        @$el.find('[data-template=children]').addClass('active')
 
 
   showSubView: (e) ->
