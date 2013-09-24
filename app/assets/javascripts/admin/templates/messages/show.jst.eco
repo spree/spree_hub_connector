@@ -49,12 +49,14 @@
           <% end %>
         </div>
 
-        <div class="omega three columns">
-          <a href="javascript:void(0)" class='button fullwidth'>
-            <i class="icon-refresh"></i>
-            Refresh
-          </a>
-        </div>
+        <% unless @model.get('queue_name') == 'archived': %>
+          <div class="omega three columns">
+            <a href="javascript:void(0)" class='button fullwidth refresh'>
+              <i class="icon-refresh"></i>
+              Refresh
+            </a>
+          </div>
+        <% end %>
       </div>
 
       <div class="message-minor-details">
