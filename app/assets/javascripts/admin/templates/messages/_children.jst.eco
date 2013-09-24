@@ -21,6 +21,6 @@
       </tbody>
     </table>
   <% else: %>
-    <h3 class="message-section-header">No Children</span></h3>
+    <div class="no-objects-found">No Children Found</div>
   <% end %>
 </div>
