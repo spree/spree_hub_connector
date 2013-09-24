@@ -30,6 +30,6 @@
       </tbody>
     </table>
   <% else: %>
-    <h3 class="message-section-header">No Notifications</span></h3>
+    <div class="no-objects-found">No Notifications Found</div>
   <% end %>
 </div>
