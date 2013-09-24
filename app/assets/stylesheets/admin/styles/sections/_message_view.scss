@@ -58,6 +58,20 @@
 /*-------------------------------------------------
   Message Details
   -----------------------------------------------*/
+#message-view {
+  legend {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: $color-4;
+
+    &.queue-accepted {
+      i.icon-stack-base {
+        color: $color-2;
+      }
+    }
+  }
+}
+
 .message-top-details {
   border-bottom: 1px solid $color-border;
   text-transform: uppercase;  
