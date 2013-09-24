@@ -203,8 +203,166 @@
       background-color: lighten($color-border, 10);
       padding: 5px 0;
       border-top: 1px solid $color-border;
-      border-bottom-left-radius: $border-radius;
-      border-bottom-right-radius: $border-radius;
+      border-bottom-left-radius: $border-radius - 1;
+      border-bottom-right-radius: $border-radius - 1;
+    }
+  }
+
+  &.active {
+    border-bottom-color: darken($color-2, 5);
+    border-bottom-width: 1px;
+    border-left: none;
+    border-right: none;
+
+    .stats-header {
+      border-left: 1px solid $color-border;
+      border-right: 1px solid $color-border;
+      border-bottom: none;
+      padding-bottom: 4px;
+
+      &:before {
+        left: 0;
+      }
+    }
+
+    .stats-data {
+      border-left: 1px solid $color-border;
+      border-right: 1px solid $color-border;
+    }
+
+    .stats-footer {
+      background-color: $color-2;
+      border-left: 1px solid darken($color-2, 5);
+      border-right: 1px solid darken($color-2, 5);
+
+      a {
+        background-color: $color-2;
+        color: white;
+        border-top-color: transparent;
+        border-top-width: 2px;
+
+        &:after {
+          position: absolute;
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-top: 7px solid darken($color-2, 5);
+          bottom: -7px;
+          left: 50%;
+          margin-left: -7px;
+        }
+      }
+    }
+
+    &#accepted-messages {
+      .stats-footer {
+        a:before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: -35px;
+          margin-left: 0;
+          height: 35px;
+          width: 1px;
+          border-left: 1px solid darken($color-2, 5);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;          
+          width: 7px;
+          height: 7px;
+          border-radius: 5px;
+          background-color: darken($color-2, 5);
+          bottom: -35px;
+          left: 50%;
+          margin-left: -3px;
+        }
+      }
+    }
+
+    &#archived-messages {
+      .stats-footer {
+        a:before {
+          content: '';
+          position: absolute;          
+          width: 360px;
+          height: 20px;          
+          border-right: 1px solid darken($color-2, 5);
+          border-bottom: 1px solid darken($color-2, 5);
+          bottom: -20px;
+          right: 50%;
+          margin-right: -1px;          
+        }
+
+        &:after {
+          content: '';
+          position: absolute;          
+          width: 1px;
+          height: 15px;          
+          border-left: 1px solid darken($color-2, 5);
+          bottom: -35px;
+          left: -250px;
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;          
+        width: 7px;
+        height: 7px;
+        border-radius: 5px;
+        background-color: darken($color-2, 5);
+        bottom: -35px;
+        left: -250px;
+        margin-left: -3px;
+      }
+    }
+
+    &#incoming-messages {
+      .stats-footer {
+        a:before {
+          content: '';
+          position: absolute;          
+          width: 360px;
+          height: 20px;          
+          border-left: 1px solid darken($color-2, 5);
+          border-bottom: 1px solid darken($color-2, 5);
+          bottom: -20px;
+          left: 50%;
+          margin-left: -1px;          
+        }
+
+        &:after {
+          content: '';
+          position: absolute;          
+          width: 1px;
+          height: 15px;          
+          border-right: 1px solid darken($color-2, 5);
+          bottom: -35px;
+          right: -250px;
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;          
+        width: 7px;
+        height: 7px;
+        border-radius: 5px;
+        background-color: darken($color-2, 5);
+        bottom: -35px;
+        right: -250px;
+        margin-right: -3px;
+      }
+    }
+
+    &#incoming-messages, &#archived-messages {
+      .stats-header {
+        border-bottom: 1px solid $color-border;
+      }
     }
   }
 }
