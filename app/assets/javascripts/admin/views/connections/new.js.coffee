@@ -16,10 +16,6 @@ Augury.Views.Connections.New = Backbone.View.extend
     @submit = @form.find("button[type=\"submit\"]")
     @cancel = @form.find("button.cancel")
 
-    $('#content-header').find('.page-title').text('New Connection')
-
-    $('#content-header').find('.page-actions').remove()
-
     @toggle_env()
     @toggle_new_or_existing()
 

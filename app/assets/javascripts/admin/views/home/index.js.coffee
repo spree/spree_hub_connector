@@ -24,14 +24,6 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
     @$el.find('#active-integrations').before new Augury.Views.Queues.Stats().render().el
 
-    if $('#content-header .container .block-table').find('.page-actions').length < 1
-      $('#content-header .container .block-table').append('<div class="table-cell"><ul class="page-actions"></ul></div>')
-    $('#content-header').find('.page-title').text('Overview')
-
-    $('#content-header').find('.page-actions').html JST["admin/templates/home/select_connection"]
-      connections: Augury.connections
-
-
     @$el.find('#integrations-list').find('.actions a').powerTip
       popupId: 'integration-tooltip'
     @$el.find('#integrations-list').find('.actions a').on
@@ -72,15 +64,6 @@ Augury.Views.Home.Index = Backbone.View.extend(
         @showIntegrationModal(integrationId)
       else
         @showEndpointModal()
-
-    $("#connections-select").on "select2-selected", (event, object) =>
-      selected = $("#connections-select").select2('data').element
-      connectionId = $(selected).val()
-      if connectionId == 'new-connection'
-        Backbone.history.navigate '/connections/new', trigger: true
-      else
-        Augury.vent.trigger 'connection:change', connectionId
-
 
   editIntegration: (e) ->
     e.preventDefault()
