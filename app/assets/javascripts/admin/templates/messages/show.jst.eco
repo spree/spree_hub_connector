@@ -3,7 +3,15 @@
 <%#---------------------------------------%>
 <%# Messasge View                         %>
 <%#---------------------------------------%>
-<fieldset id="message-view" class='no-border-bottom no-border-top'>
+<fieldset id="message-view" class='no-border-bottom'>
+
+  <legend class='queue-accepted'>
+    <span class='icon-stack icon-1x'>
+      <i class="icon-circle icon-stack-base"></i>
+      <i class='icon-ok icon-light'></i>
+    </span>
+    Accepted Queue
+  </legend>
 
   <%#---------------------------------------%>
   <%# Message Details                       %>
