@@ -57,9 +57,5 @@ Augury.Views.Queues.Index = Backbone.View.extend(
     if $('#input-date-range').val() != ''
       @collection.setQueryField 'start_date' , $('#input-date-range').data('daterangepicker').startDate.utc().format()
       @collection.setQueryField 'end_date'   , $('#input-date-range').data('daterangepicker').endDate.utc().format()
-
-    # sets source='' to empty otherwise it will be set to 'accepted' when querying archived messages
-    # https://github.com/spree/augury_admin/blob/v5/app/controllers/queues_controller.rb#L31
-    @collection.setQueryField 'source', ''
 )
 
