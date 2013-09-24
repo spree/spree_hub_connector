@@ -3,6 +3,8 @@ Augury.Routers.Notifications = Backbone.Router.extend(
     "notifications": "index"
 
   index: ->
+    Augury.update_nav 'notifications'
+
     view = new Augury.Views.Notifications.Index()
     $("#integration_main").html view.render().el
 )
