@@ -1,16 +1,17 @@
 <% children = @model.get('children') %>
 <% notifications = @model.get('notifications') %>
+<% queueName = @model.get('queue_name') %>
 <%#---------------------------------------%>
 <%# Messasge View                         %>
 <%#---------------------------------------%>
 <fieldset id="message-view" class='no-border-bottom'>
 
-  <legend class='queue-accepted'>
+  <legend class='queue-<%= queueName %>'>
     <span class='icon-stack icon-1x'>
       <i class="icon-circle icon-stack-base"></i>
       <i class='icon-ok icon-light'></i>
     </span>
-    Accepted Queue
+    <%= queueName %> Queue
   </legend>
 
   <%#---------------------------------------%>
