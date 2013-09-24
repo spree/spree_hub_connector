@@ -16,7 +16,7 @@ Augury.Views.Home.NewEndpoint = Backbone.View.extend(
     @
 
   validation: ->
-    @$el.find('form#add-new-integration').parsley
+    @$el.find('form#add-new-endpoint').parsley
       trigger: 'change'
       listeners:
         onFormSubmit: (isFormValid, e) =>
