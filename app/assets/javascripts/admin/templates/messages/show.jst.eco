@@ -133,7 +133,7 @@
           <ul>
             <% if @model.get('result')?: %>
               <li>
-                <a href="javascript:void(0)" data-template="result" class='active'>Result</a>
+                <a href="javascript:void(0)" data-template="result">Result</a>
               </li>
             <% end %>
             <li>
