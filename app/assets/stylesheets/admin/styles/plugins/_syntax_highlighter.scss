@@ -30,3 +30,7 @@
 .syntaxhighlighter .plain a {
   color: $color-6 !important;
 }
+
+.syntaxhighlighter .gutter .line {
+  border-color: $color-border !important;
+}
