@@ -9,7 +9,13 @@
   <legend class='queue-<%= queueName %>'>
     <span class='icon-stack icon-1x'>
       <i class="icon-circle icon-stack-base"></i>
-      <i class='icon-ok icon-light'></i>
+      <% if queueName == 'accepted': %>
+        <i class='icon-ok icon-light'></i>
+      <% else if queueName == 'archived': %>
+        <i class='icon-archive icon-light'></i>
+      <% else: %>
+        <i class='icon-arrow-down icon-light'></i>
+      <% end %>
     </span>
     <%= queueName %> Queue
   </legend>

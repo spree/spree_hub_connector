@@ -14,7 +14,7 @@
     margin-top: 20px;
 
     ul {
-      list-style: none;      
+      list-style: none;
     }
 
     > ul {
@@ -27,7 +27,7 @@
           border-bottom: 1px dashed $color-border;
           width: 100%;
           display: block;
-          padding-bottom: 5px;          
+          padding-bottom: 5px;
         }
       }
 
@@ -69,12 +69,22 @@
         color: $color-2;
       }
     }
+    &.queue-archived {
+      i.icon-stack-base {
+        color: $color-4;
+      }
+    }
+    &.queue-incoming {
+      i.icon-stack-base {
+        color: $color-3;
+      }
+    }
   }
 }
 
 .message-top-details {
   border-bottom: 1px solid $color-border;
-  text-transform: uppercase;  
+  text-transform: uppercase;
   font-weight: 600;
   color: $color-3;
   padding-bottom: 10px;
@@ -89,7 +99,7 @@
 
   span {
     color: $color-2;
-  }  
+  }
 }
 
 .message-minor-details {
@@ -98,7 +108,7 @@
 
   .block-title {
     text-transform: uppercase;
-    font-weight: 600;        
+    font-weight: 600;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -128,7 +138,7 @@
   }
 }
 
-#detail-view pre, 
+#detail-view pre,
 #detail-view .syntaxhighlighter {
   border: 1px solid $color-border;
   border-radius: $border-radius;
