@@ -44,7 +44,9 @@
             <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
           <% end %>
           <div class="message-name"><span>Message:</span> <%= @model.get('message') %></div>
-          <div class="parent-id"><span>Parent ID:</span> <a href='javascript:void(0)'>#123456789 <i class="icon-circle-arrow-right"></i></a></div>
+          <% if @model.get('parent_id') != '': %>
+            <div class="parent-id"><span>Parent ID:</span> <a href='/admin/integration/messages/<%= @model.get('parent_id') %>'><%= @model.get('parent_id') %><i class="icon-circle-arrow-right"></i></a></div>
+          <% end %>
         </div>
 
         <div class="omega three columns">
