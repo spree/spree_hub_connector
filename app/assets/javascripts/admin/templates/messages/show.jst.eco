@@ -28,12 +28,16 @@
       <% if @model.integrationIconUrl()?: %>
         <img src="<%= @model.integrationIconUrl() %>" alt="<%= @model.get('destination_name') %>">
       <% else: %>
-        <span class="icon-stack icon-4x integration-icon-fallback">
+        <span class="icon-stack icon-3x integration-icon-fallback">
           <i class="icon-circle icon-stack-base"></i>
           <i class="icon-cloud icon-light"></i>
           <i class="icon-exchange"></i>
         </span>
       <% end %>
+      <% state = @model.state() %>      
+      <span class="state <%= state.toLowerCase() %>">
+        <%= state %>
+      </span>      
     </div>
 
     <div class="message-details omega ten columns">
@@ -65,32 +69,28 @@
       </div>
 
       <div class="message-minor-details">
-        <div class="message-created-at alpha four columns">
+        <div class="message-created-at alpha three columns">
           <div class="block-title">Created At:</div>
           <div class="block-value"><%= Augury.format_date(@model.get('created_at')) %></div>
-        </div>
-        <div class="message-references three columns">
-          <% if @model.get('references')?: %>
+        </div>        
+        <% if @model.has_errors(): %>
+          <div class="message-next-attempt three columns">
+            <div class="block-title">Next Attempt:</div>
+            <div class="block-value"><%= Augury.format_date(@model.get('next_attempt')) %></span></div>
+          </div>
+          <div class="message-next-attempt two columns">
+            <div class="block-title">Attempts:</div>
+            <div class="block-value"><%= @model.get('attempts') %></span></div>
+          </div>
+        <% end %>
+        <% if @model.get('references')?: %>
+          <div class="message-references two omega columns">
             <div class="block-title">References:</div>
             <div class="block-value">
               <a href="admin/orders/<%= @model.get('references') %>/edit">Order #<%= @model.get('references') %></a>
             </div>
-          <% end %>
-        </div>
-        <% state = @model.state() %>
-        <div class="message-status three columns omega">
-          <div class="block-title">State:</div>
-          <div class="block-value">
-            <span class="state <%= state.toLowerCase() %>">
-              <%= state %>
-            </span>
           </div>
-          <% if @model.has_errors(): %>
-            <div class="block-title">Attempts: <%= @model.get('attempts') %></div>
-            <div class="block-title">Next Attempt:</div>
-            <div class="block-value"><%= Augury.format_date(@model.get('next_attempt')) %></span></div>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
 
