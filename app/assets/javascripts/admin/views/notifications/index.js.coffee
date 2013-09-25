@@ -24,15 +24,15 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
     @paginator = new Augury.Views.Shared.Paginator(collection: Augury.notifications)
     @$el.find('#notifications-table').after @paginator.render().el
 
-  search: ->
-    reference_type = @$el.find('#filter-reference-type').select2('data').text.toLowerCase()
-    reference_id = @$el.find('#filter-reference-id').val().toLowerCase()
-    level = @$el.find('#filter-level').select2('data').text.toLowerCase()
+  search: (e) ->
+    e.preventDefault()
+    @setQueryFields()
+    Augury.notifications.fetch(data: Augury.notifications.queryFields(), reset: true)
 
-    query =
-      q:
-        reference_type: reference_type
-        reference_id: reference_id
-        level: level
-    Augury.notifications.fetch(data: query, reset: true)
+  setQueryFields: ->
+    Augury.notifications.clearQueryFields()
+
+    Augury.notifications.setQueryField 'reference_type', @$el.find('#filter-reference-type').select2('val')
+    Augury.notifications.setQueryField 'reference_id', @$el.find('#filter-reference-id').val().toLowerCase()
+    Augury.notifications.setQueryField 'level', @$el.find('#filter-level').select2('val')
 )
