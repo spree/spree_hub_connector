@@ -2,17 +2,7 @@
   Message Sidebar
   -----------------------------------------------*/
 .message-sidebar {
-  .button.back {
-    width: 100%;
-    text-align: center;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
   nav {
-    margin-top: 20px;
-
     ul {
       list-style: none;
     }
@@ -58,6 +48,22 @@
 /*-------------------------------------------------
   Message Details
   -----------------------------------------------*/
+.message-details {
+  .action-buttons {
+    text-align: right;
+  }
+  
+  .button {
+    text-align: center;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    i:before {
+      padding: 0;
+    }
+  }
+}
 #message-view {
   legend {
     font-size: 18px;
