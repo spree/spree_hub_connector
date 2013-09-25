@@ -1,17 +1,28 @@
 Augury.PaginatedCollection = Backbone.Collection.extend(
-  initialize: (options) ->
-    @_page = 1
+  setQueryField: (key, value) ->
+    return unless value?
+    @_query ||= {}
+    @_query[key] = value
 
-  nextPage: ->
-    @changePage(1)
+  clearQueryFields: ->
+    @_query = {}
+
+  queryFields: ->
+    @_query
 
   prevPage: ->
-    @changePage(-1)
+    @_paginate(@page - 1)
 
-  changePage: (delta) ->
-    @setPage(@_page + delta)
+  nextPage: ->
+    @_paginate(@page + 1)
 
-  setPage: (page) ->
-    @_page = page
-    @fetch(data: { page: @_page }, reset: true)
+  firstPage: ->
+    @_paginate(1)
+
+  lastPage: ->
+    @_paginate(@pages)
+
+  _paginate: (page) ->
+    @setQueryField('page',  page)
+    @fetch(data: @_query, reset: true)
 )
