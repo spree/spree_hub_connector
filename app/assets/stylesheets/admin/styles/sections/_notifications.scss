@@ -13,7 +13,7 @@
 
 #notifications-table, #messages-view table {
   tr {
-    &.state-error {
+    &.state-error, &.state-failing {
       td {
         border-left-color: very-light($color-error, 15);
       }
@@ -21,10 +21,33 @@
       &:hover td {
         background-color: very-light($color-error, 6);
         border-color: very-light($color-error, 15);
+
+        .integration-icon-fallback {
+          .icon-stack-base, .icon-exchange {
+            color: $color-error;
+          }
+        }
       }
     }
 
-    &.state-warn {
+    &.state-parked {
+      td {
+        border-left-color: lighten(black, 75);
+      }
+
+      &:hover td {
+        background-color: lighten(black, 95);
+        border-color: lighten(black, 75);
+
+        .integration-icon-fallback {
+          .icon-stack-base, .icon-exchange {
+            color: lighten(black, 65);
+          }
+        }
+      }
+    }
+
+    &.state-warn, &.state-scheduled {
       td {
         border-left-color: very-light($color-notice, 15);
       }
@@ -32,6 +55,12 @@
       &:hover td {
         background-color: very-light($color-notice, 6);
         border-color: very-light($color-notice, 15);
+
+        .integration-icon-fallback {
+          .icon-stack-base, .icon-exchange {
+            color: $color-notice;
+          }
+        }
       }
     }
 
