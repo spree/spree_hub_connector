@@ -25,8 +25,8 @@
         </tr>
         <tr class='hidden'>
           <td colspan="4">
-            <pre class="brush: js; gutter: false; toolbar: false;">
-              <%= JSON.stringify $.trim(notification.attributes), null, 2 %>
+            <pre class="brush: js; gutter: true; toolbar: false;">
+              <%= JSON.stringify notification.attributes, null, 2 %>
             </pre>
           </td>
         </tr>
