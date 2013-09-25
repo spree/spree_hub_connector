@@ -80,9 +80,11 @@
         <% state = @model.state() %>
         <div class="message-status three columns omega">
           <div class="block-title">State:</div>
-          <div class="block-value"><span class="state <%= state.toLowerCase() %>">
-            <%= state %>
-          </span></div>
+          <div class="block-value">
+            <span class="state <%= state.toLowerCase() %>">
+              <%= state %>
+            </span>
+          </div>
           <% if @model.has_errors(): %>
             <div class="block-title">Attempts: <%= @model.get('attempts') %></div>
             <div class="block-title">Next Attempt:</div>
