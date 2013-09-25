@@ -15,7 +15,7 @@
         <h1>Incoming</h1>
       </header>
       <div class="stats-data">
-        <span class="stats-counter"><%= @model.metric_round('incoming') %><sup><%= @model.metric_sign('incoming') %></sup></span>
+        <span class="stats-counter"><%= @model.metricRound('incoming') %><sup><%= @model.metricSign('incoming') %></sup></span>
       </div>
       <footer class="stats-footer">
         <a href="/admin/integration/queues/incoming">View Incoming Messages <i class="icon-circle-arrow-right"></i></a>
@@ -36,19 +36,19 @@
         <ul class='row'>
           <li id='pending-messages'>
             <div class="sub-stats-header">Pending</div>
-            <span class="stats-counter"><%= @model.metric_round('pending') %><sup><%= @model.metric_sign('pending') %></sup></span>
+            <span class="stats-counter"><%= @model.metricRound('pending') %><sup><%= @model.metricSign('pending') %></sup></span>
           </li>
           <li id='failing-messages'>
             <div class="sub-stats-header">Failing</div>
-            <span class="stats-counter"><%= @model.metric_round('failing') %><sup><%= @model.metric_sign('failing') %></sup></span>
+            <span class="stats-counter"><%= @model.metricRound('failing') %><sup><%= @model.metricSign('failing') %></sup></span>
           </li>
           <li id='scheduled-messages'>
             <div class="sub-stats-header">Scheduled</div>
-            <span class="stats-counter"><%= @model.metric_round('scheduled') %><sup><%= @model.metric_sign('scheduled') %></sup></span>
+            <span class="stats-counter"><%= @model.metricRound('scheduled') %><sup><%= @model.metricSign('scheduled') %></sup></span>
           </li>
           <li id='parked-messages'>
             <div class="sub-stats-header">Parked</div>
-            <span class="stats-counter"><%= @model.metric_round('parked') %><sup><%= @model.metric_sign('parked') %></sup></span>
+            <span class="stats-counter"><%= @model.metricRound('parked') %><sup><%= @model.metricSign('parked') %></sup></span>
           </li>
         </ul>
 
@@ -68,7 +68,7 @@
         <h1>Archived</h1>
       </header>
       <div class="stats-data">
-        <span class="stats-counter"><%= @model.metric_round('archived') %><sup><%= @model.metric_sign('archived') %></sup></span>
+        <span class="stats-counter"><%= @model.metricRound('archived') %><sup><%= @model.metricSign('archived') %></sup></span>
       </div>
       <footer class="stats-footer">
         <a href="/admin/integration/queues/archived">View Archived Messages <i class="icon-circle-arrow-right"></i></a>

@@ -24,3 +24,4 @@ describe SpreeHubConnector::Preloader do
     end
   end
 end
+
