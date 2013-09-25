@@ -95,6 +95,14 @@
 
   .service-name, .message-name, .parent-id {
     font-size: 16px;
+
+    a {
+      border-bottom: 1px dashed $color-border;
+
+      &:hover {
+        border-color: $color-2;
+      }
+    }
   }
 
   span {
