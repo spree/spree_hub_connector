@@ -48,15 +48,20 @@
             <div class="parent-id"><span>Parent ID:</span> <a href='/admin/integration/messages/<%= @model.get('parent_id') %>'><%= @model.get('parent_id') %> <i class="icon-circle-arrow-right"></i></a></div>
           <% end %>
         </div>
-
-        <% unless @model.get('queue_name') == 'archived': %>
-          <div class="omega three columns">
-            <a href="javascript:void(0)" class='button fullwidth refresh'>
+        <%#---------------------------------------%>
+        <%# Action Buttons                        %>
+        <%#---------------------------------------%>
+        <div class="omega three columns action-buttons">
+          <a href="/admin/integration/queues/<%= @model.get('queue_name') %>" class="button back">
+            <i class="icon-arrow-left"></i>      
+          </a>
+          <% unless @model.get('queue_name') == 'archived': %>      
+            <a href="javascript:void(0)" class='button refresh'>
               <i class="icon-refresh"></i>
-              Refresh
-            </a>
-          </div>
-        <% end %>
+            </a>      
+          <% end %>          
+        </div>
+        <%# / Action Buttons %>
       </div>
 
       <div class="message-minor-details">
@@ -73,7 +78,7 @@
           <% end %>
         </div>
         <% state = @model.state() %>
-        <div class="message-status three columns">
+        <div class="message-status three columns omega">
           <div class="block-title">State:</div>
           <div class="block-value"><span class="state <%= state.toLowerCase() %>">
             <%= state %>
@@ -94,16 +99,6 @@
   <%# / Message Details %>
 
   <div class="message-sidebar omega four columns">
-
-    <%#---------------------------------------%>
-    <%# Back Button                           %>
-    <%#---------------------------------------%>
-    <a href="/admin/integration/queues/<%= @model.get('queue_name') %>" class="button back">
-      <i class="icon-arrow-left"></i>
-      Back to messages view
-    </a>
-    <%# / Back Button %>
-
     <%#---------------------------------------%>
     <%# Sidebar Navigation                    %>
     <%#---------------------------------------%>
