@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <% for message in @collection.models: %>
-        <tr>
+        <tr class='state-<%= message.state() %>'>
           <td><span class="state <%= message.get('state') %>"><%= message.get('state') %></span></td>
           <td class='consumer-image align-center'>
             <% if message.integrationIconUrl()?: %>

@@ -4,15 +4,21 @@
 
 .state {
   font-size: 90%;
+  display: block;
+  padding: 3px 5px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  border-radius: $border-radius;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &.pending:before,
-  &.info:before,     { background-color: $color-3 }
-  &.failing:before,
-  &.error:before,    { background-color: $color-5 }
-  &.scheduled:before,
-  &.warn:before      { background-color: $color-6 }
-  &.parked:before    { background-color: lighten(black, 45) }
+  &:before { display: none }
+  
+  &.completed         { background-color: $color-2 }
+  &.pending, &.info   { background-color: $color-3 }
+  &.failing, &.error  { background-color: $color-5 }
+  &.scheduled, &.warn { background-color: $color-6 }
+  &.parked            { background-color: lighten(black, 45) }
 }
