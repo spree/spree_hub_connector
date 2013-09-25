@@ -11,7 +11,7 @@
   }
 }
 
-#notifications-table {
+#notifications-table, #messages-view table {
   tr {
     &.state-error {
       td {
@@ -32,6 +32,23 @@
       &:hover td {
         background-color: very-light($color-notice, 6);
         border-color: very-light($color-notice, 15);
+      }
+    }
+
+    &.state-completed {
+      td {
+        border-left-color: very-light($color-success, 25);
+      }
+
+      &:hover td {
+        background-color: very-light($color-success, 10);
+        border-color: very-light($color-success, 25);
+
+        .integration-icon-fallback {
+          .icon-stack-base, .icon-exchange {
+            color: $color-success;
+          }
+        }
       }
     }
 
