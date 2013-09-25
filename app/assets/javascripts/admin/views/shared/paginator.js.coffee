@@ -1,7 +1,6 @@
 Augury.Views.Shared.Paginator = Backbone.View.extend(
   initialize: (options) ->
     @_collection = options.collection
-    window.ccc = @_collection
 
   id: 'paginator'
   tagName: 'div'

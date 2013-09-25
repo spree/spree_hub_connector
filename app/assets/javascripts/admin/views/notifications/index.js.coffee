@@ -9,7 +9,8 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
   render: ->
     @$el.html JST["admin/templates/notifications/index"]()
     @$el.find('#filter-reference-type, #filter-level').select2()
-    @renderTable()
+    Augury.notifications.fetch
+      success: @renderTable
 
     @
 
@@ -21,8 +22,8 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
       SyntaxHighlighter.highlight()
 
     # Set up pagination
-    @paginator = new Augury.Views.Shared.Paginator(collection: Augury.notifications)
-    @$el.find('#notifications-table').after @paginator.render().el
+    paginator = new Augury.Views.Shared.Paginator(collection: Augury.notifications)
+    @$el.find('#notifications-table').after paginator.render().el
 
   search: (e) ->
     e.preventDefault()
