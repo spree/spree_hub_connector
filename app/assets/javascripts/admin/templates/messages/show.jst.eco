@@ -41,14 +41,7 @@
       <div class="row message-top-details">
         <div class="alpha seven columns">
           <% unless @model.get('queue_name') == 'incoming': %>
-            <% consumer_class = @model.get('consumer_class') %>
-            <% if consumer_class != '': %>
-              <% if consumer_class == 'Augury::Consumers::Remote': %>
-                <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
-              <% else: %>
-                <div class="service-name"><span>Local:</span> <%= consumer_class.replace(/augury::consumers::/i, '') %></div>
-              <% end %>
-            <% end %>
+            <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
           <% end %>
           <div class="message-name"><span>Message:</span> <%= @model.get('message') %></div>
           <% if @model.get('parent_id') != '': %>
