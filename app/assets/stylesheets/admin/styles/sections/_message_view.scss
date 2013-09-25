@@ -23,6 +23,8 @@
 
       ul {
         margin-top: 5px;
+        list-style-type: disc;
+        list-style-position: inside;
 
         a {
           line-height: 20px;
@@ -52,7 +54,7 @@
   .action-buttons {
     text-align: right;
   }
-  
+
   .button {
     text-align: center;
 
