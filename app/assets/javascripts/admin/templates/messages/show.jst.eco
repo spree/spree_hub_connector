@@ -45,7 +45,11 @@
       <div class="row message-top-details">
         <div class="alpha seven columns">
           <% unless @model.get('queue_name') == 'incoming': %>
-            <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
+            <% if @model.get('is_consumer_remote'): %>
+              <div class="service-name"><span>Remote:</span> <%= @model.get('consumer') %></div>
+            <% else: %>
+              <div class="service-name"><span>Local:</span> <%= @model.get('consumer') %></div>
+            <% end %>
           <% end %>
           <div class="message-name"><span>Message:</span> <%= @model.get('message') %></div>
           <% if @model.get('parent_id') != '': %>
