@@ -1,4 +1,4 @@
-Augury.Collections.Queues = Backbone.Collection.extend(
+Augury.Collections.Queues = Augury.PaginatedCollection.extend(
   model: Augury.Models.Message
 
   initialize: (models, options) ->
@@ -11,33 +11,4 @@ Augury.Collections.Queues = Backbone.Collection.extend(
     @available_messages  = data.available_messages
     @available_consumers = data.available_consumers
     data.messages
-
-
-  setQueryField: (key, value) ->
-    return unless value?
-    @_query ||= {}
-    @_query[key] = value
-
-  clearQueryFields: ->
-    @_query = {}
-
-  queryFields: ->
-    @_query
-
-  prevPage: ->
-    @_paginate(@page - 1)
-
-  nextPage: ->
-    @_paginate(@page + 1)
-
-  firstPage: ->
-    @_paginate(1)
-
-  lastPage: ->
-    @_paginate(@pages)
-
-  _paginate: (page) ->
-    @setQueryField('page',  page)
-    @fetch(data: @_query, reset: true)
 )
-
