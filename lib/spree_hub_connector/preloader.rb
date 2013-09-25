@@ -10,8 +10,8 @@ module SpreeHubConnector
 
     def initialize(base_url, store_id, api_key)
       self.class.base_uri "#{base_url}/api"
-      @store_id = store_id
-      @api_key = api_key
+      @store_id    = store_id
+      @api_key     = api_key
     end
 
     def messages
@@ -38,8 +38,8 @@ module SpreeHubConnector
       load_resource "/stores/#{@store_id}/notifications"
     end
 
-    def queue_stats
-      load_resource "/stores/#{@store_id}/queues"
+    def queue_stats(environment)
+      load_resource "/stores/#{@store_id}/queues?environment=#{environment}"
     end
 
     private

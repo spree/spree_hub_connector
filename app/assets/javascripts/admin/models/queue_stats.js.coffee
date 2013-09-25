@@ -1,9 +1,9 @@
 Augury.Models.QueueStats = Backbone.Model.extend(
   initialize: ->
-    @urlRoot = "/stores/#{Augury.store_id}/queues"
+    @urlRoot = "/stores/#{Augury.store_id}/queues?environment=#{Augury.env}"
 
-  metric_round: (metric_name) ->
-    y = @get(metric_name)
+  metricRound: (metricName) ->
+    y = @get(metricName)
     if typeof y != 'number'
       y
     else if y >= 1000000000000
@@ -19,8 +19,8 @@ Augury.Models.QueueStats = Backbone.Model.extend(
     else
       Math.round(y)
 
-  metric_sign: (metric_name) ->
-    y = @get(metric_name)
+  metricSign: (metricName) ->
+    y = @get(metricName)
     return '' if typeof y != 'number' || y < 1000
     if y >= 1000000000000
       'T'

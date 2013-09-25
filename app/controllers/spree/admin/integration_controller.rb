@@ -51,7 +51,7 @@ module Spree
           @schedulers_json    = preloader.schedulers
           @parameters_json    = preloader.parameters
           @notifications_json = preloader.notifications
-          @queue_stats_json   = preloader.queue_stats
+          @queue_stats_json   = preloader.queue_stats(@environment.environment)
         end
 
       end
