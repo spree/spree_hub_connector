@@ -11,7 +11,7 @@ Augury.Models.Integration = Backbone.Model.extend(
     $.ajax
       url: "/stores/#{Augury.store_id}/integrations/#{@.id}/signup",
       type: "POST",
-      data: 
+      data:
         store_id: Augury.store_id
         parameters: parameters
         enabled: enabled
@@ -57,4 +57,9 @@ Augury.Models.Integration = Backbone.Model.extend(
 
   has_errors: ->
     @get('error_messages') && @get('error_messages').length > 0
+
+  iconUrl: ->
+    if @get('icon_url')? && @get('icon_url') != ''
+      "#{@get('url')}/#{@get('icon_url')}"
 )
+

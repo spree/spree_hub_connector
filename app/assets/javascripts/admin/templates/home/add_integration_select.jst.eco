@@ -2,7 +2,7 @@
   <select id="integrations-select" class='select2'>
     <option></option>
     <% for integration in @collection.models: %>
-      <option value="<%= integration.get('name') %>" data-integration-id="<%= integration.get('id') %>"><%= integration.get('name') %></option>
+      <option value="<%= integration.get('name') %>" data-integration-id="<%= integration.get('id') %>" data-integration-icon-url="<%= integration.iconUrl() %>"><%= integration.get('name') %></option>
     <% end %>
     <option value="Add Custom">Add Custom</option>
   </select>
@@ -20,8 +20,14 @@
       if (item.text === 'Add Custom') {
         return ' <div class="integration-name">' + item.text + '</div>';
       } else {
-        return ' <div class="integration-image"><img height="30" src="/assets/integrations/' + item.text.toLowerCase().replace(' ', '_') + '.png"></div><div class="integration-name">' + item.text + '</div>';
+        var iconUrl = $(item.element).data('integration-icon-url');
+        if(iconUrl != null && iconUrl != '') {
+          return ' <div class="integration-image"><img height="30" src="' + iconUrl + '"></div><div class="integration-name">' + item.text + '</div>';
+        } else {
+          return ' <div class="integration-name">' + item.text + '</div>';
+        }
       }
     }
   });
 </script>
+

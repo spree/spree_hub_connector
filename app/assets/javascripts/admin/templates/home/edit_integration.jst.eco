@@ -2,7 +2,15 @@
   <header class="modal-header">
 
     <div class="integration-image">
-      <img src="/assets/integrations/<%= @options.integration.get('name').toLowerCase() %>.png" alt="<%= @options.integration.get('name') %>">
+    <% if @options.integration.iconUrl()?: %>
+      <img src="<%= @options.integration.iconUrl() %>" alt="<%= @options.integration.get('name') %>">
+    <% else: %>
+      <span class="icon-stack icon-2x integration-icon-fallback">
+        <i class="icon-circle icon-stack-base"></i>
+        <i class="icon-cloud icon-light"></i>
+        <i class="icon-exchange"></i>
+      </span>
+    <% end %>
     </div>
 
     <h3 class="integration-title">Configuring <%= @options.integration.get('name') %></h3>
