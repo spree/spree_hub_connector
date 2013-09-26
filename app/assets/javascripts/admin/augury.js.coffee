@@ -23,6 +23,7 @@ window.Augury =
 
   post_init: ->
     @handle_link_clicks()
+    @start_resource_poller(Augury.queue_stats)
     Backbone.history.start pushState: true, root: '/admin/integration/'
 
   connect: ->
@@ -105,15 +106,14 @@ window.Augury =
     if name != ''
       $("nav#hub-menu li a#hub-menu-#{name}").addClass 'active'
 
-  start_integration_poller: (delay = 600000) ->
-    poller = Backbone.Poller.get(Augury.integrations)
+  start_resource_poller: (model_or_collection, delay=60000) ->
+    poller = Backbone.Poller.get(model_or_collection)
     poller.stop() if poller.active()
     poller.set(delay: delay, delayed: true)
     poller.start()
-
     poller.on 'success', ->
-      Augury.integrations.trigger 'reset'
+      model_or_collection.trigger 'reset'
 
-  stop_integration_poller: ->
-    Backbone.Poller.get(Augury.integrations).stop()
+  stop_resource_poller: (model_or_collection) ->
+    Backbone.Poller.get(model_or_collection).stop()
 
