@@ -6,6 +6,7 @@ Augury.Views.Messages.Show = Backbone.View.extend(
   events: ->
     'click nav li a': 'showSubView'
     'click a.refresh': 'refreshMessage'
+    'click a.attempt': 'attemptMessage'
 
   render: ->
     @$el.html JST["admin/templates/messages/show"](model: @model)
@@ -45,5 +46,17 @@ Augury.Views.Messages.Show = Backbone.View.extend(
     e.preventDefault()
     @model.fetch().done ->
       Augury.Flash.success 'Message has been refreshed.'
+
+  attemptMessage: (e) ->
+    e.preventDefault()
+    $.ajax
+      url: "/stores/#{Augury.store_id}/messages/#{@model.id}"
+      type: "PUT"
+      data: attempt_now: true
+      success: =>
+        Augury.Flash.success 'Message will be attempted shortly.'
+        @model.fetch()
+      error: ->
+        Augury.Flash.error 'Message could not be attemped. Please try again.'
 
 )
