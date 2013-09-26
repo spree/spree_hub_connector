@@ -34,10 +34,10 @@
           <i class="icon-exchange"></i>
         </span>
       <% end %>
-      <% state = @model.state() %>      
+      <% state = @model.state() %>
       <span class="state <%= state.toLowerCase() %>">
         <%= state %>
-      </span>      
+      </span>
     </div>
 
     <div class="message-details omega ten columns">
@@ -61,13 +61,18 @@
         <%#---------------------------------------%>
         <div class="omega three columns action-buttons">
           <a href="/admin/integration/queues/<%= @model.get('queue_name') %>" class="button back">
-            <i class="icon-arrow-left"></i>      
+            <i class="icon-arrow-left"></i>
           </a>
-          <% unless @model.get('queue_name') == 'archived': %>      
+          <% unless @model.get('queue_name') == 'archived': %>
             <a href="javascript:void(0)" class='button refresh'>
               <i class="icon-refresh"></i>
-            </a>      
-          <% end %>          
+            </a>
+          <% end %>
+          <% if @model.get('queue_name') == 'accepted' && @model.get('can_attempt'): %>
+            <a href="javascript:void(0)" class='button attempt'>
+              <i class="icon-rocket">Attempt Now</i>
+            </a>
+          <% end %>
         </div>
         <%# / Action Buttons %>
       </div>
@@ -76,7 +81,7 @@
         <div class="message-created-at alpha three columns">
           <div class="block-title">Created At:</div>
           <div class="block-value"><%= Augury.format_date(@model.get('created_at')) %></div>
-        </div>        
+        </div>
         <% if @model.has_errors(): %>
           <div class="message-next-attempt three columns">
             <div class="block-title">Next Attempt:</div>
