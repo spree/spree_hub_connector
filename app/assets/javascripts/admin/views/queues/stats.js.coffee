@@ -2,6 +2,7 @@ Augury.Views.Queues.Stats = Backbone.View.extend(
   template: JST['admin/templates/queues/stats']
 
   initialize: (@options={}) ->
+    Augury.queue_stats.on 'reset', @render, @
 
   events:
     'click li#pending-messages':   'filterPending'
