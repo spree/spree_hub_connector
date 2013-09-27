@@ -14,8 +14,6 @@ Augury.Views.Queues.Index = Backbone.View.extend(
 
   render: ->
     @$el.html @template(collection: @collection)
-    if @options.state
-      @$el.find('#status-select').select2('val', @options.state)
     # Set queue stats
     stats_view = new Augury.Views.Queues.Stats(queue_name: @collection.queue_name)
     @$el.find('#messages-queue').before stats_view.render().el
@@ -26,6 +24,9 @@ Augury.Views.Queues.Index = Backbone.View.extend(
       @$el.find('#messages-filters').prepend @templateMessageFilters(collection: @collection)
 
     @renderTable()
+
+    if @options.state?
+      @$el.find('#status-select').val @options.state
     @
 
   renderTable: ->
