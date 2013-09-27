@@ -156,9 +156,11 @@
       </ul>
     </nav>
     <%# / Sidebar Navigation %>
-
   </div>
   <%# / Message Sidebar %>
-
 </fieldset>
 <%# / Message View %>
+
+<div id="dialog-confirm" title="Archive message?" class="hidden">
+  <p>Are you sure you want to archive this message?</p>
+</div>
