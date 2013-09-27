@@ -72,6 +72,9 @@
             <a href="javascript:void(0)" class='button attempt'>
               <i class="icon-rocket">Attempt Now</i>
             </a>
+            <a href="javascript:void(0)" class='button archive'>
+              <i class="icon-archive">Archive</i>
+            </a>
           <% end %>
         </div>
         <%# / Action Buttons %>
