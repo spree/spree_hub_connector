@@ -7,6 +7,7 @@ Augury.Views.Messages.Show = Backbone.View.extend(
     'click nav li a': 'showSubView'
     'click a.refresh': 'refreshMessage'
     'click a.attempt': 'attemptMessage'
+    'click a.archive': 'archiveMessage'
 
   render: ->
     @$el.html JST["admin/templates/messages/show"](model: @model)
@@ -59,4 +60,19 @@ Augury.Views.Messages.Show = Backbone.View.extend(
       error: ->
         Augury.Flash.error 'Message could not be attemped. Please try again.'
 
+  archiveMessage: (e) ->
+    e.preventDefault()
+    $('#dialog-confirm').dialog
+      dialogClass: 'dialog-delete'
+      modal: true
+      resizable: false
+      draggable: false
+      minHeight: 180
+      buttons:
+        "Yes": =>
+          @model.archive().done =>
+            $('#dialog-confirm').dialog 'close'
+            @refreshMessage(e)
+        "No": =>
+          $('#dialog-confirm').dialog 'close'
 )
