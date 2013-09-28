@@ -13,9 +13,16 @@
       return 'Changing to ' + item.text + ' Connection';
     },
     formatResult: function(item){
-      return '<div class="integration-name">' + item.text.toLowerCase() + '</div>'
+      return '<div class="connection-icon">' +                     
+                '<span class="icon-stack">' + 
+                  '<i class="icon-circle icon-stack-base"></i>' +
+                  '<i class="icon-cloud icon-light"></i>' +
+                  '<i class="icon-plus"></i>' +
+                '</span> ' +
+              '</div>' +
+              '<div class="connection-name">' + item.text.toLowerCase() + '</div>'
     },
     containerCssClass: 'connection-select-container',
-    dropdownCssClass: 'connection-select-dropdown'
+  dropdownCssClass: 'connection-select-dropdown'
   });
 </script>
