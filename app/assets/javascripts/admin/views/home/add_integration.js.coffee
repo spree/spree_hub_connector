@@ -45,7 +45,7 @@ Augury.Views.Home.AddIntegration = Backbone.View.extend(
 
     # Show loading message or error messages while waiting for services to be present
     if @model.is_pending()
-      @$el.html '<p>Please wait while we fetch the endpoint configuration...</p>'
+      @$el.html JST['admin/templates/home/waiting_modal']
       if @model.has_errors()
         @$el.html JST['admin/templates/home/integration_errors'](errors: @model.get('error_messages'))
     else

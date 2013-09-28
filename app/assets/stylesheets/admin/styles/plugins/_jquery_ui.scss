@@ -120,7 +120,25 @@
 
 #confirm_delete {
   .modal-body {
-    padding: 40px
+    padding: 40px;
+    border-color: very-light($color-error, 20);
+    border-bottom: 1px solid very-light($color-error, 20) !important;
+  }
+
+  .modal-header {
+    background-color: very-light($color-error);    
+
+    h3 {
+      color: $color-error;
+    }
+  }
+
+  .modal-footer {
+    background-color: very-light($color-error);
+  }
+
+  .icon-stack-base {
+    color: $color-error;
   }
 }
 
@@ -450,7 +468,7 @@
   }
 }
 
-.dialog-integration {
+.dialog-integration, [aria-describedby="confirm_delete"] {
   .ui-dialog-content {
     padding: 0
   }
@@ -526,6 +544,14 @@
 
   .modal-body {
     border-color: very-light($color-error, 15);
+  }
+}
+
+#waiting-modal {
+  .waiting-message {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
   }
 }
 

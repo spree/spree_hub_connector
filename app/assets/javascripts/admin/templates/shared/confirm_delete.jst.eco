@@ -1,15 +1,23 @@
-<div id="confirm_delete">
-  <div class="modal-header delete">
-    <h6>Confirm Delete?</h6>
-  </div>
-  <div class="modal-body">
+<div id="confirm_delete" class="container integration-modal content-modal">
+  <header class="modal-header">
+    <h3 class="integration-title">
+      <span class="icon-stack icon-1x">
+        <i class="icon-circle icon-stack-base"></i>
+        <i class="icon-trash icon-light"></i>
+      </span>
+      Confirm Delete?
+    </h3>
+  </header>
+  
+  <section class="modal-body">
     <p><%= @warning %></p>
-  </div>
-  <div class="modal-footer">
+  </section>
+
+  <footer class="modal-footer">
     <div class="form-actions">
       <a href="/admin/<%= @klass %>/delete/<%= @identifier %>?confirm=true" class="button icon-trash delete">Delete</a>
       <span class="or">or</span>
       <a href="/admin/integration/cancel_dialog" class="button icon-cancel cancel">Cancel</a>
     </div>
-  </div>
+  </footer>
 </div>

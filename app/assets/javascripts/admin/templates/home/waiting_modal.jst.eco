@@ -1,0 +1,17 @@
+<div id="waiting-modal" class="container integration-modal content-modal">
+  <header class="modal-header">
+    <h3 class="integration-title">
+      <span class="icon-stack icon-1x">
+        <i class="icon-circle icon-stack-base"></i>
+        <i class="icon-refresh icon-light"></i>
+      </span>
+      Adding Custom Integration
+    </h3>
+  </header>
+  
+  <section class="modal-body">
+    <div class="waiting-message">
+      Please wait while we fetch the endpoint configuration...
+    </div>
+  </section>
+</div>
