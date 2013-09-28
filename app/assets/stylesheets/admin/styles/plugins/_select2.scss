@@ -130,3 +130,47 @@
     }
   }
 }
+
+.connection-select-dropdown {
+  min-width: 400px !important;
+  margin-left: -192px;
+
+  .connection-icon, .connection-name {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .connection-icon {
+    width: 45px;
+  }
+
+  .connection-name {
+    color: $color-3 !important;
+
+    &:hover {
+      color: $color-2 !important;
+    }
+  } 
+
+  .icon-stack {
+    color: $color-3;
+    font-size: 18px;
+    text-align: center;
+    padding-left: 2px;
+
+    i.icon-plus {
+      font-size: 0.5em;
+    }
+
+    i.icon-plus {
+      margin-top: 2px;
+    }
+  }
+
+  .connection-icon.add-connection {
+    .icon-stack {
+      color: $color-6 !important;
+    }      
+  }
+}
+
