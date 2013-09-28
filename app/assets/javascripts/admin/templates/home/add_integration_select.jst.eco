@@ -18,13 +18,31 @@
     },
     formatResult: function(item){
       if (item.text === 'Add Custom') {
-        return ' <div class="integration-name">' + item.text + '</div>';
+        return '<div class="integration-image custom add-custom">' +                     
+                  '<span class="icon-stack">' + 
+                    '<i class="icon-circle icon-stack-base"></i>' +
+                    '<i class="icon-cloud icon-light"></i>' +
+                    '<i class="icon-plus"></i>' +
+                  '</span> ' +
+                '</div>' +
+                '<div class="integration-name">' + 
+                  item.text + 
+                '</div>';
       } else {
         var iconUrl = $(item.element).data('integration-icon-url');
         if(iconUrl != null && iconUrl != '') {
-          return ' <div class="integration-image"><img height="30" src="' + iconUrl + '"></div><div class="integration-name">' + item.text + '</div>';
+          return ' <div class="integration-image"><img src="' + iconUrl + '"></div><div class="integration-name">' + item.text + '</div>';
         } else {
-          return ' <div class="integration-name">' + item.text + '</div>';
+          return '<div class="integration-image custom">' +                     
+                    '<span class="icon-stack">' + 
+                      '<i class="icon-circle icon-stack-base"></i>' +
+                      '<i class="icon-cloud icon-light"></i>' +
+                      '<i class="icon-exchange"></i>' +
+                    '</span> ' +
+                  '</div>' +
+                  '<div class="integration-name">' + 
+                    item.text + 
+                  '</div>';
         }
       }
     }
