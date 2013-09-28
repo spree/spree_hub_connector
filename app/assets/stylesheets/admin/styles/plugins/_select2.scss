@@ -60,6 +60,15 @@
   margin-top: -2px;
   border-top: 1px solid $color-2;
 
+  &.select2-drop-above {
+    border-top: 1px solid $color-2 !important;    
+    border-bottom: 1px solid $color-2 !important;
+  }
+
+  .select2-result-label {
+    min-height: 47px !important;
+  }
+
   .select2-results {
     max-height: 400px;
   }
@@ -68,10 +77,39 @@
     display: table-cell;
     vertical-align: middle;
   }
+
   .integration-image {
     width: 60px;
     height: 40px;
     text-align: center;
+
+    img {
+      max-width: 40px !important;
+      max-height: 30px !important;
+      vertical-align: middle !important;
+    }
+
+    .icon-stack {
+      color: $color-3;
+      font-size: 18px;
+      text-align: center;
+      padding-left: 2px;
+
+      i.icon-exchange,
+      i.icon-plus {
+        font-size: 0.5em;
+      }
+
+      i.icon-plus {
+        margin-top: 2px;
+      }
+    }
+
+    &.add-custom {
+      .icon-stack {
+        color: $color-6;
+      }      
+    }
   }
   .integration-name {
     text-transform: uppercase;
