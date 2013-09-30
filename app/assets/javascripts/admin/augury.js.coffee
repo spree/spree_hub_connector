@@ -12,7 +12,7 @@ window.Augury =
     $('.sixteen.columns .block-table ').html JST["admin/templates/shared/integration_menu"]
       connections: Augury.connections
 
-    $("#connections-select").on "select2-selected", (event, object) =>
+    $("#connections-select").on "change", (event, object) =>
       selected = $("#connections-select").select2('data').element
       connectionId = $(selected).val()
       if connectionId == 'new-connection'

@@ -5,7 +5,7 @@ Augury.Views.Tests.New = Backbone.View.extend(
 
   events:
     'click button#create-endpoint-message': 'createMessage'
-    'select2-selected select#endpoint-message-samples': 'loadSample'
+    'change select#endpoint-message-samples': 'loadSample'
     'click button#cancel': 'cancel'
 
   render: ->

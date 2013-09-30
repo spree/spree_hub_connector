@@ -57,7 +57,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
       collection: @inactive
 
     # Handle selections from add integration select2
-    @$el.find("#integrations-select").on "select2-selected", (event, object) =>
+    @$el.find("#integrations-select").on "change", (event, object) =>
       selected = $("#integrations-select").select2('data').element
       integrationId = $(selected).data('integration-id')
       if integrationId

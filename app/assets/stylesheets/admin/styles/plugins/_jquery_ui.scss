@@ -1,4 +1,4 @@
-.ui-widget-overlay {  
+.ui-widget-overlay {
   background: none rgba(black, 0.5) !important;
   opacity: 1;
 }
@@ -6,8 +6,6 @@
 .ui-dialog {
   border-radius: 3px;
   border: none;
-  padding: 0;
-  background-color: white;
 
   &:active, &:focus {
     outline: none;
@@ -41,7 +39,7 @@
     padding: 12px 20px;
     display: block;
     font-size: 14px;
-    text-transform: uppercase;    
+    text-transform: uppercase;
     border-bottom: 1px solid $color-border;
 
     -webkit-font-smoothing: antialiased;
@@ -62,21 +60,21 @@
 
   .ui-dialog-titlebar .ui-button-text { display: none }
 
-  .ui-button-icon-only {    
+  .ui-button-icon-only {
     position: absolute;
     right: 10px;
     top: 11px;
     padding: 0;
-    background-color: transparent !important; 
+    background-color: transparent !important;
 
     .ui-icon.ui-icon-closethick {
       @extend .icon-remove;
 
       color: $color-body-text !important;
-      background-image: none;      
+      background-image: none;
       font-family: 'FontAwesome';
       font-size: 20px;
-      text-indent: 0;      
+      text-indent: 0;
       width: 20px;
       height: 20px;
 
@@ -128,7 +126,7 @@
   }
 
   .modal-header {
-    background-color: very-light($color-error);    
+    background-color: very-light($color-error);
 
     h3 {
       color: $color-error;
@@ -359,7 +357,7 @@
         border-width: 0 0 1px 0 !important;
         border-color :$color-border;
         border-radius: 0;
-        margin: 0;        
+        margin: 0;
         background-color: lighten($color-border, 8);
         background-image: none;
 
@@ -494,7 +492,7 @@
   }
 
   .ui-tabs-vertical .ui-tabs-nav {
-    li, li a {      
+    li, li a {
       &:active, &:focus {
         outline: none;
         box-shadow: none;
