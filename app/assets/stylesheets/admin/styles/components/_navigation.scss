@@ -18,7 +18,7 @@
           &:after {
             content: '';
             position: absolute;
-            bottom: -28px;
+            bottom: -30px;
             width: 0;
             height: 0;
             border-left: 6px solid transparent;
@@ -30,5 +30,12 @@
         }
       }
     }
+  }
+}
+
+#content-header {
+  span.select2-chosen,
+  span.select2-arrow {
+    line-height: 17px !important;
   }
 }
