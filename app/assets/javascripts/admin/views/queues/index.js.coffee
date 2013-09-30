@@ -15,7 +15,7 @@ Augury.Views.Queues.Index = Backbone.View.extend(
   render: ->
     @$el.html @template(collection: @collection)
     # Set queue stats
-    stats_view = new Augury.Views.Queues.Stats(queue_name: @collection.queue_name)
+    stats_view = new Augury.Views.Queues.Stats(model: Augury.queue_stats, queue_name: @collection.queue_name)
     @$el.find('#messages-queue').before stats_view.render().el
 
     if @collection.queue_name == 'incoming'
