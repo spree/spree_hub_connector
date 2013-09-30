@@ -22,7 +22,7 @@ Augury.Views.Home.Index = Backbone.View.extend(
     @$el.html JST["admin/templates/home/index"](env: @env, collection: @active)
     @addAll()
 
-    @$el.find('#active-integrations').before new Augury.Views.Queues.Stats().render().el
+    @$el.find('#active-integrations').before new Augury.Views.Queues.Stats(model: Augury.queue_stats).render().el
 
     @$el.find('#integrations-list').find('.actions a').powerTip
       popupId: 'integration-tooltip'
