@@ -36,7 +36,7 @@ Augury.Views.Tests.New = Backbone.View.extend(
   createMessage: (e) ->
     e.preventDefault()
     message = new Augury.Models.Message()
-    message.save { source: 'test', message: @messageValueToJSON() },
+    message.save { origin: 'test', message: @messageValueToJSON() },
       success: @created,
       error: @displayErrors
 
