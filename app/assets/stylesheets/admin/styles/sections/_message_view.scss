@@ -149,6 +149,10 @@
 .message-service-image {
   text-align: center;
 
+  img {
+    max-width: 100px;
+  }
+
   .integration-icon-fallback {
     margin-bottom: 5px;
   }
