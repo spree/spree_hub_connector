@@ -8,7 +8,7 @@
   <%#  Notifications Filter                 %>
   <%#---------------------------------------%>
   <div id="notifications-filter">
-    <div class="four columns">
+    <div class="alpha four columns">
       <label for="filter-level">Level:</label>
       <select name="level" id="filter-level" class="select2 fullwidth">
         <option></option>
@@ -18,7 +18,7 @@
       </select>
     </div>
 
-    <div class="alpha four columns">
+    <div class="four columns">
       <label for="filter-reference-type">Reference Type:</label>
       <select name="reference-type" id="filter-reference-type" class="select2 fullwidth">
         <option></option>
