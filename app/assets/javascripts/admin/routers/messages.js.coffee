@@ -7,5 +7,6 @@ Augury.Routers.Messages = Backbone.Router.extend(
     message.fetch().done ->
       view = new Augury.Views.Messages.Show(model: message)
       $('#integration_main').html view.render().el
+      SyntaxHighlighter.highlight()
 )
 
