@@ -18,7 +18,8 @@
     &:before { display: none }
     
     &.completed         { background-color: $color-2 }
-    &.pending, &.info   { background-color: $color-3; color: white; font-style: normal; margin: 0; line-height: inherit; }
+    &.pending, &.info,
+    &.running           { background-color: $color-3; color: white; font-style: normal; margin: 0; line-height: inherit; }
     &.failing, &.error  { background-color: $color-5 }
     &.scheduled, &.warn { background-color: $color-6 }
     &.parked            { background-color: lighten(black, 45) }
