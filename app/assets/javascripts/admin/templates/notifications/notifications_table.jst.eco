@@ -26,7 +26,7 @@
         <tr class='hidden'>
           <td colspan="4">
             <pre class="brush: js; gutter: true; toolbar: false;">
-              <%= JSON.stringify notification.attributes, null, 2 %>
+<%= JSON.stringify notification.attributes, null, 2 %>
             </pre>
           </td>
         </tr>
