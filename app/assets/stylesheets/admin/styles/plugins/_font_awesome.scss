@@ -63,13 +63,13 @@ a [class*=" icon-"] {
 [class^="icon-"].icon-fixed-width,
 [class*=" icon-"].icon-fixed-width {
   display: inline-block;
-  width: 1.1428571428571428em;
+  width: 1.1428571428571428em !important;
   text-align: right;
-  padding-right: 0.2857142857142857em;
+  padding-right: 0.2857142857142857em !important;
 }
 [class^="icon-"].icon-fixed-width.icon-large,
 [class*=" icon-"].icon-fixed-width.icon-large {
-  width: 1.4285714285714286em;
+  width: 1.4285714285714286em !important;
 }
 .icons-ul {
   margin-left: 2.142857142857143em;
@@ -149,11 +149,11 @@ a [class*=" icon-"] {
 }
 [class^="icon-"].pull-left,
 [class*=" icon-"].pull-left {
-  margin-right: .3em;
+  margin-right: .3em !important;
 }
 [class^="icon-"].pull-right,
 [class*=" icon-"].pull-right {
-  margin-left: .3em;
+  margin-left: .3em !important;
 }
 /* BOOTSTRAP SPECIFIC CLASSES
  * -------------------------- */
@@ -254,10 +254,10 @@ a [class*=" icon-"] {
 .icon-stack {
   position: relative;
   display: inline-block;
-  width: 2em;
-  height: 2em;
-  line-height: 2em;
-  vertical-align: -35%;
+  width: 2em !important;
+  height: 2em !important;
+  line-height: 2em !important;
+  vertical-align: -35% !important;
 }
 .icon-stack [class^="icon-"],
 .icon-stack [class*=" icon-"] {
@@ -268,7 +268,7 @@ a [class*=" icon-"] {
   height: 100%;
   font-size: 1em;
   line-height: inherit;
-  *line-height: 2em;
+  *line-height: 2em !important;
 }
 .icon-stack .icon-stack-base {
   font-size: 2em;

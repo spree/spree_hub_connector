@@ -3,3 +3,12 @@
     font-size: 0.5em;
   }
 }
+
+.integration figure.default-icon {
+  .icon-stack {
+    width: 100% !important;
+  }  
+}
+table td.actions [class*='icon-'].no-text {
+  padding-top: 5px;
+}

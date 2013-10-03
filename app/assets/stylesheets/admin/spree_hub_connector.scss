@@ -132,6 +132,10 @@ a.add-fields {
 #active-integrations {
   margin-top: 20px;
 }
+input[type="submit"], input[type="button"], button, .button {
+  font-size: 100% !important;
+  font-weight: 600 !important;
+}
 
 /**
   New Connection Wizard
