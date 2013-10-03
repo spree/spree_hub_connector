@@ -19,6 +19,9 @@
     font-weight: 600;
     text-align: left;
 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
     &.select2-chosen {
       &:before {
         font-family: 'FontAwesome';
@@ -133,7 +136,7 @@
 
 .connection-select-dropdown {
   min-width: 400px !important;
-  margin-left: -192px;
+  margin-left: -208px;
 
   .connection-icon, .connection-name {
     display: table-cell;
