@@ -23,6 +23,19 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .ui-dialog-buttonpane {
+    background-color: lighten($color-border, 7);
+    border-top: 1px solid $color-border;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    .ui-dialog-buttonset {
+      button {
+        margin: 0 10px;
+      }
+    }
+  }
+
   &.ui-widget {
     font-family: $base-font-family;
     font-size: $body-font-size;
@@ -499,6 +512,11 @@
       }
     }
   }
+}
+
+
+#dialog-confirm {
+  text-align: center;
 }
 
 .content-modal {
