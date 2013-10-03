@@ -19,7 +19,6 @@
 
       <hgroup>
         <h3 class="store-name"><%= store['name'] %></h3>
-        <h6 class="store-url"><%= store['api_url'] %></h6>
       </hgroup>
 
       <ul class="actions">
