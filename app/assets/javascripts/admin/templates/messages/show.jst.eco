@@ -91,7 +91,7 @@
             <div class="block-value"><%= Augury.format_date(@model.get('next_attempt')) %></span></div>
           </div>
         <% end %>
-        <% if @model.get('references')?: %>
+        <% if @model.get('references'): %>
           <div class="message-references four omega columns">
             <div class="block-title">References:</div>
             <div class="block-value">
