@@ -23,7 +23,7 @@
 
       <ul class="actions">
         <li class='action'>
-          <a href="#" title="Select" class='connect-to-store' data-store-id="<%= store['id'] %>" data-action="select">
+          <a href="#" title="Select" class='connect-to-store' data-store-id="<%= store['id'] %>" data-store-name="<%= store['name'] %>" data-action="select">
             <i class="icon-ok"></i>
           </a>
         </li>
