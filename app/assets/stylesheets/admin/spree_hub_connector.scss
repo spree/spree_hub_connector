@@ -132,9 +132,18 @@ a.add-fields {
 #active-integrations {
   margin-top: 20px;
 }
-input[type="submit"], input[type="button"], button, .button {
+input[type="submit"], input[type="button"], 
+button, .button, button[type="submit"] {
   font-size: 100% !important;
   font-weight: 600 !important;
+  font-family: $base-font-family !important;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    font-family: 'FontAwesome' !important;
+  }
 }
 
 /**
