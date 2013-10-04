@@ -14,6 +14,8 @@
 //= require backbone-validation-min
 //= require backbone-mongodb
 //= require ace/ace
+//= require ace/theme-chrome
+//= require ace/mode-json
 //= require backbone.poller.min
 //= require admin/augury
 //= require_tree ./extensions
