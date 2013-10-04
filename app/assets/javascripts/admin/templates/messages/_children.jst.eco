@@ -9,18 +9,25 @@
       </colgroup>
       <thead>
         <th>Message</th>
-        <th class='align-center'>Consumer</th>
+        <th class='align-center'>State</th>
+        <th class='align-center'>Location</th>
       </thead>
       <tbody>
         <% for child in children: %>
+        <% console.log child %>
           <tr>
             <td>
-              <a href="/admin/integration/messages/<%= child['_id']['$oid'] %>">
+              <a href="/admin/integration/messages/<%= child.id %>">
                 <%= child.message %>
                 &nbsp;<i class='icon-circle-arrow-right'></i>
               </a>
             </td>
-            <td class='align-center'><%= child.consumer_class %></td>
+            <td>
+              <%= child.state %>
+            </td>
+            <td>
+              <%= child.location %>
+            </td>
           </tr>
         <% end %>
       </tbody>
