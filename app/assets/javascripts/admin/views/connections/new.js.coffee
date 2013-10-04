@@ -159,7 +159,7 @@ Augury.Views.Connections.New = Backbone.View.extend
           invite_code: @$el.find('input#invite_code').val()
 
       success: (login, response, opts)=>
-        window.location.href = "/admin/integration/register?url=#{Augury.url}&env=#{login.env}&user_token=#{login.auth_token}&store_id=#{login.store_id}&user=#{login.user}"
+        window.location.href = "/admin/integration/register?url=#{Augury.url}&env=#{login.env}&user_token=#{login.auth_token}&store_id=#{login.store_id}&user=#{login.user}&store_name=#{login.store_name}"
       error: (xhr, textStatus, errorThrown) =>
         errors = $.parseJSON(xhr.responseText).errors.join(", ")
         Augury.Flash.error "Please fix the following errors: " + errors

@@ -15,4 +15,5 @@ Augury.Views.Connections.Select = Backbone.View.extend
   select: (evt) ->
     evt.preventDefault()
     store_id = $(evt.target).parent().data('store-id')
-    Augury.vent.trigger 'connection:select', @signup, store_id
+    store_name = $(evt.target).parent().data('store-name')
+    Augury.vent.trigger 'connection:select', @signup, store_id, store_name

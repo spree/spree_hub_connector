@@ -18,7 +18,7 @@
 
   Augury.connections = {}
   <% AuguryEnvironment.all.each do |env| %>
-    Augury.connections[<%= env.id %>] = { url: '<%= env.url %>', token: '<%= env.token %>', environment: '<%= env.environment %>', user: '<%= env.user %>' };
+    Augury.connections[<%= env.id %>] = { url: '<%= env.url %>', token: '<%= env.token %>', environment: '<%= env.environment %>', user: '<%= env.user %>', store_name: '<%= env.store_name %>' };
   <% end %>
 
   <% if @environment.nil? %>

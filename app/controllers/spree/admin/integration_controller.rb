@@ -10,6 +10,7 @@ module Spree
                                        url: params[:url],
                                        user: params[:user],
                                        token: params[:user_token],
+                                       store_name: params[:store_name],
                                        environment: params[:env])
         Spree::Config.augury_current_env = env.id
 
