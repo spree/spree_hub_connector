@@ -14,7 +14,7 @@
     <select id="connections-select" class='select2'>
       <option></option>
       <% for id, connection of @connections: %>
-        <option value="<%= id %>"><%= connection['url'] %> (<%= connection['environment'] %>)</option>
+        <option value="<%= id %>"><%= connection['store_name'] %> (<%= connection['environment'] %>)</option>
       <% end %>
       <option value="new-connection">Add New Connection</option>
     </select>
