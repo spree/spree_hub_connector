@@ -121,6 +121,7 @@ Augury.Views.Connections.New = Backbone.View.extend
     $.ajax
       url: '/login'
       type: 'POST'
+      datatype: 'jsonp'
       data:
         signup:
           name: @$el.find('input#name').val()
@@ -139,8 +140,11 @@ Augury.Views.Connections.New = Backbone.View.extend
           view = new Augury.Views.Connections.Select(signup: signup)
           $("#integration_main").html view.render().el
       error: (xhr, textStatus, errorThrown) =>
-        errors = $.parseJSON(xhr.responseText).errors.join(", ")
-        Augury.Flash.error "Please fix the following errors: " + errors
+        if xhr.responseText == ''
+          Augury.Flash.error "There was a problem connecting to the integrator. Please try again."
+        else
+          errors = $.parseJSON(xhr.responseText).errors.join(", ")
+          Augury.Flash.error "Please fix the following errors: " + errors
 
   connect: ->
     @set_url()
