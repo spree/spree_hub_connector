@@ -26,7 +26,7 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
     @$el.find('#notifications-table').after paginator.render().el
 
   search: (e) ->
-    e.preventDefault()
+    e.preventDefault() if e?
     @setQueryFields()
     Augury.notifications.fetch(data: Augury.notifications.queryFields(), reset: true)
 
@@ -34,6 +34,6 @@ Augury.Views.Notifications.Index = Backbone.View.extend(
     Augury.notifications.clearQueryFields()
 
     Augury.notifications.setQueryField 'reference_type', @$el.find('#filter-reference-type').select2('val')
-    Augury.notifications.setQueryField 'reference_id', @$el.find('#filter-reference-id').val().toLowerCase()
+    Augury.notifications.setQueryField 'reference_token', @$el.find('#filter-reference-token').val().toLowerCase()
     Augury.notifications.setQueryField 'level', @$el.find('#filter-level').select2('val')
 )

@@ -27,8 +27,8 @@
     </div>
 
     <div class="six columns">
-      <label for="filter-reference-id">Reference ID:</label>
-      <input type="text" id="filter-reference-id" class="fullwidth">
+      <label for="filter-reference-token">Reference Token:</label>
+      <input type="text" id="filter-reference-token" class="fullwidth">
     </div>
 
     <div class="omega two columns">
