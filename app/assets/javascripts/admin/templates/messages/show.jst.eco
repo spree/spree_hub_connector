@@ -95,7 +95,9 @@
           <div class="message-references four omega columns">
             <div class="block-title">References:</div>
             <div class="block-value">
-              <a href="/admin/orders/<%= @model.get('references') %>/edit">Order #<%= @model.get('references') %></a>
+              <a href="/admin/orders/<%= @model.get('references') %>/edit">
+                Order #<%= if @model.get('reference_token')? then @model.get('reference_token') else @model.get('references') %>
+              </a>
             </div>
           </div>
         <% end %>
