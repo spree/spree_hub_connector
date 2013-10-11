@@ -5,7 +5,7 @@ This extension connects your storefront to the SpreeCommerce hub.
 
 Learn more about the [SpreeCommerce hub](http://spreecommerce.com/product/hub).
 
-For instructions on how to use this extension, please refer to the [Configuation Guide](http://guides.spreecommerce.com/integration/configuration.html).
+For instructions on how to use this extension, please refer to the [Configuration Guide](http://guides.spreecommerce.com/integration/configuration.html).
 
 
 <hr>
