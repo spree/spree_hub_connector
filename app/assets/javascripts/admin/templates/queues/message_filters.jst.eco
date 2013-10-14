@@ -39,15 +39,14 @@
   </select>
 </div>
 
-<div class="five columns" id="filter-date-range">
+<div class="three columns" id="filter-date-range">
   <label for="status">Filter By Date Range</label>
   <input type="text" id="input-date-range" class='fullwidth'>
 </div>
 
-<div class="omega two columns">
+<div class="omega one columns">
   <button type="submit" class="fullwidth">
     <i class="icon-search"></i>
-    Search
   </button>
 </div>
 

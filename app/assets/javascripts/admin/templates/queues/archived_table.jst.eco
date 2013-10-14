@@ -14,6 +14,7 @@
     <thead>
       <tr>
         <th>Status</th>
+        <th>Source</th>
         <th colspan="2">Consumer</th>
         <th>Message</th>
         <th>Completed At</th>
@@ -24,6 +25,7 @@
       <% for message in @collection.models: %>
         <tr class='state-<%= message.state() %>'>
           <td><span class="state <%= message.get('state') %>"><%= message.get('state') %></span></td>
+          <td><%= message.get('source') %></td>
           <td class='consumer-image align-center'>
             <% if message.integrationIconUrl()?: %>
               <img src="<%= message.integrationIconUrl() %>" alt="<%= message.get('destination_name') %>" height="40">
