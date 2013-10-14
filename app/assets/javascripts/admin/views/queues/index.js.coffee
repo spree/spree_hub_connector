@@ -55,6 +55,9 @@ Augury.Views.Queues.Index = Backbone.View.extend(
       @collection.setQueryField 'message'        , @$el.find('#message-select').select2('val')
       @collection.setQueryField 'consumer_class' , @$el.find('#consumer-select').select2('val')
 
+    if @collection.queue_name == 'archived'
+      @collection.setQueryField 'source', @$el.find('#source-select').select2('val')
+
     if $('#input-date-range').val() != ''
       @collection.setQueryField 'start_date' , $('#input-date-range').data('daterangepicker').startDate.utc().format()
       @collection.setQueryField 'end_date'   , $('#input-date-range').data('daterangepicker').endDate.utc().format()
