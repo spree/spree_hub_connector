@@ -9,6 +9,16 @@
   </select>
 </div>
 
+<% if @collection.queue_name == 'archived': %>
+  <div class="three columns" id="filter-source">
+    <label for="source">Filter By Source</label>
+    <select name="source" class="select2 fullwidth" id="source-select">
+      <option value="accepted">Accepted</option>
+      <option value="incoming">Incoming</option>
+    </select>
+  </div>
+<% end %>
+
 <div class="three columns" id="filter-message">
   <label for="message">Filter By Messages</label>
   <select name="message" class="select2 fullwidth" id="message-select">
@@ -43,7 +53,7 @@
 
 <script>
   $(function(){
-    $('#message-select, #status-select, #consumer-select').select2();
+    $('#message-select, #status-select, #consumer-select, #source-select').select2();
 
     $('#input-date-range').daterangepicker({
       showDropdowns: false,
