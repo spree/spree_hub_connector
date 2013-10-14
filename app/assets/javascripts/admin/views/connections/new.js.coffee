@@ -91,7 +91,7 @@ Augury.Views.Connections.New = Backbone.View.extend
       @step1_5.find("[data-env]").fadeOut()
       @step1_5.find("[data-env=\"" + env + "\"]").fadeIn()
       @cancel.removeClass("disabled").removeAttr "disabled"
-      if env=='production'
+      if env=='production' || env=='custom'
         @step1_5.css('margin-right', '0')
         @form.find("[data-step='invite-code']").fadeIn()
       else
