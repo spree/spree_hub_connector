@@ -50,7 +50,7 @@ Augury.Models.Integration = Backbone.Model.extend(
       mapping.get('enabled') == true
 
   is_custom: ->
-    @get('category') == 'custom'
+    @get('store_id')?
 
   is_pending: ->
     !@get('services') || @get('services').length < 1 || @has_errors()
