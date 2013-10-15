@@ -20,11 +20,12 @@ Augury.Routers.Home = Backbone.Router.extend(
         minHeight: 180
     else
       $('.ui-dialog-content').dialog 'close'
-      integration.destroy()
-      Augury.mappings.fetch
-        reset: true
-        success: (results) ->
-          Augury.integrations.fetch reset: true
-          Backbone.history.navigate '/'
-          Augury.Flash.success "The integration has been deleted."
+      integration.destroy
+        success: ->
+          Augury.mappings.fetch
+            reset: true
+            success: (results) ->
+              Augury.integrations.fetch reset: true
+              Backbone.history.navigate '/'
+              Augury.Flash.success "The integration has been deleted."
 )
