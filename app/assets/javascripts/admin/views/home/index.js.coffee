@@ -45,9 +45,9 @@ Augury.Views.Home.Index = Backbone.View.extend(
 
   filterIntegrations: ->
     activeIntegrations = @collection.filter (integration) ->
-      !_(integration.mappings()).isEmpty() || integration.get('category') == 'custom'
+      !_(integration.mappings()).isEmpty() || integration.is_custom()
     inactiveIntegrations = @collection.filter (integration) ->
-      _(integration.mappings()).isEmpty() || !integration.get('category') == 'custom'
+      _(integration.mappings()).isEmpty() || !integration.is_custom()
 
     @active = new Augury.Collections.Integrations(activeIntegrations)
     @inactive = new Augury.Collections.Integrations(inactiveIntegrations)
