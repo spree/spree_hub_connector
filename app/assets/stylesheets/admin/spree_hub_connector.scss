@@ -118,10 +118,22 @@ a.add-fields {
     opacity: 0.3
   }
 
-  #integration-url * {
-    position: absolute;
-    width: 50%;
-    left: 25%;
+  #integration-url input, 
+  #integration-url label,
+  #invite-code input, 
+  #invite-code label, {    
+    display: inline-block;
+    width: 100%;
+  }
+
+  #integration-url, #invite-code {
+    position: relative;
+    
+    input, span {
+      position: absolute;    
+      width: 100%;
+      left: 0;
+    }
   }
 
   [data-step="environment"] {
