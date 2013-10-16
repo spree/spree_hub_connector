@@ -1,10 +1,6 @@
-require 'spree_hub_connector/preloader'
-
 module Spree
   module Admin
     class IntegrationController < Spree::Admin::BaseController
-      rescue_from SpreeHubConnector::PreloadError, with: :preload_error
-
       def register
         env = AuguryEnvironment.create(store_id: params[:store_id],
                                        url: params[:url],
@@ -41,20 +37,7 @@ module Spree
           @integrator_user.generate_spree_api_key!
         end
 
-        if @environment = AuguryEnvironment.where(id: Spree::Config.augury_current_env).first
-          preloader = SpreeHubConnector::Preloader.new(@environment.url,
-                                                       @environment.store_id,
-                                                       @environment.token)
-
-          @messages_json      = preloader.messages
-          @integrations_json  = preloader.integrations
-          @mappings_json      = preloader.mappings
-          @schedulers_json    = preloader.schedulers
-          @parameters_json    = preloader.parameters
-          @notifications_json = preloader.notifications
-          @queue_stats_json   = preloader.queue_stats(@environment.environment)
-        end
-
+        @environment = AuguryEnvironment.where(id: Spree::Config.augury_current_env).first
       end
 
       private
