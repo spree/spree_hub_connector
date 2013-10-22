@@ -8,6 +8,6 @@ else
   Deface::Override.new(virtual_path: 'spree/layouts/admin',
                        name: 'augury_js',
                        insert_bottom: 'body',
-                       text: '<script type="text/javascript" src="http://staging.hub.spreecommerce.com/hub.min.js"></script>'
+                       text: '<script type="text/javascript" src="https://staging.hub.spreecommerce.com/hub.min.js"></script>'
                       )
 end
