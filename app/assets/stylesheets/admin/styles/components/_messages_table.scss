@@ -3,6 +3,13 @@
     border-right: none;
   }
 
+  table tbody tr {
+    &:hover td img,
+    td img {
+      border: none;    
+    }
+  }
+
   .state {
     font-size: 90%;
     display: block;
