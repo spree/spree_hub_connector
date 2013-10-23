@@ -10,7 +10,7 @@ if defined?(Devise) && defined?(Spree::Auth)
 
         recipient = user.respond_to?(:id) ? user : Spree.user_class.find(user)
         password_reset_url = spree.edit_spree_user_password_url(:reset_password_token => recipient.reset_password_token, :host => Spree::Config.site_url)
-        hub_message_push_url = "http://localhost:4000/api/stores/#{augury_environment.store_id}/messages"
+        hub_message_push_url = "#{augury_environment.url}/api/stores/#{augury_environment.store_id}/messages"
         password_reset_message = {
           origin: 'store',
           message: 'user:password_reset',
