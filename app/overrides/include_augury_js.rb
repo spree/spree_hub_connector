@@ -1,13 +1,7 @@
-if Rails.env.development?
-  Deface::Override.new(virtual_path: 'spree/layouts/admin',
-                       name: 'augury_js',
-                       insert_bottom: 'body',
-                       text: '<script type="text/javascript" src="http://localhost:5000/hub.min.js"></script>'
-                      )
-else
-  Deface::Override.new(virtual_path: 'spree/layouts/admin',
-                       name: 'augury_js',
-                       insert_bottom: 'body',
-                       text: '<script type="text/javascript" src="//staging.hub.spreecommerce.com/hub.min.js"></script>'
-                      )
-end
+hub_javascript_url = ENV['HUB_JS_URL'] || "//staging.hub.spreecommerce.com/hub.min.js"
+
+Deface::Override.new(virtual_path: 'spree/layouts/admin',
+                     name: 'augury_js',
+                     insert_bottom: 'body',
+                     text: "<script type='text/javascript' src='#{hub_javascript_url}'></script>"
+                    )
