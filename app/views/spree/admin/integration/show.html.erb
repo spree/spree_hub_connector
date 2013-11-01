@@ -39,14 +39,9 @@
   <% end %>
 <% end %>
 
-<% if Rails.env.development? %>
-  <%
-      if Rails.application.assets.find_asset('hub_client/manifest.js').nil?
-        raise 'In development mode the hub_client project must be under the same base directory as spree_hub_connector is i.e. ~/workspace/spree_hub_connector, ~/workspace/hub_client.'
-  end
-  %>
-  <%= javascript_include_tag 'hub_client/manifest.js' %>
-<% else %>
+<% if Rails.application.assets.find_asset('hub_client/manifest.js').nil? %>
   <%= javascript_include_tag '//staging.hub.spreecommerce.com/hub.min.js' %>
+<% else %>
+  <%= javascript_include_tag 'hub_client/manifest.js' %>
 <% end %>
 
