@@ -1,6 +1,8 @@
 module Spree
   module Api
     class IntegratorController < Spree::Api::BaseController
+      prepend_view_path File.expand_path("../../../../app/views", File.dirname(__FILE__))
+
       helper_method :variant_attributes,
                     :order_attributes,
                     :stock_transfer_attributes
