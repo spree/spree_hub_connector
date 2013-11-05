@@ -26,19 +26,7 @@ child(:orders => :orders) do
     end
 
     child :shipments => :shipments do
-      #can uncomment line below, and remove rest of the block contents
-      #once this PR is merged: https://github.com/spree/spree/pull/3450
-      #extends "spree/api/shipments/show"
-
-      attributes *shipment_attributes
-      node(:order_id) { |shipment| shipment.order.number }
-      child :shipping_method => :shipping_method do
-          attributes :name, :zone_id, :shipping_category_id, :pch_carrier, :tracking_url
-      end
-
-      child :inventory_units do
-          attributes :id, :variant_id, :state
-      end
+      extends "spree/api/shipments/show"
     end
 
     child :adjustments => :adjustments do
