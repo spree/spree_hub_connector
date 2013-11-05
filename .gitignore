@@ -13,3 +13,4 @@ pkg
 *.swp
 spec/dummy
 vendor/ruby
+app/assets/javascripts/hub_client
