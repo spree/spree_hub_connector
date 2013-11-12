@@ -342,3 +342,103 @@
     }
   }
 }
+
+/*------------------------------------------------
+  Preprocessors
+------------------------------------------------*/
+#tabs-preprocessors {
+  .preprocessors-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .preprocessor {
+      display: inline-block;
+      border: 1px solid $color-border;
+      border-radius: $border-radius;
+      border-bottom-width: 3px;
+      padding: 10px 15px;
+      margin-right: 5px;
+      margin-bottom: 20px;
+      position: relative;
+      width: 170px;
+
+      .preprocessor-name {
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .preprocessor-actions {
+        list-style: none;
+        margin: 10px 0 5px;
+        padding: 0;
+        text-align: center;        
+        left: 0;
+        width: 100%;
+
+        .action {
+          display: inline-block;
+
+          a {
+            display: inline-block;
+            margin: 0 2px;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            background-color: #EFF5FC;
+            border: 1px solid #DEEBF8;
+            border-radius: 15px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: $color-2;
+              border-color: darken($color-2, 5);
+
+              i {
+                color: $color-1;
+              }
+            }
+          }
+
+          i {
+            color: $color-body-text;
+            font-size: 14px;
+            padding-top: 6px;
+            display: inline-block;
+            padding: 3px 7px;
+          }
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .ace-editor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 200px;
+    bottom: 50px      
+  }
+
+  .save {
+    background-color: $color-2;
+  }
+  .cancel {
+    background-color: $color-4;
+  }
+
+  .preprocessor-edit {
+    .field {
+      position: relative;
+
+      &.editor {
+        height: 200px;
+      }
+    }
+  }
+}
