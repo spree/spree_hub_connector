@@ -2,10 +2,10 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_hub_connector'
-  s.version     = '1.3.0'
+  s.version     = '2.1.0'
   s.summary     = 'SpreeCommerce hub connector'
   s.description = 'Connects your storefront to the SpreeCommerce hub'
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 1.9.3'
 
   s.author      = 'Sean Schofield'
   s.email       = 'sean@spreecommerce.com'
