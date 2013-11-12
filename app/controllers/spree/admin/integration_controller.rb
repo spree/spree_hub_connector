@@ -37,7 +37,7 @@ module Spree
           @integrator_user.generate_spree_api_key!
         end
 
-        @environment = AuguryEnvironment.where(id: Spree::Config.augury_current_env).first
+        @environment = AuguryEnvironment.last
       end
     end
   end
