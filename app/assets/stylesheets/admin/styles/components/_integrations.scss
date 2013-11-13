@@ -346,9 +346,9 @@
 /*------------------------------------------------
   Preprocessors
 ------------------------------------------------*/
-#tabs-preprocessors {
+#preprocessors {
   .preprocessors-list {
-    margin: 0;
+    margin: 0 -5px 0 0;
     padding: 0;
     list-style: none;
 
@@ -362,10 +362,13 @@
       margin-bottom: 20px;
       position: relative;
       width: 170px;
+      min-height: 120px;
+      vertical-align: top;
 
       .preprocessor-name {
         font-size: 13px;
         text-align: center;
+        line-height: 18px;
       }
 
       .preprocessor-actions {
@@ -375,9 +378,12 @@
         text-align: center;        
         left: 0;
         width: 100%;
+        position: absolute;
+        bottom: 5px;
 
         .action {
-          display: inline-block;
+          display: inline-block;          
+          bottom: 5px;
 
           a {
             display: inline-block;
@@ -413,6 +419,29 @@
       &:last-child {
         margin-right: 0;
       }
+
+      &.add-preprocessor {
+        background-color: $color-2;
+        border-color: $color-2;
+        border-bottom-color: darken($color-2, 5);
+      
+        .preprocessor-name {
+          color: white;
+          text-transform: uppercase;
+        }
+
+        .preprocessor-actions {
+          .action a {
+            background-color: lighten($color-2, 5);
+            color: white;
+            border-color: lighten($color-2, 10);
+
+            i {
+              color: white;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -423,13 +452,6 @@
     right: 0;
     height: 200px;
     bottom: 50px      
-  }
-
-  .save {
-    background-color: $color-2;
-  }
-  .cancel {
-    background-color: $color-4;
   }
 
   .preprocessor-edit {
