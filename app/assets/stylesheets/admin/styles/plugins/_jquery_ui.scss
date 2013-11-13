@@ -348,7 +348,6 @@
     font-size: $body-font-size;
     background-color: transparent;
     overflow: auto;
-    max-height: 300px;
 
     &.disabled {
       .field:not(.state), fieldset.list-value {
@@ -363,6 +362,7 @@
       float: left;
       width: 260px;
       margin-top: -1px;
+      min-height: 350px;
 
       li {
         clear: left;
