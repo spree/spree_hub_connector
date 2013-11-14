@@ -64,10 +64,14 @@
 }
 
 
-#endpoint-message-editor {
+#endpoint-message-editor, #preprocessor-source-editor {
   height: 400px;
   width: 100%;
   border: 1px solid lightgray;
+}
+
+.preprocessor-edit {
+  display: none;
 }
 
 label.large {
@@ -154,19 +158,19 @@ button, .button, button[type="submit"] {
     opacity: 0.3
   }
 
-  #integration-url input, 
+  #integration-url input,
   #integration-url label,
-  #invite-code input, 
-  #invite-code label, {    
+  #invite-code input,
+  #invite-code label, {
     display: inline-block;
     width: 100%;
   }
 
   #integration-url, #invite-code {
     position: relative;
-    
+
     input, span {
-      position: absolute;    
+      position: absolute;
       width: 100%;
       left: 0;
     }
