@@ -18,6 +18,10 @@ module SpreeHubConnector
       end
     end
 
+    def self.path_to_views
+      File.expand_path("../../app/views", File.dirname(__FILE__))
+    end
+
     config.to_prepare &method(:activate).to_proc
   end
 end
