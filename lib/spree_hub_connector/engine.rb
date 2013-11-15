@@ -22,6 +22,11 @@ module SpreeHubConnector
       File.expand_path("../../app/views", File.dirname(__FILE__))
     end
 
+    initializer "spree_hub_connector.append_api_attributes" do
+      Spree::Api::ApiHelpers.variant_attributes.push :external_ref
+      Spree::Api::ApiHelpers.order_attributes.push :total_weight, :locked_at
+    end
+
     config.to_prepare &method(:activate).to_proc
   end
 end
