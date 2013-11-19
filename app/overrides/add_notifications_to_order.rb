@@ -28,7 +28,7 @@ Deface::Override.new(:virtual_path => "spree/admin/orders/edit",
                           Augury.env_id = '<%= @environment.id %>';
 
                           $(function() {
-                            return Augury.notifications();
+                            return Augury.notifications('<%= @order.number %>');
                           });
                         <% end %>
 
