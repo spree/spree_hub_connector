@@ -32,6 +32,10 @@ Deface::Override.new(:virtual_path => "spree/admin/orders/edit",
                           });
                         <% end %>
 
-                        <%= javascript_include_tag 'hub_client/notifications_manifest.js' %>
+                        <% if Rails.application.assets.find_asset('hub_client/notifications_manifest.js').nil? %>
+                          <%= javascript_include_tag '//staging.hub.spreecommerce.com/notifications.min.js' %>
+                        <% else %>
+                          <%= javascript_include_tag 'hub_client/notifications_manifest.js' %>
+                        <% end %>
                      },
                      :disabled => false)
