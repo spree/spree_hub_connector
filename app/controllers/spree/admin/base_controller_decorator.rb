@@ -1,9 +1,9 @@
-Spree::Admin::OrdersController.class_eval do
-  before_action :set_up_hub, only: :edit
+Spree::Admin::BaseController.class_eval do
+  before_action :setup_hub
 
   private
 
-  def set_up_hub
+  def setup_hub
     email = 'integrator@spreecommerce.com'
     if @integrator_user = Spree.user_class.where('email' => email).first
       # do nothing, for now....
