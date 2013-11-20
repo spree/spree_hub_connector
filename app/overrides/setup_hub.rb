@@ -17,11 +17,13 @@ Deface::Override.new(:virtual_path => "spree/layouts/admin",
                             Augury.connections[<%= env.id %>] = { url: '<%= env.url %>', token: '<%= env.token %>', environment: '<%= env.environment %>', user: '<%= env.user %>', store_name: '<%= env.store_name %>' };
                           <% end %>
 
-                          Augury.env = '<%= @environment.environment %>';
-                          Augury.url = '<%= @environment.url %>';
-                          Augury.store_id = '<%= @environment.store_id %>';
-                          Augury.api_key = '<%= @environment.token %>';
-                          Augury.env_id = '<%= @environment.id %>';
+                          <% if @environment %>
+                            Augury.env = '<%= @environment.environment %>';
+                            Augury.url = '<%= @environment.url %>';
+                            Augury.store_id = '<%= @environment.store_id %>';
+                            Augury.api_key = '<%= @environment.token %>';
+                            Augury.env_id = '<%= @environment.id %>';
+                          <% end %>
 
                         <% end %>
                      },
