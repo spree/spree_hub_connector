@@ -1,14 +1,29 @@
 #notifications-filter {
-  margin-bottom: 20px;
+  margin-top: 25px;
   overflow: auto;
+  background: #eff5fc;
+  padding: 15px;
+  border: 1px solid #cee1f4;
+  border-bottom: 0;
 
-  button[type='submit'] {
-    float: right;
-    margin-top: 17px;    
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  * {
+    display: inline-block;
   }
+}
+
+#filter-list span {
+  background: #cee1f4;
+  padding: 5px 9px;
+  border-radius: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  &::after {
+    content: '  |  x'
+  }
+}
+
+#error-callout {
+  margin-top: 15px;
 }
 
 #notifications-table, #messages-view table {
