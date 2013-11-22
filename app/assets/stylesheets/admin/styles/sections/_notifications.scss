@@ -30,6 +30,17 @@
   margin-top: 15px;
 }
 
+#notifications-table img {
+  max-width: 50px;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+#notifications-table .icon-stack {
+  margin-left: 14px;
+  margin-right: 10px;
+}
+
 #notifications-table, #messages-view table {
   tr {
     &.state-error, &.state-failing {
