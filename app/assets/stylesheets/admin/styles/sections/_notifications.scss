@@ -1,3 +1,25 @@
+#filter-add {
+  margin-right: 10px;
+  font-size: 1.1em;
+}
+
+#filter-configuration {
+  display: none;
+  position: absolute;
+  background: white;
+  top: 125px;
+  left: 25px;
+  border: 1px solid #666;
+  padding: 10px;
+  * {
+    display: inline;
+  }
+
+  #filter-is, #filter-create {
+    display: none;
+  }
+}
+
 #notifications-filter {
   margin-top: 25px;
   overflow: auto;
@@ -6,19 +28,22 @@
   border: 1px solid #cee1f4;
   border-bottom: 0;
 
-  * {
-    display: inline-block;
-  }
 }
 
-#filter-list span {
-  background: #cee1f4;
-  padding: 5px 9px;
-  border-radius: 16px;
-  margin-left: 10px;
-  cursor: pointer;
-  &::after {
-    content: '  |  x'
+#filter-list {
+  display: inline;
+  line-height: 3em;
+
+  span {
+    background: #cee1f4;
+    padding: 5px 9px;
+    border-radius: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    &::after {
+      content: '  |  x'
+    }
   }
 }
 
