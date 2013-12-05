@@ -1,33 +1,71 @@
-#filter-add {
-  margin-right: 10px;
-  font-size: 1.1em;
+#notifications-filter {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx--font-smoothing: grayscale;
+  }
+}
+
+.notifications-ui-dropdown {
+  .select2-input {
+    margin-left: 5px !important;
+  }
+}
+
+#filter-query-wrapper {
+  .icon-search {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
+  input {
+    padding-left: 30px;
+  }
 }
 
 #filter-configuration {
   display: none;
   position: absolute;
-  background: white;
-  top: 125px;
-  left: 25px;
-  border: 1px solid #666;
+  background: $color-1;
+  border-radius: $border-radius;
+  border: 1px solid $color-border;
   padding: 10px;
-  * {
-    display: inline;
-  }
+  margin-top: 10px;
+
+  .notifications-ui-select, #filter-template, button { display: inline-block }
 
   #filter-is, #filter-create {
     display: none;
   }
+
+  #filter-create {
+    margin-left: 10px;
+    padding: 7px 15px 6px;
+    vertical-align: bottom;
+  }
+
+  #filter-is {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $color-2;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $color-border;
+  }
 }
 
-#notifications-filter {
-  margin-top: 25px;
-  overflow: auto;
-  background: #eff5fc;
-  padding: 15px;
-  border: 1px solid #cee1f4;
-  border-bottom: 0;
-
+#notifications-filter {  
+  overflow: visible;
 }
 
 .notification-toggle {
@@ -52,7 +90,7 @@
 }
 
 #filter-query {
-  width: 330px;
+  
 }
 
 #error-callout {
