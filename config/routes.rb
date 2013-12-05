@@ -18,5 +18,6 @@ Spree::Core::Engine.routes.draw do
     get 'integrator/products',               to: 'integrator#show_products'
     get 'integrator/return_authorizations',  to: 'integrator#show_return_authorizations'
     get 'integrator/stock_transfers',        to: 'integrator#show_stock_transfers'
+    get 'integrator/taxons',                 to: 'integrator#show_taxons'
   end
 end
