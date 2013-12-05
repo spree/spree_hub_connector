@@ -14,7 +14,8 @@ module Spree
                :show_users,
                :show_products,
                :show_return_authorizations,
-               :show_stock_transfers]
+               :show_stock_transfers,
+               :show_taxons]
 
         def index
           @collections = [
@@ -22,7 +23,8 @@ module Spree
             OpenStruct.new({ name: 'users',                  token: 'email',   frequency: '5.minutes' }),
             OpenStruct.new({ name: 'products',               token: 'sku',     frequency: '1.hour' }),
             OpenStruct.new({ name: 'return_authorizations',  token: 'number',  frequency: '1.hour' }),
-            OpenStruct.new({ name: 'stock_transfers',        token: 'number',  frequency: '1.hour' })
+            OpenStruct.new({ name: 'stock_transfers',        token: 'number',  frequency: '1.hour' }),
+            OpenStruct.new({ name: 'taxons',                 token: 'id',      frequency: '1.hour' })
           ]
         end
 
@@ -44,6 +46,10 @@ module Spree
 
         def show_stock_transfers
           @stock_transfers = filter_resource(Spree::StockTransfer)
+        end
+
+        def show_taxons
+          @taxons = filter_resource(Spree::Taxon)
         end
 
         private
@@ -70,6 +76,10 @@ module Spree
 
         def product_attributes
           [:id, :sku, :name, :description, :price, :available_on, :permalink, :meta_description, :meta_keywords, :shipping_category_id, :taxon_ids, :updated_at]
+        end
+
+        def taxon_attributes
+          [:id, :parent_id, :position, :name, :permalink, :taxonomy_id, :description, :created_at, :updated_at]
         end
     end
   end

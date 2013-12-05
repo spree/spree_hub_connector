@@ -11,7 +11,7 @@ module Spree
       it 'gets all available collections' do
         api_get :index
 
-        expect(json_response['collections']).to have(5).items
+        expect(json_response['collections']).to have(6).items
       end
 
       context 'when request show_* listed on index' do
@@ -94,6 +94,21 @@ module Spree
         json_response['count'].should eq 1
         json_response['current_page'].should eq 1
         json_response['products'].first['id'].should eq product.id
+      end
+    end
+
+    describe '#show_taxons' do
+      it 'gets taxons changed since' do
+        taxon = Taxon.create!(name: "Foobar")
+        Taxon.update_all(updated_at: 2.days.ago)
+
+        api_get :show_taxons, since: 3.days.ago.utc.to_s,
+          page: 1,
+          per_page: 1
+
+        json_response['count'].should eq 1
+        json_response['current_page'].should eq 1
+        json_response['taxons'].first['id'].should eq taxon.id
       end
     end
 
