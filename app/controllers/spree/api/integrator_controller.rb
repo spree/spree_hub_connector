@@ -5,7 +5,8 @@ module Spree
 
       helper_method :stock_transfer_attributes,
                     :collection_attributes,
-                    :product_attributes
+                    :product_attributes,
+                    :taxon_attributes
 
       respond_to :json
 
