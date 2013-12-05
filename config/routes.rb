@@ -12,15 +12,11 @@ Spree::Core::Engine.routes.draw do
   end
 
   namespace :api, :defaults => { :format => 'json' } do
-
-    scope 'integrator' do
-      get '',                       to: 'integrator#index'
-      get 'orders',                 to: 'integrator#show_orders'
-      get 'users',                  to: 'integrator#show_users'
-      get 'products',               to: 'integrator#show_products'
-      get 'return_authorizations',  to: 'integrator#show_return_authorizations'
-      get 'stock_transfers',        to: 'integrator#show_stock_transfers'
-    end
+    get 'integrator',                       to: 'integrator#index'
+    get 'integrator/orders',                 to: 'integrator#show_orders'
+    get 'integrator/users',                  to: 'integrator#show_users'
+    get 'integrator/products',               to: 'integrator#show_products'
+    get 'integrator/return_authorizations',  to: 'integrator#show_return_authorizations'
+    get 'integrator/stock_transfers',        to: 'integrator#show_stock_transfers'
   end
 end
-
