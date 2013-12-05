@@ -14,6 +14,7 @@ Spree::Core::Engine.routes.draw do
   namespace :api, :defaults => { :format => 'json' } do
     get 'integrator',                       to: 'integrator#index'
     get 'integrator/orders',                 to: 'integrator#show_orders'
+    get 'integrator/carts',                  to: 'integrator#show_carts'
     get 'integrator/users',                  to: 'integrator#show_users'
     get 'integrator/products',               to: 'integrator#show_products'
     get 'integrator/return_authorizations',  to: 'integrator#show_return_authorizations'

@@ -49,6 +49,25 @@ module Spree
       end
     end
 
+    describe '#show_orders' do
+      it 'gets orders changed since' do
+        order = create(:order_with_line_items)
+        Order.update_all(updated_at: 2.days.ago)
+
+        api_get :show_orders, since: 3.days.ago.utc.to_s,
+          page: 1,
+          per_page: 1
+
+        json_response['count'].should eq 1
+        json_response['current_page'].should eq 1
+
+        json_response['orders'].first['number'].should eq order.number
+        json_response['orders'].first.should have_key('ship_address')
+        json_response['orders'].first.should have_key('bill_address')
+        json_response['orders'].first.should have_key('payments')
+        json_response['orders'].first.should have_key('credit_cards')
+      end
+    end
     describe '#show_stock_transfers' do
       it 'gets stock_transfers changed since' do
         source = create(:stock_location)

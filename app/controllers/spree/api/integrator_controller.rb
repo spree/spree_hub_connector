@@ -16,12 +16,14 @@ module Spree
                :show_products,
                :show_return_authorizations,
                :show_stock_transfers,
-               :show_taxons]
+               :show_taxons,
+               :show_carts]
 
         def index
           @collections = [
             OpenStruct.new({ name: 'orders',                 token: 'number',  frequency: '5.minutes' }),
             OpenStruct.new({ name: 'users',                  token: 'email',   frequency: '5.minutes' }),
+            OpenStruct.new({ name: 'carts',                  token: 'number',  frequency: '5.minutes' }),
             OpenStruct.new({ name: 'products',               token: 'sku',     frequency: '1.hour' }),
             OpenStruct.new({ name: 'return_authorizations',  token: 'number',  frequency: '1.hour' }),
             OpenStruct.new({ name: 'stock_transfers',        token: 'number',  frequency: '1.hour' }),
@@ -31,6 +33,10 @@ module Spree
 
         def show_orders
           @orders = filter_resource(Spree::Order.complete)
+        end
+
+        def show_carts
+          @carts = filter_resource(Spree::Order.where('state <> ?', 'complete'))
         end
 
         def show_users
