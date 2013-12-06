@@ -158,6 +158,7 @@ module Spree
         json_response['count'].should eq 1
         json_response['current_page'].should eq 1
         json_response['return_authorizations'].first['id'].should eq return_authorization.id
+        json_response['return_authorizations'].first['order']['id'].should eq return_authorization.order.id
       end
     end
   end
