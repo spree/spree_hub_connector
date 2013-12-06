@@ -27,13 +27,16 @@
 #filter-configuration {
   display: none;
   position: absolute;
-  background: $color-1;
+  background-color: $color-4;
   border-radius: $border-radius;
-  border: 1px solid $color-border;
-  padding: 10px;
+  padding: 10px 40px 10px 10px;
   margin-top: 10px;
 
   .notifications-ui-select, #filter-template, button { display: inline-block }
+
+  button, .select2-container .select2-choice {
+    background-color: $color-2;
+  }
 
   #filter-is, #filter-create {
     display: none;
@@ -48,7 +51,28 @@
   #filter-is {
     text-transform: uppercase;
     font-weight: 600;
-    color: $color-2;
+    color: $color-1;
+    font-size: 18px;
+    line-height: 22px;
+    vertical-align: middle;
+  }
+
+  #filter-close {
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    top: 9px;
+    right: 5px;    
+
+    i {
+      color: $color-1;
+      font-size: 22px;
+    }
+
+    &:active, &:focus {
+      box-shadow: none;
+      outline: none;
+    }
   }
 
   &:before {
@@ -60,7 +84,7 @@
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid $color-border;
+    border-bottom: 10px solid $color-4;
   }
 }
 
