@@ -136,6 +136,13 @@
 #error-callout {
   margin-top: 15px;
 }
+#error-notification-bubble {
+  color: $color-1 !important;
+  background-color: $color-error;
+  padding: 3px 5px 3px 4px !important;
+  font-weight: 600;
+  font-size: 9px !important;
+}
 
 #notifications-table img {
   max-width: 50px;
@@ -144,77 +151,86 @@
 }
 
 #notifications-table .icon-stack {
-  margin-left: 14px;
+  margin-left: 0px;
   margin-right: 10px;
 }
 
 #notifications-table, #messages-view table {
+  td {
+    padding: 15px 10px;
+    border-left-width: 5px;
+
+    .icon-stack-base {
+      font-size: 35px;
+    }
+    .icon-light {
+      margin-left: 4px;
+      font-size: 18px;
+    }
+    .icon-exchange {
+      margin-left: 4px;
+      font-size: 10px;
+    }
+  }
   tr {
     &.state-error, &.state-failing {
       td {
-        border-left-color: very-light($color-error, 15);
+        border-left-color: very-light($color-error, 20);
+        background-color: very-light($color-error);
+
+        .icon-stack-base, .icon-exchange {
+          color: $color-error;
+        }
       }
 
       &:hover td {
         background-color: very-light($color-error, 6);
-        border-color: very-light($color-error, 15);
-
-        .integration-icon-fallback {
-          .icon-stack-base, .icon-exchange {
-            color: $color-error;
-          }
-        }
+        border-color: very-light($color-error, 25);
       }
     }
 
     &.state-parked {
       td {
         border-left-color: lighten(black, 75);
+
+        .icon-stack-base, .icon-exchange {
+          color: lighten(black, 65);
+        }
       }
 
       &:hover td {
         background-color: lighten(black, 95);
         border-color: lighten(black, 75);
-
-        .integration-icon-fallback {
-          .icon-stack-base, .icon-exchange {
-            color: lighten(black, 65);
-          }
-        }
       }
     }
 
     &.state-warn, &.state-scheduled {
       td {
         border-left-color: very-light($color-notice, 15);
+
+        .icon-stack-base, .icon-exchange {
+          color: $color-notice;
+        }
       }
 
       &:hover td {
         background-color: very-light($color-notice, 6);
         border-color: very-light($color-notice, 15);
-
-        .integration-icon-fallback {
-          .icon-stack-base, .icon-exchange {
-            color: $color-notice;
-          }
-        }
       }
     }
 
     &.state-completed {
       td {
         border-left-color: very-light($color-success, 25);
+
+        .icon-stack-base, .icon-exchange {
+          color: $color-success;
+        }
       }
 
       &:hover td {
         background-color: very-light($color-success, 10);
         border-color: very-light($color-success, 25);
-
-        .integration-icon-fallback {
-          .icon-stack-base, .icon-exchange {
-            color: $color-success;
-          }
-        }
       }
     }
 
