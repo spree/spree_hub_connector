@@ -497,6 +497,11 @@
     position: absolute;
     right: 10px;
     top: 10px;
+    z-index: 1000;
+
+    &:focus {
+      box-shadow: none
+    }
 
     .ui-icon.ui-icon-closethick {
       font-size: 30px;
