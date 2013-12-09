@@ -15,12 +15,24 @@ module Spree
                :show_return_authorizations]
 
         def index
+          # keep before poll-anything compatibility - https://trello.com/c/emcq710r
+          if params[:message] != 'hub:poll'
+            set_default_filter
+            index_v5
+            render :index_v5 and return
+          end
+
           @collections = [
             OpenStruct.new({ name: 'orders',                 token: 'number',  frequency: '5.minutes' }),
             OpenStruct.new({ name: 'users',                  token: 'email',   frequency: '5.minutes' }),
             OpenStruct.new({ name: 'products',               token: 'sku',     frequency: '1.hour' }),
             OpenStruct.new({ name: 'return_authorizations',  token: 'number',  frequency: '1.hour' })
           ]
+        end
+
+        def index_v5
+          @orders = filter_resource(Spree::Order.complete)
+          @stock_transfers = filter_resource(Spree::StockTransfer)
         end
 
         def show_orders

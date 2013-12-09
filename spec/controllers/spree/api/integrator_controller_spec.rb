@@ -9,14 +9,14 @@ module Spree
 
     describe '#index' do
       it 'gets all available collections' do
-        api_get :index
+        api_get :index, message: 'hub:poll'
 
         expect(json_response['collections']).to have(5).items
       end
 
       context 'when request show_* listed on index' do
         it 'all collections should be available to show' do
-          api_get :index
+          api_get :index, message: 'hub:poll'
 
           json_response['collections'].each do |collection|
             api_get "show_#{collection['name']}", since: 3.days.ago.utc.to_s,
@@ -25,6 +25,15 @@ module Spree
 
             response.should be_ok
           end
+        end
+      end
+
+      context 'when old poller i.e. spree:order:poll' do
+        it 'gets all available collections' do
+          api_get :index
+
+          expect(json_response).to have_key('orders')
+          expect(json_response).to have_key('stock_transfers')
         end
       end
     end
