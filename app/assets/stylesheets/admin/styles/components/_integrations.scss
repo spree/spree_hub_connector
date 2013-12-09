@@ -17,6 +17,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 /**
@@ -76,11 +81,17 @@
     margin-bottom: 20px;
     position: relative;
     width: 170px;
-    height: 255px;    
+    height: 215px;    
     vertical-align: top;
 
+    &:hover {
+      figcaption {
+        display: block;
+      }
+    }
+
     &.disabled {
-      figure, figcaption {
+      .integration-image {
         opacity: 0.2
       }
     }
@@ -88,7 +99,7 @@
     .state-icon {
       color: white;
       position: absolute;
-      z-index: 1;
+      z-index: 3;
       left: 4px;
       top: 3px;
       font-size: 12px;
@@ -104,7 +115,7 @@
         border-right: 38px solid transparent;
         left: -1px;
         top: -1px;
-        z-index: 0;
+        z-index: 2;
       }
     }
 
@@ -192,7 +203,7 @@
     Integration Toggle
   */
   .integration-toggle {
-    margin: 0 auto 20px;
+    margin: 10px auto 20px;
     width: 100px !important;
   }
 
@@ -201,16 +212,15 @@
   */
   figure {
     text-align: center;
-    min-height: 110px;
+    height: 110px;
+    width: 138px;
+    overflow: hidden;
     position: relative;
+    vertical-align: middle;
 
-    img {
-      margin: auto;
-      position: absolute;
-      top: 0; 
-      left: 0; 
-      bottom: 0; 
-      right: 0;
+    .integration-image {
+      position: relative;
+      z-index: 0;
     }
   }
 
@@ -218,12 +228,29 @@
     Integration Title
   */
   figcaption {
+    display: none;
+    top: 0;
+    position: absolute;
+    z-index: 1;
     text-align: center;
     text-transform: uppercase;
     color: $color-body-text;
     font-weight: 600;
-    display: block;
-    margin: 10px 0 20px;
+    width: 138px;
+    height: 110px;
+    background-color: rgba($color-1, 0.9);
+
+    .integration-name {
+      display: table;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      width: 100%;
+    }
   }
 }
 
