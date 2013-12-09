@@ -20,7 +20,7 @@
   }
 
   input {
-    padding-left: 30px;
+    padding: 7px 10px 8px 30px;
   }
 }
 
@@ -133,15 +133,62 @@
   }
 }
 
-#error-callout {
+#error-callout-wrapper {
   margin-top: 15px;
+  padding: 10px 20px;
+  background-color: $color-error;
+  border-radius: $border-radius;
+
+  h2 {
+    color: $color-1;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: very-light($color-error, 5);
+    border-bottom: 1px dashed very-light($color-error, 5);
+
+    &:hover {
+      color: very-light($color-error, 10);
+      border-bottom: 1px dashed very-light($color-error, 10);
+    }
+  }
+}
+#hub-menu {
+  li {
+    position: relative;
+  }
 }
 #error-notification-bubble {
-  color: $color-1 !important;
-  background-color: $color-error;
-  padding: 3px 5px 3px 4px !important;
-  font-weight: 600;
-  font-size: 9px !important;
+  position: absolute;
+  right: -25px;
+  top: -10px;
+  
+  .error-bubble-wrapper {
+    .icon-circle {
+      font-size: 1.8em;
+      color: $color-error;
+      position: relative;
+      z-index: 0;
+
+      &:before {
+        padding-right: 0;
+      }
+    }
+
+    .errors-count {
+      position: absolute;
+      z-index: 1;
+      color: $color-1;
+      top: 0;
+      width: 100%;
+      font-size: 10px;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
 }
 
 #notifications-table img {
@@ -156,6 +203,13 @@
 }
 
 #notifications-table, #messages-view table {
+  th {
+    cursor: pointer;
+
+    i {
+      color: $color-2;
+    }
+  }
   td {
     padding: 15px 10px;
     border-left-width: 5px;
@@ -171,11 +225,17 @@
       margin-left: 4px;
       font-size: 10px;
     }
+
+    &.integration-image {
+      padding: 0;
+      border-right: 0;
+      text-align: center;
+    }
   }
   tr {
     &.state-error, &.state-failing {
       td {
-        border-left-color: very-light($color-error, 20);
+        border-color: very-light($color-error, 20);
         background-color: very-light($color-error);
 
         .icon-stack-base, .icon-exchange {
