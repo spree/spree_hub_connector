@@ -6,7 +6,10 @@ module Spree
     render_views
 
     context "authenticated" do
-      before { stub_authentication! }
+      before do
+        controller.stub :current_api_user => create(:user)
+        controller.current_api_user.stub has_spree_role?: true
+      end
 
       describe '#index' do
         it 'gets all available collections' do

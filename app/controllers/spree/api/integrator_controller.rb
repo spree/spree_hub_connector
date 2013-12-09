@@ -34,7 +34,6 @@ module Spree
 
       def index_v5
         @orders = filter_resource(Spree::Order.complete)
-        @stock_transfers = filter_resource(Spree::StockTransfer)
       end
 
       def show_orders
