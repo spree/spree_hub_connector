@@ -5,15 +5,16 @@ module Spree
     render_views
 
     context "authenticated" do
-      before { stub_authentication! }
+      before do
+        controller.stub :current_api_user => double("User")
+        controller.current_api_user.stub has_spree_role?: true
+      end
 
       it 'gets orders changed since' do
         order = create(:completed_order_with_totals)
         Order.update_all(:updated_at => 2.days.ago)
 
-        api_get :index, since: 3.days.ago.utc.to_s,
-                        order_page: 1,
-                        order_per_page: 1
+        api_get :index, since: 3.days.ago, order_page: 1, order_per_page: 1
 
         json_response['orders']['count'].should eq 1
         json_response['orders']['current_page'].should eq 1
@@ -95,6 +96,12 @@ module Spree
         api_get :index
         expect(response.status).to eq 401
       end
+    end
+
+    it 'adds custom variant attributes' do
+      attr = controller.send(:variant_attributes)
+      attr.should include(:external_ref)
+      attr.should include(:product_id)
     end
   end
 end
