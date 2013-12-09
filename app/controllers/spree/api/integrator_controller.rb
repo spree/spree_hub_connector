@@ -3,6 +3,8 @@ module Spree
     class IntegratorController < Spree::Api::BaseController
       prepend_view_path File.expand_path("../../../../app/views", File.dirname(__FILE__))
 
+      before_filter :authorize_read!
+
       helper_method :variant_attributes,
                     :order_attributes,
                     :stock_transfer_attributes
@@ -42,6 +44,14 @@ module Spree
 
       def stock_transfer_attributes
         [:id, :reference_number, :created_at, :updated_at]
+      end
+
+      def authorize_read!
+        user = try_spree_current_user || current_api_user
+
+        unless user && user.has_spree_role?("admin")
+          raise CanCan::AccessDenied
+        end
       end
     end
   end
