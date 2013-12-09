@@ -367,3 +367,17 @@
     }
   }
 }
+
+.sandbox-message {
+  padding: 10px;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  background-color: $color-notice;
+  color: $color-1;
+  border-radius: 3px;
+
+  a {
+    color: very-light($color-notice, 5);
+    border-bottom: 1px dashed very-light($color-notice, 5)
+  }
+}
