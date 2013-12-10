@@ -35,7 +35,7 @@ module Spree
           OpenStruct.new({ name: 'carts',                  token: 'number',  frequency: '5.minutes' }),
           OpenStruct.new({ name: 'products',               token: 'sku',     frequency: '1.hour' }),
           OpenStruct.new({ name: 'return_authorizations',  token: 'number',  frequency: '1.hour' }),
-          OpenStruct.new({ name: 'stock_transfers',        token: 'number',  frequency: '1.hour' }),
+          OpenStruct.new({ name: 'stock_transfers',        token: 'id',      frequency: '1.hour' }),
           OpenStruct.new({ name: 'taxons',                 token: 'id',      frequency: '1.hour' })
         ]
       end
