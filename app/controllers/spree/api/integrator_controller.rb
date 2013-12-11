@@ -70,7 +70,9 @@ module Spree
       end
 
       def show_taxons
-        @taxons = filter_resource(Spree::Taxon)
+        # we need Spree::Taxon.unscoped otherwise it will sort by position too
+        # returning records not in ascending order
+        @taxons = filter_resource(Spree::Taxon.unscoped)
       end
 
       private
