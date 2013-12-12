@@ -9,6 +9,6 @@ Spree::Api::OrdersController.class_eval do
 
   # NOTE we should get rid of this duplication on later versions
   def order_attributes
-    [:id, :number, :item_total, :total, :ship_total, :state, :adjustment_total, :user_id, :created_at, :updated_at, :completed_at, :payment_total, :shipment_state, :payment_state, :email, :special_instructions, :total_weight, :locked_at, :channel]
+    [:id, :number, :item_total, :total, :ship_total, :state, :adjustment_total, :user_id, :created_at, :updated_at, :completed_at, :payment_total, :shipment_state, :payment_state, :email, :special_instructions, :token, :total_weight, :locked_at, :channel]
   end
 end
