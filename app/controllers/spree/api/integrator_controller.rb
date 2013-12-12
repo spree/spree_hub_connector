@@ -94,7 +94,7 @@ module Spree
       end
 
       def stock_transfer_attributes
-        [:id, :reference_number, :created_at, :updated_at]
+        [:id, :number, :reference_number, :created_at, :updated_at]
       end
 
       def product_attributes
