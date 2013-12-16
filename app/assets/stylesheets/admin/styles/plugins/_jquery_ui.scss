@@ -237,6 +237,14 @@
       .action {
         &, a, i { color: $color-2 }
       }
+
+      .description {
+        font-style: italic;
+        font-size: $body-font-size - 1;
+        color: lighten($color-body-text, 5);
+        display: block;
+        text-transform: none;
+      }
     }
 
     .add-new-value {
