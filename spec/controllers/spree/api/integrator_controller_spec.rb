@@ -7,8 +7,7 @@ module Spree
 
     context "authenticated" do
       before do
-        controller.stub :current_api_user => double("User")
-        controller.current_api_user.stub has_spree_role?: true
+        controller.stub :try_spree_current_user => double("User", has_spree_role?: true)
       end
 
       describe '#index' do
