@@ -6,16 +6,19 @@ module Spree
     render_views
 
     context "authenticated" do
+      let(:user) { create(:user) }
+
       before do
-        controller.stub :current_api_user => create(:user)
-        controller.current_api_user.stub has_spree_role?: true
+        controller.stub api_key: "123"
+        Spree.user_class.stub(find_by_spree_api_key: user)
+        user.stub has_spree_role?: true
       end
 
       describe '#index' do
         it 'gets all available collections' do
           api_get :index, message: 'hub:poll'
 
-          expect(json_response['collections']).to have(5).items
+          expect(json_response['collections']).to have(4).items
         end
 
         context 'when request show_* listed on index' do
@@ -37,7 +40,6 @@ module Spree
             api_get :index
 
             expect(json_response).to have_key('orders')
-            expect(json_response).to have_key('stock_transfers')
           end
         end
       end
@@ -79,7 +81,6 @@ module Spree
 
       describe '#show_users' do
         it 'gets users changed since' do
-          user = create(:user)
           Spree.user_class.update_all(updated_at: 2.days.ago)
 
           api_get :show_users, since: 3.days.ago.utc.to_s,
