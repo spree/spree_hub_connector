@@ -9,7 +9,8 @@ module Spree
                     :collection_attributes,
                     :product_attributes,
                     :taxon_attributes,
-                    :line_item_attributes
+                    :line_item_attributes,
+                    :variant_attributes
 
       respond_to :json
 
@@ -83,6 +84,10 @@ module Spree
 
       def line_item_attributes
         [:id, :quantity, :price, :variant_id, :created_at, :updated_at]
+      end
+
+      def variant_attributes
+        [:id, :name, :sku, :price, :weight, :height, :width, :depth, :is_master, :cost_price, :permalink, :product_created_at, :product_updated_at]
       end
 
       def authorize_read!
