@@ -5,8 +5,11 @@ module Spree
 
       before_filter :authorize_read!
 
-      helper_method :collection_attributes,
-                    :product_attributes
+      helper_method :stock_transfer_attributes,
+                    :collection_attributes,
+                    :product_attributes,
+                    :taxon_attributes,
+                    :line_item_attributes
 
       respond_to :json
 
@@ -72,6 +75,14 @@ module Spree
 
       def product_attributes
         [:id, :sku, :name, :description, :price, :available_on, :permalink, :meta_description, :meta_keywords, :shipping_category_id, :taxon_ids, :updated_at]
+      end
+
+      def taxon_attributes
+        [:id, :parent_id, :position, :name, :permalink, :taxonomy_id, :description, :created_at, :updated_at]
+      end
+
+      def line_item_attributes
+        [:id, :quantity, :price, :variant_id, :created_at, :updated_at]
       end
 
       def authorize_read!
