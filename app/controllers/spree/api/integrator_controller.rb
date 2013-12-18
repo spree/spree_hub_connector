@@ -52,7 +52,7 @@ module Spree
       end
 
       def show_carts
-        @carts = filter_resource(Spree::Order.where('state <> ?', 'complete'))
+        @carts = filter_resource(Spree::Order.where('state <> ? AND completed_at IS NULL', 'complete'))
       end
 
       def show_users
