@@ -10,6 +10,11 @@ Deface::Override.new(:virtual_path => "spree/admin/orders/edit",
                           $(function() {
                             return Augury.notifications('<%= @order.number %>');
                           });
+                          $(document).ajaxComplete(function() {
+                            $('.integration-image-wrapper').powerTip({
+                              placement: 'e'
+                            });
+                          });                        
                         <% end %>
 
                         <% if Rails.application.assets.find_asset('hub_client/notifications_manifest.js').nil? %>
