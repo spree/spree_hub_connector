@@ -221,6 +221,14 @@
     .integration-image {
       position: relative;
       z-index: 0;
+      width: 138px;
+      height: 110px;
+      vertical-align: middle;
+      display: table-cell;
+
+      img {
+        max-height: 110px;
+      }
     }
   }
 
