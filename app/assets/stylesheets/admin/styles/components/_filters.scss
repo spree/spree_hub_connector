@@ -7,3 +7,18 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+#filter-clear {
+  position: absolute;
+  right: 3px;
+  top: 6px;
+  display: none;
+
+  i {
+    font-size: 15px;
+  }
+}
+
+#filter-query-wrapper {
+  position: relative;
+}
