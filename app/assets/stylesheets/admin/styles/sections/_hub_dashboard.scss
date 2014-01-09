@@ -1,7 +1,13 @@
 #hub-dashboard {
-  #chart {
-    path {
-      fill: $color-3;
+  .stats-block, .stats-header {
+    border: none;      
+
+    &:before {
+      display: none;
     }
+  }
+
+  .stats-block .stats-data {
+    background-color: $color-1;
   }
 }
