@@ -1,3 +1,17 @@
+#hub-dashboard {
+  .stats-block, .stats-header {
+    border: none;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .stats-block .stats-data {
+    background-color: $color-1;
+  }
+}
+
 #stats-filter {
   * {
     -webkit-font-smoothing: antialiased;
