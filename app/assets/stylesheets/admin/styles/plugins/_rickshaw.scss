@@ -89,7 +89,7 @@
         position: absolute;
         top: 0;
         z-index: 2;
-        background: rgba(0, 0, 0, 0.1);
+        background: $color-border;
         bottom: 0;
         width: 1px;
         transition: opacity 0.25s linear;
@@ -104,15 +104,15 @@
         opacity: 1;
 }
 .rickshaw_graph .detail .x_label {
-        font-family: Arial, sans-serif;
         border-radius: 3px;
         padding: 6px;
-        opacity: 0.5;
-        border: 1px solid #e0e0e0;
+        opacity: 1;
+        border: 1px solid $color-border;
         font-size: 12px;
         position: absolute;
-        background: white;
+        background: $color-border;
         white-space: nowrap;
+        color: $color-3;
 }
 .rickshaw_graph .detail .x_label.left {
         left: 0;
@@ -304,15 +304,15 @@
 }
 .rickshaw_graph .y_ticks .tick,
 .rickshaw_graph .x_ticks_d3 .tick {
-        stroke: rgba(0, 0, 0, 0.16);
-        stroke-width: 2px;
+        stroke: $color-border;
+        stroke-width: 1px;
         shape-rendering: crisp-edges;
         pointer-events: none;
 }
 .rickshaw_graph .y_grid .tick,
 .rickshaw_graph .x_grid_d3 .tick {
         z-index: -1;
-        stroke: rgba(0, 0, 0, 0.20);
+        stroke: $color-border;
         stroke-width: 1px;
         stroke-dasharray: 1 1;
 }
@@ -327,11 +327,11 @@
 .rickshaw_graph .y_ticks path,
 .rickshaw_graph .x_ticks_d3 path {
         fill: none;
-        stroke: #808080;
+        stroke: $color-3;
 }
 .rickshaw_graph .y_ticks text,
 .rickshaw_graph .x_ticks_d3 text {
-        opacity: 0.5;
+        opacity: 1;
         font-size: 12px;
         pointer-events: none;
 }
