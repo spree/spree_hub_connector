@@ -343,3 +343,13 @@
     }
   }
 }
+
+.dash_event_line {
+  position: absolute;
+  top: 0;
+  bottom: -4px;
+  width: 0px;
+  border-left: 2px solid rgba(0, 0, 0, 0.3);
+  display: block;
+  border-color: #9fc820;
+}
