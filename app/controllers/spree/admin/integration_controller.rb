@@ -30,6 +30,8 @@ module Spree
         else
           passwd = SecureRandom.hex(32)
           @integrator_user = Spree.user_class.create('email' => email,
+                                    'first_name' => 'Integration',
+                                    'last_name' => 'User',
                                     'password' => passwd,
                                     'password_confirmation' => passwd)
 
