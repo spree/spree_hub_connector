@@ -2,12 +2,13 @@ module Spree
   module Admin
     class IntegrationController < Spree::Admin::BaseController
       def register
-        env = AuguryEnvironment.create(store_id: params[:store_id],
-                                       url: params[:url],
-                                       user: params[:user],
-                                       token: params[:user_token],
-                                       store_name: params[:store_name],
-                                       environment: params[:env])
+        env = AuguryEnvironment.create(store_id:     params[:store_id],
+                                       url:          params[:url],
+                                       user:         params[:user],
+                                       token:        params[:user_token],
+                                       store_name:   params[:store_name],
+                                       environment:  params[:env])
+
         Spree::Config.augury_current_env = env.id
 
         redirect_to :action => :show
@@ -29,15 +30,22 @@ module Spree
           # do nothing, for now....
         else
           passwd = SecureRandom.hex(32)
-          @integrator_user = Spree.user_class.create('email' => email,
-                                    'password' => passwd,
-                                    'password_confirmation' => passwd)
+
+          integration_user_attrs = { 'email'                 => email,
+                                     'password'              => passwd,
+                                     'password_confirmation' => passwd }.merge(integration_user_extra_attrs)
+
+          @integrator_user = Spree.user_class.create(integration_user_attrs)
 
           @integrator_user.spree_roles << Spree::Role.all
           @integrator_user.generate_spree_api_key!
         end
 
         @environment = AuguryEnvironment.where(id: Spree::Config.augury_current_env).first
+      end
+
+      def integration_user_extra_attrs
+        {}
       end
     end
   end
