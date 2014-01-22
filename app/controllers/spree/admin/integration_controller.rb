@@ -36,8 +36,9 @@ module Spree
                                     'password_confirmation' => passwd)
 
           @integrator_user.spree_roles << Spree::Role.all
-          @integrator_user.generate_spree_api_key!
         end
+
+        @api_key = @integrator_user.token_login!(request.remote_ip)
 
         @environment = AuguryEnvironment.where(id: Spree::Config.augury_current_env).first
       end
