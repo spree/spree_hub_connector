@@ -8,11 +8,11 @@
 */
 @import url(//fonts.googleapis.com/css?family=Inconsolata);
 
-@import 'admin/globals/functions';
-@import 'admin/globals/mixins';
-@import 'admin/globals/variables';
+@import 'spree/backend/globals/functions';
+@import 'spree/backend/globals/mixins';
+@import 'spree/backend//globals/variables';
 
-@import 'admin/plugins/font-awesome';
+@import 'font-awesome';
 
 @import 'styles/plugins/parsley';
 @import 'styles/plugins/jquery_ui';

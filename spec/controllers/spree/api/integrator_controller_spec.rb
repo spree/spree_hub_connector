@@ -166,7 +166,7 @@ module Spree
         let(:user) { create(:user) }
 
         before do
-          LegacyUser.stub(find_by_spree_api_key: user)
+          LegacyUser.stub(:find_by).and_return(user)
         end
 
         it "can access orders list if admin" do
