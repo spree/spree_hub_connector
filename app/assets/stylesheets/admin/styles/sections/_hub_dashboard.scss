@@ -1,6 +1,7 @@
 #hub-dashboard {
   .stats-block, .stats-header {
     border: none;
+    text-align: left;
 
     &:before {
       display: none;
