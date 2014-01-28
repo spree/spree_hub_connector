@@ -10,7 +10,7 @@
   Augury = { SignUp: {}, Preload: {}, connections: {} };
   Augury.SignUp.urls = {};
   Augury.SignUp.urls['production'] = "https://hub.spreecommerce.com";
-  Augury.SignUp.urls['staging'] = "http://staging.hub.spreecommerce.com";
+  Augury.SignUp.urls['staging'] = "<%= request.protocol %>staging.hub.spreecommerce.com";
   Augury.SignUp.name = '<%= Spree::Config[:site_name] %>';
   Augury.SignUp.url = '<%= "http://#{request.host_with_port}/api/" %>';
   Augury.SignUp.version = '<%= Spree.version.split('.')[0..1].join('.') rescue '' %>';
