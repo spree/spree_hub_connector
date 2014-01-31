@@ -22,4 +22,8 @@ Spree::Admin::BaseController.class_eval do
 
     @environment = AuguryEnvironment.where(id: Spree::Config.augury_current_env).first
   end
+
+  def integration_user_extra_attrs
+    {}
+  end
 end

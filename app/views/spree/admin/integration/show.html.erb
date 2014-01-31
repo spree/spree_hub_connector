@@ -12,12 +12,6 @@
       return Augury.connect();
     });
   <% else %>
-    Augury.env = '<%= @environment.environment %>';
-    Augury.url = '<%= @environment.url %>';
-    Augury.store_id = '<%= @environment.store_id %>';
-    Augury.api_key = '<%= @environment.token %>';
-    Augury.env_id = '<%= @environment.id %>';
-
     $(function() {
       return Augury.start();
     });
