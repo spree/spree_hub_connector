@@ -1,5 +1,5 @@
 Spree::Admin::BaseController.class_eval do
-  before_action :setup_hub
+  before_filter  :setup_hub
 
   private
 
