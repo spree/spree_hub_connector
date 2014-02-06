@@ -1,9 +1,25 @@
 <% content_for :page_title do %>
-  <%= Spree.t(:integration) %>
+  &nbsp;
 <% end %>
 
-<div id="integration_main" class="row">
-  <!-- Backbone app renders here -->
+<% content_for :head do %>
+  <% if Rails.application.assets.find_asset('hub_client_stylesheets/manifest.scss').nil? %>
+    <%= stylesheet_link_tag '//staging.hub.spreecommerce.com/hub.css.min' %>
+  <% else %>
+    <%= stylesheet_link_tag 'hub_client_stylesheets/manifest' %>
+  <% end %>
+<% end %>
+
+<div id="hub_client">
+  <div class="wrapper">
+    <div id="integration_menu">
+      <!-- Hub Menu renders here -->
+    </div>  
+  </div>      
+
+  <div id="integration_main" class="wrapper">
+    <!-- Backbone app renders here -->
+  </div>
 </div>
 
 <%= javascript_tag do -%>
