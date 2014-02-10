@@ -100,7 +100,9 @@ module Spree
       end
 
       def product_attributes
-        [:id, :sku, :name, :description, :price, :available_on, :permalink, :meta_description, :meta_keywords, :shipping_category_id, :taxon_ids, :updated_at]
+        [:id, :sku, :name, :description, :cost_price, :price, :available_on,
+         :permalink, :meta_description, :meta_keywords, :shipping_category_id,
+         :taxon_ids, :updated_at]
       end
 
       def taxon_attributes
