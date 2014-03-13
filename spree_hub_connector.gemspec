@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'eco', '~> 1.0.0'
-  s.add_dependency 'httparty', '~> 0.12.0'
   s.add_dependency 'bson_ext'
 
   s.add_development_dependency 'capybara', '~> 2.0'
