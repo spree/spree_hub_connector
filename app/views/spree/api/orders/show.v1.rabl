@@ -1,3 +1,4 @@
+object @order
 attributes *order_attributes
 
 attribute :currency, :ship_total, :tax_total, :visit_id, :visitor_id, :pageview_id, :last_pageview_id
