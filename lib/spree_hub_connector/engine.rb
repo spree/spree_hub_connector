@@ -24,8 +24,18 @@ module SpreeHubConnector
 
     initializer "spree_hub_connector.append_api_attributes" do
       if defined? Spree::Api::ApiHelpers::ATTRIBUTES
+        # from spree_jirafe
+        Spree::Api::ApiHelpers.order_attributes.push :visit_id, :visitor_id, :pageview_id, :last_pageview_id
+        # from spree-flexible-weight-rate(?)
+        Spree::Api::ApiHelpers.order_attributes.push :total_weight
+        # from ?
+        Spree::Api::ApiHelpers.order_attributes.push :locked_at
+        # from ?
         Spree::Api::ApiHelpers.variant_attributes.push :external_ref
-        Spree::Api::ApiHelpers.order_attributes.push :total_weight, :locked_at
+        # from spree_core
+        Spree::Api::ApiHelpers.inventory_unit_attributes.push :order_id
+        # from ?
+        Spree::Api::ApiHelpers.inventory_unit_attributes.push :serial_number
       end
     end
 
