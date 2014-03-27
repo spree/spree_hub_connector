@@ -1,7 +1,5 @@
 attributes *order_attributes
 
-attribute :currency, :ship_total, :tax_total, :visit_id, :visitor_id, :pageview_id, :last_pageview_id
-
 child :billing_address => :bill_address do
   extends "spree/api/addresses/show"
 end

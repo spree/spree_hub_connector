@@ -12,8 +12,8 @@ child(@return_authorizations => :return_authorizations) do
   end
 
   child :order => :order do
-    extends('spree/api/orders/show')
-  end   
+    extends('spree/api/integrator/show_order')
+  end
 end
 
 node(:count) { @return_authorizations.count }

@@ -45,6 +45,8 @@ module Spree
         it 'gets orders changed since' do
           order = create(:completed_order_with_totals)
           Order.update_all(updated_at: 2.days.ago)
+          # TODO: add spree_jirafe to the Gemfile and remove this stubbing?
+          Order.any_instance.stub(visit_id: 1, visitor_id: 1, pageview_id: 1, last_pageview_id: 1)
 
           api_get :show_orders, since: 3.days.ago.utc.to_s,
             page: 1,
@@ -58,6 +60,10 @@ module Spree
           json_response['orders'].first.should have_key('bill_address')
           json_response['orders'].first.should have_key('payments')
           json_response['orders'].first.should have_key('credit_cards')
+          json_response['orders'].first.should have_key('visit_id')
+          json_response['orders'].first.should have_key('visitor_id')
+          json_response['orders'].first.should have_key('pageview_id')
+          json_response['orders'].first.should have_key('last_pageview_id')
         end
       end
 

@@ -25,7 +25,6 @@ module SpreeHubConnector
     initializer "spree_hub_connector.append_api_attributes" do
       if defined? Spree::Api::ApiHelpers::ATTRIBUTES
         Spree::Api::ApiHelpers.variant_attributes.push :external_ref
-        Spree::Api::ApiHelpers.order_attributes.push :total_weight, :locked_at
       end
     end
 
