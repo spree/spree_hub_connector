@@ -10,7 +10,8 @@ module Spree
                     :product_attributes,
                     :taxon_attributes,
                     :line_item_attributes,
-                    :variant_attributes
+                    :variant_attributes,
+                    :order_attributes
 
       respond_to :json
 
@@ -113,6 +114,23 @@ module Spree
 
       def variant_attributes
         [:id, :name, :sku, :price, :weight, :height, :width, :depth, :is_master, :cost_price, :permalink, :product_created_at, :product_updated_at]
+      end
+
+      def order_attributes
+        [
+          # from spree 2-1-stable
+          :id, :number, :item_total, :total, :ship_total, :state, :adjustment_total,
+          :user_id, :created_at, :updated_at, :completed_at, :payment_total,
+          :shipment_state, :payment_state, :email, :special_instructions, :channel,
+          :included_tax_total, :additional_tax_total, :display_included_tax_total,
+          :display_additional_tax_total, :tax_total, :currency,
+          # from spree_jirafe
+          :visit_id, :visitor_id, :pageview_id, :last_pageview_id,
+          # from spree-flexible-weight-rate(?)
+          :total_weight,
+          # from ?
+          :locked_at,
+        ]
       end
 
       def authorize_read!

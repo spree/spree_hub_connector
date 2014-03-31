@@ -1,7 +1,7 @@
 object false
 
 child(@carts => :carts) do
-  extends('spree/api/orders/show')
+  extends('spree/api/integrator/show_order')
 end
 
 node(:count) { @carts.count }
