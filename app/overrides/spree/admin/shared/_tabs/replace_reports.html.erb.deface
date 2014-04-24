@@ -1,3 +1,5 @@
 <!-- replace "erb:contains('if can? :admin, Spree::Admin::ReportsController')"
      closing_selector "erb:contains('end')" -->
-<%= tab(:integration, :endpoint_testing, :url => spree.admin_integration_path, :icon => 'icon-cogs') %>
+<% if can? :admin, Spree::Admin::IntegrationController %>
+  <%= tab :integration, :endpoint_testing, url: spree.admin_integration_path, icon: 'icon-cogs', match_path: '/integration' %>
+<% end %>
